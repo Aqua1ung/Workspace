@@ -4279,7 +4279,7 @@ obo:EUPATH_0010738
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "ibut" ;
   rdfs:label "I. butschilii detected by any method" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:EUPATH_0010739
   rdf:type owl:Class ;
@@ -4741,7 +4741,7 @@ obo:EUPATH_0010782
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "other" ;
   rdfs:label "Other parasites detected by any method" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:EUPATH_0010783
   rdf:type owl:Class ;
@@ -5908,7 +5908,7 @@ obo:EUPATH_0010882
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "parasite" ;
   rdfs:label "Parasite detected by any method" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:EUPATH_0010883
   rdf:type owl:Class ;
@@ -6982,7 +6982,7 @@ obo:EUPATH_0011006
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "modother" ;
   rdfs:label "Other eukaryota detected by modified acid-fast stain" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:EUPATH_0011007
   rdf:type owl:Class ;
@@ -7066,92 +7066,97 @@ obo:GAZ_00000448
 obo:NCBITaxon_102285
   rdf:type owl:Class ;
   rdfs:label "Hymenolepis nana" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_110766
   rdf:type owl:Class ;
   rdfs:label "Entamoeba coli" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_110788
   rdf:type owl:Class ;
   rdfs:label "Endolimax nana" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
+.
+obo:NCBITaxon_2759
+  rdf:type owl:Class ;
+  rdfs:label "Eukaryota" ;
+  rdfs:subClassOf obo:EUPATH_0000724 ;
 .
 obo:NCBITaxon_33277
   rdf:type owl:Class ;
   rdfs:label "Hookworm" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_36087
   rdf:type owl:Class ;
   rdfs:label "Trichuris trichiura" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_44417
   rdf:type owl:Class ;
   rdfs:label "Cyclospora" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_472572
   rdf:type owl:Class ;
   rdfs:label "Chilomastix mesnili" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_51028
   rdf:type owl:Class ;
   rdfs:label "Enterobius vermicularis" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_56625
   rdf:type owl:Class ;
   rdfs:label "Isospora" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_5740
   rdf:type owl:Class ;
   rdfs:label "Giardia" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_5759
   rdf:type owl:Class ;
   rdfs:label "Entamoeba histolytica" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_5806
   rdf:type owl:Class ;
   rdfs:label "Cryptosporidium" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_6181
   rdf:type owl:Class ;
   rdfs:label "Schistosoma" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_6202
   rdf:type owl:Class ;
   rdfs:label "Taenia" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_6216
   rdf:type owl:Class ;
   rdfs:label "Hymenolepis diminuta" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_6248
   rdf:type owl:Class ;
   rdfs:label "Strongyloides stercoralis" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_6251
   rdf:type owl:Class ;
   rdfs:label "Ascaris lumbricoides" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCBITaxon_71585
   rdf:type owl:Class ;
   rdfs:label "Balantioides coli" ;
-  rdfs:subClassOf obo:NCIT_C25796 ;
+  rdfs:subClassOf obo:NCBITaxon_2759 ;
 .
 obo:NCIT_C14187
   rdf:type owl:Class ;
@@ -7166,11 +7171,6 @@ obo:NCIT_C14206
 obo:NCIT_C14283
   rdf:type owl:Class ;
   rdfs:label "Virus" ;
-  rdfs:subClassOf obo:EUPATH_0000724 ;
-.
-obo:NCIT_C25796
-  rdf:type owl:Class ;
-  rdfs:label "Eukaryota" ;
   rdfs:subClassOf obo:EUPATH_0000724 ;
 .
 obo:NCIT_C76211
