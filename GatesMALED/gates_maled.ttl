@@ -2641,7 +2641,7 @@ obo:EUPATH_0010599
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "adeno" ;
   rdfs:label "Adenovirus detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_10508 ;
 .
 obo:EUPATH_0010600
   rdf:type owl:Class ;
@@ -2787,7 +2787,7 @@ obo:EUPATH_0010611
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "astro" ;
   rdfs:label "Astrovirus detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_39733 ;
 .
 obo:EUPATH_0010612
   rdf:type owl:Class ;
@@ -4559,7 +4559,7 @@ obo:EUPATH_0010767
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "nrv" ;
   rdfs:label "Norovirus detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_142786 ;
 .
 obo:EUPATH_0010768
   rdf:type owl:Class ;
@@ -4607,7 +4607,7 @@ obo:EUPATH_0010771
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "nrvgeno1" ;
   rdfs:label "Norovirus GI detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_122928 ;
 .
 obo:EUPATH_0010772
   rdf:type owl:Class ;
@@ -4655,7 +4655,7 @@ obo:EUPATH_0010775
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "nrvgeno2" ;
   rdfs:label "Norovirus GII detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_122929 ;
 .
 obo:EUPATH_0010776
   rdf:type owl:Class ;
@@ -4877,7 +4877,7 @@ obo:EUPATH_0010793
   MALED1:toBeDecided "keep" ;
   obo:EUPATH_0000755 "rota" ;
   rdfs:label "Rotavirus detected by any method" ;
-  rdfs:subClassOf obo:NCBITaxon_10239 ;
+  rdfs:subClassOf obo:NCBITaxon_10912 ;
 .
 obo:EUPATH_0010794
   rdf:type owl:Class ;
@@ -7073,6 +7073,16 @@ obo:NCBITaxon_10239
   rdfs:label "Virus" ;
   rdfs:subClassOf obo:EUPATH_0000724 ;
 .
+obo:NCBITaxon_10508
+  rdf:type owl:Class ;
+  rdfs:label "Adenovirus" ;
+  rdfs:subClassOf obo:NCBITaxon_10239 ;
+.
+obo:NCBITaxon_10912
+  rdf:type owl:Class ;
+  rdfs:label "Rotavirus" ;
+  rdfs:subClassOf obo:NCBITaxon_10239 ;
+.
 obo:NCBITaxon_110766
   rdf:type owl:Class ;
   rdfs:label "Entamoeba coli" ;
@@ -7082,6 +7092,21 @@ obo:NCBITaxon_110788
   rdf:type owl:Class ;
   rdfs:label "Endolimax nana" ;
   rdfs:subClassOf obo:NCBITaxon_2759 ;
+.
+obo:NCBITaxon_122928
+  rdf:type owl:Class ;
+  rdfs:label "Norovirus GI" ;
+  rdfs:subClassOf obo:NCBITaxon_142786 ;
+.
+obo:NCBITaxon_122929
+  rdf:type owl:Class ;
+  rdfs:label "Norovirus GII" ;
+  rdfs:subClassOf obo:NCBITaxon_142786 ;
+.
+obo:NCBITaxon_142786
+  rdf:type owl:Class ;
+  rdfs:label "Norovirus" ;
+  rdfs:subClassOf obo:NCBITaxon_10239 ;
 .
 obo:NCBITaxon_194
   rdf:type owl:Class ;
@@ -7107,6 +7132,11 @@ obo:NCBITaxon_36087
   rdf:type owl:Class ;
   rdfs:label "Trichuris trichiura" ;
   rdfs:subClassOf obo:NCBITaxon_2759 ;
+.
+obo:NCBITaxon_39733
+  rdf:type owl:Class ;
+  rdfs:label "Astrovirus" ;
+  rdfs:subClassOf obo:NCBITaxon_10239 ;
 .
 obo:NCBITaxon_44417
   rdf:type owl:Class ;
