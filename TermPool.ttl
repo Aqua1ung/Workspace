@@ -1,0 +1,27 @@
+# baseURI: http://doesntmatter.org/TermPool
+# imports: http://purl.obolibrary.org/obo/eupath/icemr/icemr_prism.owl
+# imports: http://purl.obolibrary.org/obo/eupath_dev.owl
+# imports: http://purl.obolibrary.org/obo/gates/gates_gems.owl
+# imports: http://purl.obolibrary.org/obo/gates/gates_maled
+# imports: http://purl.obolibrary.org/obo/icemr_india.owl
+# prefix: TermPool
+
+@prefix TermPool: <http://doesntmatter.org/TermPool#> .
+@prefix eupath_dev: <http://purl.obolibrary.org/obo/eupath_dev.owl#> .
+@prefix gates_gems: <http://purl.obolibrary.org/obo/gates/gates_gems.owl#> .
+@prefix icemr_india: <http://purl.obolibrary.org/obo/icemr_india.owl#> .
+@prefix icemr_prism: <http://purl.obolibrary.org/obo/eupath/icemr/icemr_prism.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://doesntmatter.org/TermPool>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.obolibrary.org/obo/eupath/icemr/icemr_prism.owl> ;
+  owl:imports <http://purl.obolibrary.org/obo/eupath_dev.owl> ;
+  owl:imports <http://purl.obolibrary.org/obo/gates/gates_gems.owl> ;
+  owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
+  owl:imports <http://purl.obolibrary.org/obo/icemr_india.owl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
