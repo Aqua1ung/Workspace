@@ -1,0 +1,15 @@
+# baseURI: http://doesntmatter.org/MALED2
+# imports: http://purl.obolibrary.org/obo/gates/gates_maled
+# prefix: MALED2
+
+@prefix MALED2: <http://doesntmatter.org/MALED2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://doesntmatter.org/MALED2>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
