@@ -1,8 +1,9 @@
 # baseURI: http://doesntmatter.org/MALED2
+# imports: file:///GitWorkspace/GatesMALED/MALED2.xls
 # imports: http://purl.obolibrary.org/obo/gates/gates_maled
-# prefix: MALED2
 
-@prefix MALED2: <http://doesntmatter.org/MALED2#> .
+@prefix MALED1: <http://doesntmatter.org/MALED1#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,6 +11,2889 @@
 
 <http://doesntmatter.org/MALED2>
   rdf:type owl:Ontology ;
+#  owl:imports <file:///GitWorkspace/GatesMALED/MALED2.xls> ;
   owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
   owl:versionInfo "Created with TopBraid Composer" ;
+.
+<http://doesntmatter.org/MALED2#Variables>
+  rdf:type owl:Class ;
+  rdfs:label "Variables" ;
+  rdfs:subClassOf owl:Thing ;
+.
+obo:ENVO_00003064
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "What is the main source of drinking water for members of your household?" ;
+  MALED1:hasDescription2 """Piped into dwelling = 01; Piped to yard/plot = 02 ; Public tap/stand pipe= 03 ; Tube well or borehole = 04; 
+Protected well = 05; Unprotected well = 06 ; Surface water (river/ dam/ lake/pond/ stream/canal/irrigation canal) = 07 ; Other = 08""" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsewdrink" ;
+  rdfs:label "Primary source of drinking water?" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:ENVO_01000517
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "If NO; type when pit latrine when child was between 0-2 yrs. of age" ;
+  MALED1:hasDescription1 "Type of pit latrine at present time" ;
+  MALED1:hasDescription2 """With Slab = 1
+With No slab = 2
+Others = 3""" ;
+  MALED1:hasDescription2 """With Slab = 1
+With No slab = 2
+Others = 3, mention""" ;
+  MALED1:hasJieNotes "It sames asking for toilet type. would it be better to use: toilet fixture ENVO_01000516" ;
+  MALED1:hasNotes "Equating this to \"pit latrine, obo:ENVO_01000517,\" or with #613 should be resisted." ;
+  MALED1:hasNotes "Equating this to \"pit latrine, obo:ENVO_01000517\" should be resisted." ;
+  MALED1:hasSource "TZH latrine" ;
+  obo:EUPATH_0000755 "ifno" ;
+  obo:EUPATH_0000755 "typeof" ;
+  rdfs:label "ifno" ;
+  rdfs:label "typeof" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000006
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Main material of the floor (observation)" ;
+  MALED1:hasDescription2 """Earth/sand/clay/mud/dung = 01; 
+Wood  = 02;  
+Ceramic tiles or vinyl= 03;
+Cement/concrete = 04; 
+Other = 05""" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsefloor" ;
+  rdfs:label "Floor material" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000009
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Main material of the walls (observation)" ;
+  MALED1:hasDescription2 """No walls = 01
+Mud = 02
+Wood = 03
+Cement/concrete = 04
+Stone = 05
+Metal = 06
+Other = 07""" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsewall" ;
+  rdfs:label "Wall material" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000014
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 """sum of 8 assets scores. Has?: mattress,chair,table,tv,refrigertaor,bank account,kitchen, 
+< 2 people per room. Positive reponses for each of these get a score of 1 while negative responses get 0.""" ;
+  MALED1:hasDescription2 "range 0-8" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "asset" ;
+  rdfs:label "Household wealth index, numerical" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000047
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Hemocue Hb level reading" ;
+  MALED1:hasSource "BCH" ;
+  obo:EUPATH_0000755 "BCHHB" ;
+  rdfs:label "Hemoglobin (mg/dL) -correct." ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000091
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Date" ;
+  MALED1:hasSource "SAF" ;
+  obo:EUPATH_0000755 "date" ;
+  rdfs:label "Date of observation" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000095
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Child ID (original)" ;
+  MALED1:hasDescription1 "Child ID" ;
+  MALED1:hasDescription1 "Pid" ;
+  MALED1:hasDescription1 "child id" ;
+  MALED1:hasSource "BRF/UCF" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "SAF" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "Pid" ;
+  obo:EUPATH_0000755 "pid" ;
+  rdfs:label "Subject ID" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000096
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "PID" ;
+  MALED1:hasDescription2 "unique identifier" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "PID" ;
+  rdfs:label "Subject ID" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000097
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Child ID" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "pid" ;
+  rdfs:label "Subject ID" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000167
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does any member of your household own a bank account?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseabank" ;
+  rdfs:label "household bank account asset" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000168
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household have a mattress?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseamatt" ;
+  rdfs:label "household bed asset" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000173
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household have a chair or bench?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseachair2" ;
+  rdfs:label "household chair asset" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000184
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household have a table?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseatab" ;
+  rdfs:label "household table asset" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000336
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "What kind of toilet facility do members of your household usually use? Equal to FSE toilet except when new data provided by TZH, SAV, and PEL conflict. It is preferable to use this variable than the raw variable as correct accounting for type of latrine has been made." ;
+  MALED1:hasDescription2 """No facility/bush/field or bucket toilet/pit latrine without slab = 01(unimproved)
+Pit latrine without flush/with slab(improved) = 02;
+Flush to piped sewer system = 03 
+Flush to septic tank = 04 ;
+Flush to pit latrine = 05 ;
+Flush to somewhere else = 06;
+Other = 07""" ;
+  MALED1:hasSource "Derived" ;
+  obo:EUPATH_0000755 "fsetoiletmod" ;
+  rdfs:label "Type of sanitary facility" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000644
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Age in days at assessment date" ;
+  MALED1:hasDescription1 "Age in days at assessment" ;
+  MALED1:hasDescription1 "Rounded age (age in days / 30.44)" ;
+  MALED1:hasDescription1 "age in days at FSQ assessment" ;
+  MALED1:hasDescription1 "age in days at time of form collection" ;
+  MALED1:hasDescription1 "age of the child in days" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "BRF/UCF" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSE" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "MOA" ;
+  MALED1:hasSource "SRF" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "agedays" ;
+  obo:EUPATH_0000755 "round_age" ;
+  rdfs:label "Age (days)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000647
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "AGP Value (mg/dl)" ;
+  MALED1:hasSource "AGP" ;
+  obo:EUPATH_0000755 "AGPVAL1" ;
+  rdfs:label "Alpha-1-Acid Glycoprotein (mg/dL)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000687
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Urinary iodine concentration (mcg/L)" ;
+  MALED1:hasJieNotes "The term is created for HBGD MALED dataset. We can keep same IRI but update label." ;
+  MALED1:hasNotes "Chris says: \"Compare to EUPATH_0000687.\" Please assess mapping. My feeling is that EUPATH_0000687 is not a good mapping for \"IARCONC\"." ;
+  MALED1:hasSource "IAR" ;
+  obo:EUPATH_0000755 "IARCONC" ;
+  rdfs:label "IARCONC" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000688
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasCSNotes "units are different 1mcg/dL = 0.01ug/mL" ;
+  MALED1:hasDescription1 "Blood lead concentration (mcg/dL)" ;
+  MALED1:hasJieNotes "The term is created for HBGD MALED dataset. Different Unit might caused by change of HBGD group. We can keep same IRI but update unit." ;
+  MALED1:hasNotes "Please assess mapping. My feeling is that this is not a good mapping for BLLCONC." ;
+  MALED1:hasSource "BLL" ;
+  obo:EUPATH_0000755 "BLLCONC" ;
+  rdfs:label "Lead (ug/ml)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000711
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Did stool specimen have mucus? (01= 'Yes' / 00= 'No'" ;
+  MALED1:hasDescription1 "Did stool specimen have mucus?" ;
+  MALED1:hasDescription2 "Yes =01; No =00" ;
+  MALED1:hasJieNotes "EUPATH_0000711 is term for MALED. label in ontology need to be improved." ;
+  MALED1:hasNotes "duplicate w/obo:EUPATH_0015219?" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFSTMUCUS" ;
+  rdfs:label "Mucus in stool" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000714
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "How many people usually sleep in this household?" ;
+  MALED1:hasDescription2 "01-30 (people)" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsesleep" ;
+  rdfs:label "Number of persons sleeping in house" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000721
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Retinol concentration (mcg/dL)" ;
+  MALED1:hasSource "RAR" ;
+  obo:EUPATH_0000755 "RARCONC" ;
+  rdfs:label "Retinol (ug/dL)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000723
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Human blood TfR concentration (mcg/mL)" ;
+  MALED1:hasSource "TFR" ;
+  obo:EUPATH_0000755 "TFRCONC" ;
+  rdfs:label "Soluble transferrin receptor" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000727
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "What is the average monthly income for the entire household?" ;
+  MALED1:hasDescription2 "00000-99999" ;
+  MALED1:hasJieNotes "If no unit associated with term, it should be fine." ;
+  MALED1:hasNotes "Please assess, taking into account the fact that the units may be different." ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseincomenum" ;
+  rdfs:label "Total family income" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0000735
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Zinc concentration (mcg/dL)" ;
+  MALED1:hasDescription2 "All zinc data from SAV should be excluded from analysis, not just records where SAVDONTUSE=1" ;
+  MALED1:hasSource "ZAR" ;
+  obo:EUPATH_0000755 "ZARCONC" ;
+  rdfs:label "Zinc (ug/ml)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010217
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Consistency of stool specimen" ;
+  MALED1:hasDescription2 "Watery =01; Liquid =02; Soft =03; Formed =04" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFCONSIST" ;
+  rdfs:label "Consistency of whole stool sample" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010226
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Stool SampleID" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFMBSAMPID" ;
+  rdfs:label "Stool specimen ID" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010436
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "actual age in months (numeric: agedays/30.44) at FSQ assessment" ;
+  MALED1:hasDescription1 "actual month of age by study schedule" ;
+  MALED1:hasDescription1 "actual month of age" ;
+  MALED1:hasDescription1 "age in months" ;
+  MALED1:hasDescription2 "#.#" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSE" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "agemonths" ;
+  rdfs:label "Age (months)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010437
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "actual age in years (numeric: agedays/365.25) at FRQ assessment" ;
+  MALED1:hasDescription1 "actual age in years (numeric: agedays/365.25) at FSQ assessment" ;
+  MALED1:hasDescription1 "actual year of age" ;
+  MALED1:hasDescription1 "age of the child in years" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "MOA" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "ageyears" ;
+  rdfs:label "Age (years)" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010438
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "1=assessment in extended window; 1=assessment in window; 0=assessment out of window" ;
+  MALED1:hasDescription1 "Assessment in window  (0=out of window, 1= in target window, 2= in extended window)" ;
+  MALED1:hasDescription1 """Assessment is conducted in target window, 
+extened window, out of window""" ;
+  MALED1:hasDescription1 "assessment in window" ;
+  MALED1:hasDescription2 "0=no, 1=yes" ;
+  MALED1:hasDescription2 "out of window = 0, in target window = 1, in extended window = 2" ;
+  MALED1:hasSource "BRF/UCF" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "MOA" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "window" ;
+  rdfs:label "Target window category" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010467
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Month of life, i.e., from day 0 to first month 'birthday' would be month 1" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "month_of_age" ;
+  rdfs:label "Age, month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010468
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Actual age in months (integer) at assessment" ;
+  MALED1:hasDescription1 "Age in months from FRQ" ;
+  MALED1:hasDescription1 "Similar to month_ss in other datasets, i.e., assigned to a month of age according to which age the day is closest to. In cases where the day is equidistant from the two mensiversaries, the day is assigned to the earlier age." ;
+  MALED1:hasDescription1 "Study month" ;
+  MALED1:hasDescription1 "actual age in months (integer) at FSQ assessment" ;
+  MALED1:hasDescription1 "actual month of age at assessment date (integer)" ;
+  MALED1:hasDescription1 "actual month of age by study schedule" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "BRF/UCF" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSE" ;
+  MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "MOA" ;
+  MALED1:hasSource "SRF" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "month_ss" ;
+  rdfs:label "Age, month by birthday" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010474
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "1 for all days in episode (all days with \"diarrhea\")" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "dprev3" ;
+  rdfs:label "Diarrheal days" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010482
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Days since last diarrhea episode ended (missing indicates time from birth until first episode)" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "lastdiar" ;
+  rdfs:label "Days since last diarrheal episode" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010483
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Days until next diarrhea starts (missing indicates time from last episode to end of follow up (or from birth if no diarrhea))" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "untildiar" ;
+  rdfs:label "Days between diarrheal episodes" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010500
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Sum of dur_sc + ls_sc + vom_sc + dehyd_sc + fev_sc (range 1-14, combination of Vesikari and Clark severity scale based on data available)" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "score" ;
+  rdfs:label "Diarrheal episode score, combined Vesikari/Clark severity" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010524
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "GEMS definition of moderate/severe diarrhea episode - Episode accompanied by any of the following: Some or severe dehydration, dysentery (blood reported by mother in stool), hospitalization for diarrhea" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "gemsdef" ;
+  rdfs:label "Moderate-to-severe diarrhea, GEMS criteria" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010548
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Type of specimen collected" ;
+  MALED1:hasDescription2 "Monthly =M1; Diarrheal =D1; Monthly recollection =MR; Diarrheal recollection =DR" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFSPECTYPE" ;
+  rdfs:label "Monthly, archive only sample" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010856
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Date of collection" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFDATE" ;
+  rdfs:label "Date stool collection" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010857
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "SampleID of Initial sample" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFFRSTSID" ;
+  rdfs:label "First sample ID if recollection" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010859
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "sample ID given 1st recollection of stool (SRFFRSTSID)" ;
+  MALED1:hasDescription1 "sampleID of 1st recollection sample (SRFFRSTSID)" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "sid.r1" ;
+  rdfs:label "Sample ID for first recollection" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010860
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "sample ID given 2st recollection of stool (SRFFRSTSID)" ;
+  obo:EUPATH_0000755 "sid.r2" ;
+  rdfs:label "Sample ID for second recollection" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010861
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "sample ID given 3st recollection of stool (SRFFRSTSID)" ;
+  obo:EUPATH_0000755 "sid.r3" ;
+  rdfs:label "Sample ID for third recollection" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0010863
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "Was stool specimen bloody?" ;
+  MALED1:hasDescription2 "Yes =01; No =00" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFSTBLOOD" ;
+  rdfs:label "Blood in stool" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0015003
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household have a television?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseatv" ;
+  rdfs:label "Television" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_0015007
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household have a refrigerator?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsearef" ;
+  rdfs:label "Refrigerator" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11008
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Indicates whether exclusive breastfeeding was present on day of first SAF data collection, the age at which this occurred is the minage" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "begbf" ;
+  rdfs:label "begbf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11009
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Whether the child began breastfeeding within 24 hours per the CAF." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "begbfcaf" ;
+  rdfs:label "begbfcaf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11010
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 """How long after childbirth did the mother begin breastfeeding him/her: 
+0: within 1 hour
+1: 1-24 hours
+2: 1-3 days
+3: 4+ days later
+.: Never breastfed""" ;
+  MALED1:hasSource "CAF" ;
+  obo:EUPATH_0000755 "cafbegbf" ;
+  rdfs:label "cafbegbf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11011
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Was the child fed the first milk (colostrum)?" ;
+  MALED1:hasSource "CAF" ;
+  obo:EUPATH_0000755 "cafcolo" ;
+  rdfs:label "cafcolo" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11012
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Was there prelacteal feeding of the child?" ;
+  MALED1:hasSource "CAF" ;
+  obo:EUPATH_0000755 "cafprel" ;
+  rdfs:label "cafprel" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11014
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of exclusive breastfeeding from birth. This is a cumulative sum of the variable \"excrun\", i.e., number of days, to date from birth, that the child was reported to be exclusively breastfed. This has been filled in between birth and minage with EBF if child began breastfeeding at all (cafbegbf~=.). Exclusive breastfeeding prevalence can be calculated by dividing cumexc / age (or days of follow up)." ;
+  MALED1:hasDescription2 "This is a cumulative sum so that we can merge this dataset with others and determine what percent of the time a child was exclusively, predominantly, partially, and not breastfed prior to some outcome (anthro, illness, etc.)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumexc" ;
+  rdfs:label "cumexc" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11015
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of no breastfeeding (cumulative sum of nobfrun, ie, number of days from birth, to date, that the child was reported to not be breastfed)." ;
+  MALED1:hasDescription2 "This is a cumulative sum so that we can merge this dataset with others and determine what percent of the time a child was exclusively, predominantly, partially, and not breastfed prior to some outcome (anthro, illness, etc.)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumnobf" ;
+  rdfs:label "cumnobf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11016
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of partial breastfeeding (cumulative sum of partrun, ie, number of days from birth, to date, that the child was reported to be partially breastfed)." ;
+  MALED1:hasDescription2 "This is a cumulative sum so that we can merge this dataset with others and determine what percent of the time a child was exclusively, predominantly, partially, and not breastfed prior to some outcome (anthro, illness, etc.)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumpart" ;
+  rdfs:label "cumpart" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11017
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of partial breastfeeding (cumulative sum of partrun, ie, number of days, to date, that the child was reported to be partially breastfed)." ;
+  MALED1:hasDescription2 "New predominant and partial variables considering animal milk to be ingested with tea in Pakistan (even if animal milk is not indicated on the SAF)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumparta" ;
+  rdfs:label "cumparta" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11018
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of predominant breastfeeding (cumulative sum of predrun, i.e., number of days from birth, to date, that the child was reported to be predominantly breastfed)." ;
+  MALED1:hasDescription2 "This is a cumulative sum so that we can merge this dataset with others and determine what percent of the time a child was exclusively, predominantly, partially, and not breastfed prior to some outcome (anthro, illness, etc.)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumpred" ;
+  rdfs:label "cumpred" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11019
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Cumulative days of predominant breastfeeding (cumulative sum of predrun, ie, number of days, to date, that the child was reported to be predominantly breastfed)." ;
+  MALED1:hasDescription2 "New predominant and partial variables considering animal milk to be ingested with tea in Pakistan (even if animal milk is not indicated on the SAF)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "cumpreda" ;
+  rdfs:label "cumpreda" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11020
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Dairy intake (milk, formula, yogurt, cheese, or other dairy products, as reported on the SAF or MOA). This is a simple variable that reflects the presence of dairy in the diet at last reported diet day." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "dairyrun" ;
+  rdfs:label "dairyrun" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11023
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Exclusive breastfeeding (breastfeeding present, no liquid, no solids). This is a simple variable that reflects the exclusive breastfeeding status at last reported diet day. Children can switch back and forth between exclusive and different types of non-exclusive breastfeeding." ;
+  MALED1:hasDescription2 "These variables provide the breastfeeding category at the last visit (since data between visits are filled in forward)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "excrun" ;
+  rdfs:label "excrun" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11024
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "To be used in survival analysis, variable indicates where the EBF child received non-breast milk foods (1) or if they were lost to follow up (0)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "failure" ;
+  rdfs:label "failure" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11027
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Maximum age of imputed exclusive breastfeeding (liquid or food given on next day)." ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "maxaeb" ;
+  rdfs:label "maxaeb" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11028
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Minimum age in days at which SAF diet data is available" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minage" ;
+  rdfs:label "minage" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11029
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first milk or formula is given" ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minamilk" ;
+  rdfs:label "minamilk" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11030
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first milk is given" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minamilka" ;
+  rdfs:label "minamilka" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11031
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which breastfeeding ceases (complete weaning: if observed in data set at all)" ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minanobf" ;
+  rdfs:label "minanobf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11032
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first milk OR solids is given along with breastfeeding" ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minapart" ;
+  rdfs:label "minapart" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11033
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first milk OR solids is given" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minaparta" ;
+  rdfs:label "minaparta" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11034
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first clear liquid is given along with breastfeeding" ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minapred" ;
+  rdfs:label "minapred" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11035
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first clear liquid is given" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minapreda" ;
+  rdfs:label "minapreda" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11036
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age at which first solid food is given" ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "minasolid" ;
+  rdfs:label "minasolid" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11041
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "No breastfeeding reported at last reported diet day." ;
+  MALED1:hasDescription2 "These variables provide the breastfeeding category at the last visit (since data between visits are filled in forward)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "nobfrun" ;
+  rdfs:label "nobfrun" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11042
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Partial breastfeeding (breastfeeding present with solids, milks, and/or formula) This is a simple variable that reflects the breastfeeding status at last reported diet day." ;
+  MALED1:hasDescription2 "These variables provide the breastfeeding category at the last visit (since data between visits are filled in forward)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "partrun" ;
+  rdfs:label "partrun" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11043
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Partial breastfeeding (breastfeeding present with solids, milks, and/or formula) This is a simple variable that reflects the breastfeeding status at last reported diet day." ;
+  MALED1:hasDescription2 "New predominant and partial variables considering animal milk to be ingested with tea in Pakistan (even if animal milk is not indicated on the SAF)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "partruna" ;
+  rdfs:label "partruna" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11045
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Predominant breastfeeding (breastfeeding present, clear liquids (water, fruit juice, tea, other liquids), no solids, no milk or formula). This is a simple variable that reflects the breastfeeding status at last reported diet day." ;
+  MALED1:hasDescription2 "These variables provide the breastfeeding category at the last visit (since data between visits are filled in forward)." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "predrun" ;
+  rdfs:label "predrun" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11046
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Predominant breastfeeding (breastfeeding present, clear liquids (water, fruit juice, tea, other liquids), no solids, no milk or formula). This is a simple variable that reflects the breastfeeding status at last reported diet day." ;
+  MALED1:hasDescription2 "New predominant and partial variables considering animal milk to be ingested with tea in Pakistan (even if animal milk is not indicated on the SAF)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "predruna" ;
+  rdfs:label "predruna" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11048
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "0 during exclusive breastfeeding, 1 when any non-breast milk feeding starts until last breastmilk reported, 2 after last breast milk is ingested." ;
+  MALED1:hasDescription2 "These calculations change feeding definitions starting with the first occasion.  They do not allow for back and forth." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "run" ;
+  rdfs:label "run" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11049
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Age in days at last EBF, whether or not child continued to be followed up (maxaeb only includes children with failures, i.e., who were reported to be given non-breast milk foods)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "survebf" ;
+  rdfs:label "survebf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11050
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:hasDescription1 "Whether the data was present today (1) or not (0). Data were generally collected for yesterday's diet, ie, the day prior to the day the field worker is in the home." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "visit" ;
+  rdfs:label "visit" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11054
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "calcium phytate to zinc ratio of the diet" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "caphy_zn_ratio" ;
+  rdfs:label "caphy_zn_ratio" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11056
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "FRQ date" ;
+  MALED1:hasNotes "date of form filling" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqdate" ;
+  rdfs:label "frqdate" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11057
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "number of times breastfed during day the day of the recall" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqdaytime" ;
+  rdfs:label "frqdaytime" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11058
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Fieldworker ID" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqfieldid" ;
+  rdfs:label "frqfieldid" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11059
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "number of time breastfed during night the day of the recall" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqnighttime" ;
+  rdfs:label "frqnighttime" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11060
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Is this form collected for secondary recall?" ;
+  MALED1:hasDescription2 "01=yes, 00=no; Missing value = NA" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqsec" ;
+  rdfs:label "frqsec" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11061
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "total number of times breastfed the day of the recall" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "frqtotal" ;
+  rdfs:label "frqtotal" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11064
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Energy in Kcal from carbohydrates" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "nrg_cho" ;
+  rdfs:label "nrg_cho" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11065
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Energy in Kcal from fat" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "nrg_fat" ;
+  rdfs:label "nrg_fat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11066
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Energy in Kcal from protein" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "nrg_pro" ;
+  rdfs:label "nrg_pro" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11067
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Total number of meals consumed by the child on this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "num_meal" ;
+  rdfs:label "num_meal" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11068
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "phytate to calcium ratio of the diet" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "phy_ca_ratio" ;
+  rdfs:label "phy_ca_ratio" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11069
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "phytate to iron ratio of the diet" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "phy_fe_ratio" ;
+  rdfs:label "phy_fe_ratio" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11070
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "phytate to zinc ratio of the diet" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "phy_zn_ratio" ;
+  rdfs:label "phy_zn_ratio" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11072
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "days since prior recall (missing for first recall)" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "seconddiffd" ;
+  rdfs:label "seconddiffd" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11073
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Secondary recall (yes = 1, 0 = no)" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "secrec" ;
+  rdfs:label "secrec" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11074
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are dairy" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_dairy" ;
+  rdfs:label "sum_dairy" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11075
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are DGLV" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_dglv" ;
+  rdfs:label "sum_dglv" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11076
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are eggs" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_eggs" ;
+  rdfs:label "sum_eggs" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11077
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are fish" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_fish" ;
+  rdfs:label "sum_fish" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11078
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are legumes" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_legume" ;
+  rdfs:label "sum_legume" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11079
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are meats" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_meat" ;
+  rdfs:label "sum_meat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11080
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are other F&V" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_o_fv" ;
+  rdfs:label "sum_o_fv" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11081
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are organ meats" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_org_m" ;
+  rdfs:label "sum_org_m" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11082
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are sweets" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sum_sweets" ;
+  rdfs:label "sum_sweets" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11083
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of animal protein in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumapro" ;
+  rdfs:label "sumapro" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11084
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of calcium in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumca" ;
+  rdfs:label "sumca" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11085
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of carbohydrates in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumcho" ;
+  rdfs:label "sumcho" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11086
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "sum of cholesterol in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumchole" ;
+  rdfs:label "sumchole" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11087
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are coffee or tea" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumcof_tea" ;
+  rdfs:label "sumcof_tea" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11088
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of copper in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumcu" ;
+  rdfs:label "sumcu" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11089
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of mono-unsaturated fat in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfams" ;
+  rdfs:label "sumfams" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11090
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of poly-unsaturated fat in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfapu" ;
+  rdfs:label "sumfapu" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11091
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of saturated fat in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfasat" ;
+  rdfs:label "sumfasat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11092
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of fat in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfat" ;
+  rdfs:label "sumfat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11093
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of iron in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfe" ;
+  rdfs:label "sumfe" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11094
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of fiber in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfib" ;
+  rdfs:label "sumfib" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11095
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of folate in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumfol" ;
+  rdfs:label "sumfol" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11096
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are grains" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumgrains" ;
+  rdfs:label "sumgrains" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11097
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of potassium in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumk" ;
+  rdfs:label "sumk" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11098
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of calories in Kcal for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumkcal" ;
+  rdfs:label "sumkcal" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11099
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of iron in mg from meat, fish, poultry for this day of recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "summfpfe" ;
+  rdfs:label "summfpfe" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11100
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "sum of protein from meat, fish poultry for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "summfppro" ;
+  rdfs:label "summfppro" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11101
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of magnesium in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "summg" ;
+  rdfs:label "summg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11102
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of manganese in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "summn" ;
+  rdfs:label "summn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11103
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "sum of sodium from the foods for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumna" ;
+  rdfs:label "sumna" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11104
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of niacin in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumnia" ;
+  rdfs:label "sumnia" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11105
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of phosphorus in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sump" ;
+  rdfs:label "sump" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11106
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of Pantothenic Acid (mg) for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumpant" ;
+  rdfs:label "sumpant" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11107
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of phytate in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumphytate" ;
+  rdfs:label "sumphytate" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11108
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of protein in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumpro" ;
+  rdfs:label "sumpro" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11109
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of riboflavin in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumribf" ;
+  rdfs:label "sumribf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11110
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are roots/tubers" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumroots" ;
+  rdfs:label "sumroots" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11111
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of sugars in grams for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumsucs" ;
+  rdfs:label "sumsucs" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11112
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of thiamin in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumthi" ;
+  rdfs:label "sumthi" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11113
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminA in ug for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvita" ;
+  rdfs:label "sumvita" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11114
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminB12 in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvitb12" ;
+  rdfs:label "sumvitb12" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11115
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminB6 in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvitb6" ;
+  rdfs:label "sumvitb6" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11116
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminC in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvitc" ;
+  rdfs:label "sumvitc" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11117
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminD in ug" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvitd" ;
+  rdfs:label "sumvitd" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11118
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of VitaminE in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumvite" ;
+  rdfs:label "sumvite" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11119
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are yellow fruits" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumy_fruit" ;
+  rdfs:label "sumy_fruit" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11120
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Number of foods/beverages that are yellow vegetables" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumy_veg" ;
+  rdfs:label "sumy_veg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11121
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Sum of zinc in mg for this day of food recall" ;
+  MALED1:hasSource "Calculated" ;
+  obo:EUPATH_0000755 "sumzn" ;
+  rdfs:label "sumzn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11122
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:hasDescription1 "Target/scheduled month" ;
+  MALED1:hasSource "FRQ" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11131
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "3 letter site code" ;
+  obo:EUPATH_0000755 "Country_ID2" ;
+  rdfs:label "Country_ID2" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11132
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "Data entry date" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "DateCreation" ;
+  rdfs:label "DateCreation" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11134
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "date of FSQ assessment" ;
+  MALED1:hasDescription2 "dd/mmm/yy" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQDATE" ;
+  rdfs:label "FSQDATE" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11135
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any household member go a whole day and night without eating anything because there was not enough food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFDAY" ;
+  rdfs:label "FSQFDAY" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11136
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any household member have to eat some foods that you really did not want to eat because of a lack of resources to obtain other types of food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFDISLIKE" ;
+  rdfs:label "FSQFDISLIKE" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11137
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, were you or any household member not able to eat the kinds of foods you preferred because of a lack of resources?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFDIV" ;
+  rdfs:label "FSQFDIV" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11138
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any other household member have to eat fewer meals in a day because there was not enough food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFFEW" ;
+  rdfs:label "FSQFFEW" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11139
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any household member go to sleep at night hungry because there was not enough food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFHUNG" ;
+  rdfs:label "FSQFHUNG" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11141
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any household member have to eat a limited variety of foods due to a lack of resources?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFLIM" ;
+  rdfs:label "FSQFLIM" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11142
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, was there ever no food to eat of any kind in your household because of lack of resources to get food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFNOFOOD" ;
+  rdfs:label "FSQFNOFOOD" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11143
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you worry that your household would not have enough food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFSHORT" ;
+  rdfs:label "FSQFSHORT" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11144
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "In the past four weeks, did you or any household member have to eat a smaller meal than you felt you needed because there was not enough food?" ;
+  MALED1:hasDescription2 "No (00); Rarely (01); Sometimes (02); Often (03); Don't know/no response (NA)" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "FSQFSMALL" ;
+  rdfs:label "FSQFSMALL" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11145
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "Household Food Insecurity Access Scale Category (based on Coates J, Swindale A, Bilinsky P 2007 FANTA)" ;
+  MALED1:hasDescription2 "1=none, 2=mild, 3=moderate, 4=severe" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "hfiacat" ;
+  rdfs:label "hfiacat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11146
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "date of last contact with MAL-ED study" ;
+  MALED1:hasSource "PIDs" ;
+  obo:EUPATH_0000755 "lastDayContact" ;
+  rdfs:label "lastDayContact" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11147
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "age in days at date of last contact" ;
+  obo:EUPATH_0000755 "ldcdiff" ;
+  rdfs:label "ldcdiff" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11150
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasCSNotes "Target month of Food Security questionaire, scheduled for 6, 12, 18, 24" ;
+  MALED1:hasDescription1 "target_month" ;
+  MALED1:hasDescription2 "6,12,18,24" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11151
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "sum of FSQFSHORT, FSQFDIV,FSQFLIM, FSQFDISLIKE, FSEFSMALL, FSEFFEW, FSQNOFOOD, FSQFHUNG, FSQFDAY" ;
+  MALED1:hasDescription2 "0-27" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "totscore" ;
+  rdfs:label "totscore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11152
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "database version" ;
+  MALED1:hasSource "FSQ" ;
+  obo:EUPATH_0000755 "Version" ;
+  rdfs:label "Version" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11154
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "inflammation (AGPVAL>100) adjusted ferritin concentration using site specific correction factors*" ;
+  MALED1:hasDescription2 "Correction factors: BG 1.211645, BR 1.202649, IN 1.195700, NP 1.146191, PE 1.066748, PK 1.706467, SA 1.048493, TZ 1.094226" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "adjfar" ;
+  rdfs:label "adjfar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11155
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "inflammation (AGPVAL>100) adjusted retinol concentration using site specific correction factors*" ;
+  MALED1:hasDescription2 "Correction factors: BG 0.9448274, BR 0.9595399, IN 0.9563835, NP 0.9873698, PE 0.9767317, PK 0.9570328, SA 0.9355792, TZ 0.9670137" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "adjrar" ;
+  rdfs:label "adjrar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11156
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "inflammation (AGPVAL>100) adjusted tfr concentration using site specific correction factors*" ;
+  MALED1:hasDescription2 "Correction factors: BG 1.0220263, BR 1.0004088, IN 1.0700322, NP 0.9913484, PE 1.0174282, PK 1.0372579, SA 1.2388953, TZ 1.0305495" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "adjtfr" ;
+  rdfs:label "adjtfr" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11157
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= adjtfr<2.9; 2=  2.9<= adjtfr < 8.3; 3= adjtfr>=8.3" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "adjtfrcat" ;
+  rdfs:label "adjtfrcat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11158
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "inflammation (AGPVAL>100) adjusted zinc concentration in mml using site specific correction factors*" ;
+  MALED1:hasDescription2 """All zinc data from SAV should be excluded from analysis, not just records where SAVDONTUSE=1.
+
+Correction factors: BG 0.9808628, BR 0.9867873, IN 0.9890661, NP 0.9905681, PE 0.9922798, PK 1.0143075, SA 1.0190252, TZ 0.9826488""" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "adjzinc_mml" ;
+  rdfs:label "adjzinc_mml" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11161
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= hb_adj <11; 0= hb_adj>=11" ;
+  MALED1:hasDescription2 "anemia classification based on adjusted values" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "anemia" ;
+  rdfs:label "anemia" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11165
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Date of sample arrival" ;
+  MALED1:hasSource "BRF" ;
+  obo:EUPATH_0000755 "BRFDATE" ;
+  rdfs:label "BRFDATE" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11168
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasCSNotes "Yes, date of sample collection sounds good. As long as there is another variable that tells what type of sample" ;
+  MALED1:hasDescription1 "Date of sample collection (derived from BCHDATECOL & BRFDATECOL)" ;
+  MALED1:hasNotes "Chris' suggestion is to \"generalize with stool.\" We do have a \"Date stool collection\" (obo:EUPATH_0010856), though this here is not a stool sample. We might, indeed, benefit from the addition of a generic \"date of specimen collection,\" though the yet non-existent \"date of blood specimen collection\" would be the best mapping for this." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "datecol" ;
+  rdfs:label "datecol" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11169
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "FAR Value1 (mcg/L or ng/ml)" ;
+  MALED1:hasSource "FAR" ;
+  obo:EUPATH_0000755 "FARVAL1" ;
+  rdfs:label "FARVAL1" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11170
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "FAR Value2 (mcg/L or ng/ml)" ;
+  MALED1:hasDescription2 "only available for some specimens" ;
+  MALED1:hasSource "FAR" ;
+  obo:EUPATH_0000755 "FARVAL2" ;
+  rdfs:label "FARVAL2" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11171
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Mean (FARVAL1, FARVAL2)" ;
+  MALED1:hasDescription2 "When only FARVAL1 is available, FARVALMEAN=FARVAL1" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "FARVALMEAN" ;
+  rdfs:label "FARVALMEAN" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11172
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "hb adjustment for high altitude (-0.3 in NP, -0.5 in TZ)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "hb_adj" ;
+  rdfs:label "hb_adj" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11173
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= AGPVAL>100; 0=AGPVAL1<=100" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "highagp" ;
+  rdfs:label "highagp" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11174
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= BLLCONC>-10; 0= BLLCONC<10" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "highbll" ;
+  rdfs:label "highbll" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11175
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "0= IARCONC>100; 1= 50<=IARCONC<=100; 2= IARCONC<50" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iarcat" ;
+  rdfs:label "iarcat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11177
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Date of assay" ;
+  MALED1:hasNotes "Needs a new class, definable in terms of \"assay\" and \"hasEndDateTime\"" ;
+  MALED1:hasSource "IAR" ;
+  obo:EUPATH_0000755 "IARDATE" ;
+  rdfs:label "IARDATE" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11178
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= adjfar <12; 0=adjfar>=12" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowadjfar" ;
+  rdfs:label "lowadjfar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11179
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= adjrar <20; 0= adjrar>=20" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowadjrar" ;
+  rdfs:label "lowadjrar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11180
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= adjzinc_mml<9.9; 0= adjzinc_mml>=9.9" ;
+  MALED1:hasDescription2 "All zinc data from SAV should be excluded from analysis, not just records where SAVDONTUSE=1" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowadjzinc" ;
+  rdfs:label "lowadjzinc" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11181
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= FARVAL1 <12; 0= FARVAL1>=12" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowfar" ;
+  rdfs:label "lowfar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11182
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= RARCONC <20; 0= RARCONC>=20" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowrar" ;
+  rdfs:label "lowrar" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11183
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= zinc_mml<9.9; 0= zinc_mml>=9.9" ;
+  MALED1:hasDescription2 "All zinc data from SAV should be excluded from analysis, not just records where SAVDONTUSE=1" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lowzinc" ;
+  rdfs:label "lowzinc" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11189
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "0=use; 1=don’t use" ;
+  MALED1:hasSource "ZAR" ;
+  obo:EUPATH_0000755 "SAVDONTUSE" ;
+  rdfs:label "SAVDONTUSE" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11190
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= hb_adj <7; 0= hb_adj>=7" ;
+  MALED1:hasDescription2 "anemia classification based on adjusted values" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "sevanemia" ;
+  rdfs:label "sevanemia" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11191
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasCSNotes "the month of age of the child the form was collected (Urine collected was scheduled to occur on months 3 6 9 24 & blood on months 7, 15, 24)" ;
+  MALED1:hasDescription1 "Target month" ;
+  MALED1:hasSource "BCF/UCF" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11192
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "1= TFRCONC<2.9; 2=  2.9<= TFRCONC < 8.3; 3= TFRCONC>=8.3" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "tfrcat" ;
+  rdfs:label "tfrcat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11194
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "UCFVOL" ;
+  MALED1:hasSource "UCF" ;
+  obo:EUPATH_0000755 "urinevol" ;
+  rdfs:label "urinevol" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11196
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Zinc color" ;
+  MALED1:hasSource "ZAR" ;
+  obo:EUPATH_0000755 "ZARCOLOR" ;
+  rdfs:label "ZARCOLOR" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11198
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "ZARCONC * 0.1530, rounded XX.X" ;
+  MALED1:hasDescription2 "All zinc data from SAV should be excluded from analysis, not just records where SAVDONTUSE=1" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "zinc_mml" ;
+  rdfs:label "zinc_mml" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11275
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Yes vs no for if we have results for all 3 tests (MPO, NEO, and ALA) for this stool sample? MAL-ED analyses for publication only used stool samples that had test results for all 3 of these biomarkers" ;
+  MALED1:hasDescription1 "1= if conc.mpo, conc.neo, & conc.ala have values" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "complete_gf" ;
+  rdfs:label "complete_gf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11276
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Final concentration of Î±-1-antitrypsin (AAT or ALA), mg/g" ;
+  MALED1:hasDescription1 "final ALA concentration (mg/g)" ;
+  MALED1:hasDescription2 "use this for analysis (accounts for initial and recollection stools)" ;
+  MALED1:hasNotes "closest I could find is \"alpha-1-antitrypsin measurement\" in EFO, or \"Increased stool alpha1-antitrypsin concentration\" in HP. none of these is acceptable." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "conc.ala" ;
+  rdfs:label "conc.ala" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11277
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Final concentration of myeloperoxidase (MPO), ng/mL" ;
+  MALED1:hasDescription1 "final MPO concentration (ng/mL)" ;
+  MALED1:hasDescription2 "use this for analysis (accounts for initial and recollection stools)" ;
+  MALED1:hasNotes "closest I could find is \"myeloperoxidase measurement\" in EFO" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "conc.mpo" ;
+  rdfs:label "conc.mpo" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11278
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Final concentration of neopterin (NEO), nmol/L" ;
+  MALED1:hasDescription1 "final NEO concentration (nmol/L)" ;
+  MALED1:hasDescription2 "use this for analysis (accounts for initial and recollection stools)" ;
+  MALED1:hasNotes "closest I could find is \"neopterin amount\" in OBA" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "conc.neo" ;
+  rdfs:label "conc.neo" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11339
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Yes vs. No for whether this stool sample was collected during an episode of diarrhea. Brianna: New, the diarrhea indicator for stool as defined by the gut function committee internally at MALED" ;
+  MALED1:hasDescription1 "1 if considered a diarrhea stool (dprev3=1 or 1<= lastdiar <=7) ; 0 otherwise" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "diarrhea_gf" ;
+  rdfs:label "diarrhea_gf" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11358
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Participant met GEMS definition of moderate/severe diarrhea within +/- 2 days of stool collection" ;
+  MALED1:hasDescription1 "GEMS definition of moderate/severe diarrhea for diarrhea days within +/2 days of stool collection" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "gemsep" ;
+  rdfs:label "gemsep" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11363
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "was lactulose:mannitol test given the day of or the day before the date of stool collection?" ;
+  MALED1:hasDescription1 "indicator if lactulose:mannitol test given the day of or the day before the date of stool collection" ;
+  MALED1:hasDescription2 "1= lm test done day of or day before; NA=no proximate LM test" ;
+  MALED1:hasSource "UCF" ;
+  obo:EUPATH_0000755 "lmday" ;
+  rdfs:label "lmday" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11364
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Natural log of the final concentration of Î±-1-antitrypsin (AAT or ALA), mg/g" ;
+  MALED1:hasDescription1 "log2 (conc.ala+0.000001)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lnconc.ala" ;
+  rdfs:label "lnconc.ala" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11365
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Natural log of the final concentration of myeloperoxidase (MPO), ng/mL" ;
+  MALED1:hasDescription1 "log2 (conc.mpo+0.000001)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lnconc.mpo" ;
+  rdfs:label "lnconc.mpo" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11366
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Natural log of the final concentration of neopterin (NEO), nmol/L" ;
+  MALED1:hasDescription1 "log2 (conc.neo+0.000001)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "lnconc.neo" ;
+  rdfs:label "lnconc.neo" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11539
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "more information requested from Provider" ;
+  MALED1:hasDescription1 "severity score for diarrhea days within +/2 days of stool collection. This is a discreet continuous variable that maps to a score that the MAL-ED team used to 'score' the episode. This does not extend beyond MAL-ED to my knowledge but is referenced here: https://www.ncbi.nlm.nih.gov/pubmed/27347723" ;
+  MALED1:hasSource "illnessfull" ;
+  obo:EUPATH_0000755 "scoreep" ;
+  rdfs:label "scoreep" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11550
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "Was stool recollection requested? (01= 'Yes, monthly specimen <4g' / 02= 'Yes, diarrheal specimen <2g' / 00= 'No' / NA= Missing value" ;
+  MALED1:hasDescription1 "Was recollection requested?" ;
+  MALED1:hasDescription2 "Yes, monthly specimen <4g = 01, Yes, diarrheal specimen <2g = 02, No =00" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "SRFRECOLREQ" ;
+  rdfs:label "SRFRECOLREQ" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11562
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasCSNotes "See var #116-This is scheduled target month of stool collection. Stools were scheduled to be collected monthly" ;
+  MALED1:hasDescription1 "Target/scheduled month (Stool Receiving Form)" ;
+  MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11579
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Currrency exchange rate to buy US Dollars" ;
+  MALED1:hasDescription2 "#.###" ;
+  MALED1:hasSource "Compiled from http://www.oanda.com/currency/historical-rates/" ;
+  obo:EUPATH_0000755 "exch" ;
+  rdfs:label "exch" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11586
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Do you have a separate room which is used as a kitchen?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsecloc2" ;
+  rdfs:label "fsecloc2" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11587
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Date of FSE" ;
+  MALED1:hasDescription2 "dd-mm-yy" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsedate" ;
+  rdfs:label "fsedate" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11590
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Have you ever attended school?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsemed" ;
+  rdfs:label "fsemed" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11591
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "How many years of schooling have you completed?" ;
+  MALED1:hasDescription2 "00-20" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fsemed2" ;
+  rdfs:label "fsemed2" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11592
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Main material of the roofs (observation)" ;
+  MALED1:hasDescription2 """No roof = 01; 
+Thatch = 02
+Metal = 03
+Wood = 04
+Brick = 05
+Tiles = 06
+Slate = 07
+Other = 08""" ;
+  MALED1:hasNotes "resembles obo:EUPATH_0000003 (\"Roof material\"), though the concepts are not identical" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseroof" ;
+  rdfs:label "fseroof" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11593
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "How many rooms are there in your house?" ;
+  MALED1:hasDescription2 "01-15 (rooms)" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "fseroom1" ;
+  rdfs:label "fseroom1" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11601
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Reported income in US Dollars, catgeorized in all-site noniles" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "incat" ;
+  rdfs:label "incat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11603
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Score of drinking water source; 0  for unimproved categories, 4 for improved categories" ;
+  MALED1:hasDescription2 """if fsewdrink = \"01\",\"02\",\"03\",\"04\",\"05\",\"08\" then newdrink=4, \"improved\" except for PEL where fsewdrink=\"08\" is also considered unimproved due to site-specific circumstances
+if fsewdrink = \"06\",\"07\" then newdrink=0 \"unimproved\", except for PEL where values of \"08\" for fsewdrink are considered unimproved""" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "newdrink" ;
+  rdfs:label "newdrink" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11604
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Mean number of people per room in the household (fsesleep/fseroom1)" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "newfsepeople" ;
+  rdfs:label "newfsepeople" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11605
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Years of maternal education divided by 2." ;
+  MALED1:hasDescription2 "range 0-8" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "newfseschool" ;
+  rdfs:label "newfseschool" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11606
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Reported income mulitplied by exchange rate" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "newincome" ;
+  rdfs:label "newincome" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11607
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Score of sanitation; 0 for unimproved categories, 4 for improved categories" ;
+  MALED1:hasDescription2 """if fsetoiletmod = \"01\" then newsanitation=0, unimproved
+if fsetoiletmod = \"02\",\"03\",\"04\",\"05\",\"06\",\"07\" then newsanitation=4, improved""" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "newsanitation" ;
+  rdfs:label "newsanitation" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11608
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "sum of all WAMI component scores" ;
+  MALED1:hasDescription2 "0-32" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "overall" ;
+  rdfs:label "overall" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11609
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Score of 1 if less than 2 people (mean) per room" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "people" ;
+  rdfs:label "people" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11611
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Do you have a toilet in your household ?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "SAV Latrine" ;
+  obo:EUPATH_0000755 "q3" ;
+  rdfs:label "q3" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11612
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Does your household toilet/latrine have a concrete floor?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "SAV Latrine" ;
+  obo:EUPATH_0000755 "q4" ;
+  rdfs:label "q4" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11613
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Was the concrete floor available before November 2009?" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "SAV Latrine" ;
+  obo:EUPATH_0000755 "q5" ;
+  rdfs:label "q5" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11614
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 """When after November 2009 did your toilet/latrine
+have a concrete floor""" ;
+  MALED1:hasDescription2 "date" ;
+  MALED1:hasSource "SAV Latrine" ;
+  obo:EUPATH_0000755 "q6" ;
+  rdfs:label "q6" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11615
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 """If your answer to Question 04 is ‘No’, did your toilet/latrine have a concrete floor any time between November 2009 and February
+ 2014?""" ;
+  MALED1:hasDescription2 "Yes = 01; No = 00" ;
+  MALED1:hasSource "SAV Latrine" ;
+  obo:EUPATH_0000755 "q7" ;
+  rdfs:label "q7" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11616
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "is the style of pit latrine the same as the pit latrine when for study years 0-2" ;
+  MALED1:hasDescription2 "Yes = 01; No = 2" ;
+  MALED1:hasSource "TZH latrine" ;
+  obo:EUPATH_0000755 "sameas" ;
+  rdfs:label "sameas" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11617
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Sum of saniation and drinking scores." ;
+  MALED1:hasDescription2 "range 0-8" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "sanitation" ;
+  rdfs:label "sanitation" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11618
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasCSNotes "See var #116 (This indicates the month the form was scheduled to be collected, FSE = Follow-up Socioeconomic Status Form)" ;
+  MALED1:hasDescription1 "Target month of form collection" ;
+  MALED1:hasDescription2 "#" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11620
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 """The wami is calculated by summing values of the following variables:
+sanitation,
+ asset, 
+incat, 
+newfseschool 
+and dividing the total by 32""" ;
+  MALED1:hasDescription2 "range 0-1" ;
+  MALED1:hasSource "FSE(derived)" ;
+  obo:EUPATH_0000755 "wami" ;
+  rdfs:label "wami" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11623
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of animal proteins (includes meat, egg, and fish)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "animalpro" ;
+  rdfs:label "animalpro" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11625
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0-4; 4 is the highest diversity score a child could receive if he/she consumes breastmilk and does not consume tea, milk, juices, formula or solids  in the previous day (for children 0-5 months)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "dietindex05mon" ;
+  rdfs:label "dietindex05mon" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11626
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0-6; 6 is the highest diversity score a child could receive if he/she consumes breastmilk, 4 or more food groups, feeds at least 5 times and does not consume formula in the previous day (for children 6-8 months)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "dietindex68mon" ;
+  rdfs:label "dietindex68mon" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11627
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of animal proteins (includes meat, organ meat, and fish)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "flesh_whocore" ;
+  rdfs:label "flesh_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11628
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of animal proteins (includes grains and roots)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "grainroot_whocore" ;
+  rdfs:label "grainroot_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11629
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "o/1; Introducion of complementary foods** Infants 6–8 months of age who received solid, semi-solid or soft foods during the previous day / Infants 6–8 months of age" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "introcomp_whocore" ;
+  rdfs:label "introcomp_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11630
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption of iron-rich or iron-fortified foods, Version 1 with dark green leafy vegetables, organ meat and any meat." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron1_whocore" ;
+  rdfs:label "iron1_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11631
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption of iron-rich or iron-fortified foods, Version 1a with organ meat and any meat." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron1a_whocore" ;
+  rdfs:label "iron1a_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11632
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption  of iron-rich or iron-fortified foods, Version 2 with dark green leafy vegetables, organ meat, any meat, and eggs." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron2_whocore" ;
+  rdfs:label "iron2_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11633
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption  of iron-rich or iron-fortified foods, Version 2a with organ meat, any meat, and eggs." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron2a_whocore" ;
+  rdfs:label "iron2a_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11634
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption  of iron-rich or iron-fortified foods, Version 3 with dark green leafy vegetables, organ meat, any meat, and fish." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron3_whocore" ;
+  rdfs:label "iron3_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11635
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption  of iron-rich or iron-fortified foods, Version 3a with  organ meat, any meat, and fish." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron3a_whocore" ;
+  rdfs:label "iron3a_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11636
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption of iron-rich or iron-fortified foods, Version 4  with dark green leafy vegetables, organ meat, any meat, eggs and fish." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron4_whocore" ;
+  rdfs:label "iron4_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11637
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if consumption of iron-rich or iron-fortified foods, Version 4a  organ meat, any meat, eggs and fish." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "iron4a_whocore" ;
+  rdfs:label "iron4a_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11638
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if minimum acceptable diet is met among breastfed kids. Minimum acceptable diet for breastfed children is defined as breastfed children 6–23 months of age who had at least the minimum dietary diversity and the minimum meal frequency during the previous day" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "madbf_whocore" ;
+  rdfs:label "madbf_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11639
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if minimum acceptable diet is met among non-breastfed kids. Minimum acceptable diet for non breastfed children is defined as non-breastfed children 6–23 months of age who received at least 2 milk feedings and had at least the minimum dietary diversity not including milk feeds and the minimum meal frequency during the previous day" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "madnonbf_whocore" ;
+  rdfs:label "madnonbf_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11640
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of minimum dietary diversity, which is defined as child consuming 4 or more food groups in the previous day." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "mdd_whocore" ;
+  rdfs:label "mdd_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11641
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Sum of of animal milk feeds during night and day and formula feeds during night and day." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "milkfd_whocore" ;
+  rdfs:label "milkfd_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11642
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; 1 if the sum of animal milk and formula feeds is greater than 1 for non breastfed kids" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "milkfdnonbr_whocore" ;
+  rdfs:label "milkfdnonbr_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11643
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of minimum meal frequency based on WHO core indicator definition. \"1\" if  breastfed child recieved  2 meals and non-breastfed child recieves 4 meals." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "mmealfq_whocore" ;
+  rdfs:label "mmealfq_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11644
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of foods made with beans, lentils, peas, corn, ground nuts?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moabean" ;
+  rdfs:label "moabean" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11645
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Are you breastfeeding <Child>?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moabrst" ;
+  rdfs:label "moabrst" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11646
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Yesterday, during the day, how many times did you breastfeed (child)?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moabrstd" ;
+  rdfs:label "moabrstd" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11647
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Last night, how many times did you breastfeed (Child) from sunset to sunrise?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moabrstn" ;
+  rdfs:label "moabrstn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11648
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of any commercially available foods for infants or young children?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moacomm" ;
+  rdfs:label "moacomm" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11649
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of cheese, yogurt or other dairy products?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moadai" ;
+  rdfs:label "moadai" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11650
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Date of  MOA collection" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moadate" ;
+  rdfs:label "moadate" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11651
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of eggs" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaegg" ;
+  rdfs:label "moaegg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11652
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Yesterday, counting meals and snacks, how many times did you feed (child)?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moafeedn" ;
+  rdfs:label "moafeedn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11653
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of fresh or dried fish or shellfish?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moafish" ;
+  rdfs:label "moafish" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11654
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Is (child) eating any semi-solid, mashed or solid foods?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moafood" ;
+  rdfs:label "moafood" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11655
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Do you give (Child) infant formula?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaform" ;
+  rdfs:label "moaform" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11656
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Yesterday, during the day, how many times did you feed (child) formula?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaformd" ;
+  rdfs:label "moaformd" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11657
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Last night, how many times did you feed (Child) formula from sunset to sunrise?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaformn" ;
+  rdfs:label "moaformn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11658
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of any other fruits or vegetables such as banana, apple, oranges, tomatoes, avocado?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moafrveg" ;
+  rdfs:label "moafrveg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11659
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of rice, porridge, bread, noodles or other foods made from grains?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moagrain" ;
+  rdfs:label "moagrain" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11660
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of fruit or vegetable juices?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moajuice" ;
+  rdfs:label "moajuice" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11661
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of any meat, such as chicken, beef, lamb, goat, duck (others)?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moameat" ;
+  rdfs:label "moameat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11662
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1;Do you give (Child) other milks, such as tinned, powdered or fresh animal milk?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moamilk" ;
+  rdfs:label "moamilk" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11663
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Yesterday, during the day, how many times did you feed (child) animal milk?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moamilkd" ;
+  rdfs:label "moamilkd" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11664
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Last night, how many times did you feed (child) animal milk from sunset to sunrise?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moamilkn" ;
+  rdfs:label "moamilkn" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11665
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of liver, kidney, heart or other organ meats?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaorg" ;
+  rdfs:label "moaorg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11666
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Any other liquids, such as sugar water, thin soup or broth, carbonated drinks (local examples)" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaoth" ;
+  rdfs:label "moaoth" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11667
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of white potatoes, white yams, manioc, or other foods made from roots?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaroot" ;
+  rdfs:label "moaroot" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11668
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of any dark green leafy vegetables such as spinach?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moaspi" ;
+  rdfs:label "moaspi" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11669
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of any sugary foods such as pastries, cakes or biscuits?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moasug" ;
+  rdfs:label "moasug" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11670
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1;Consumption of  tea, coffee (Local examples)?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moateacof" ;
+  rdfs:label "moateacof" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11671
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of plain water" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moawat" ;
+  rdfs:label "moawat" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11672
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of ripe mangoes, papayas, or other sweet yellow/orange or red fruit?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moayfru" ;
+  rdfs:label "moayfru" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11673
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Condumption of carrots, squash, or sweet potatoes that are yellow or orange inside?" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "moayveg" ;
+  rdfs:label "moayveg" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11676
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasCSNotes "MOA = Monthly Form A, scheduled target date of collection one a month for children 1-8 months; age in months time indicator of WHO data set" ;
+  MALED1:hasDescription1 "age of the child in target months" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "target_month" ;
+  rdfs:label "target_month" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11677
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "0/1; Consumption of vitamin A vegetables and fruits food group (includes yellow fruit, spinach, yellow vegetables)" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "vitaavegfru" ;
+  rdfs:label "vitaavegfru" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:EUPATH_11678
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 """0-7  = Sum of food groups consumed based on WHO diet diversity for all children. The 7 foods groups used for tabulation of this indicator are:                                                                                                                                                       — grains, roots and tubers
+— legumes and nuts
+— dairy products (milk, yogurt, cheese)
+— flesh foods (meat, fish, poultry and liver/organ meats)
+— eggs
+— vitamin-A rich fruits and vegetables
+— other fruits and vegetables""" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "whodd_whocore" ;
+  rdfs:label "whodd_whocore" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:OBI_0001616
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Sample ID" ;
+  MALED1:hasSource "BRF/UCF" ;
+  obo:EUPATH_0000755 "sampid" ;
+  rdfs:label "specimen identifier" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:OBI_0001627
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "diet_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:hasDescription1 "2 letter site code" ;
+  MALED1:hasDescription1 "Country ID" ;
+  MALED1:hasDescription1 "Country code" ;
+  MALED1:hasDescription1 "Country" ;
+  MALED1:hasDescription1 "Study site number" ;
+  MALED1:hasSource "BRF" ;
+  MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "SRF" ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "Country_ID" ;
+  obo:EUPATH_0000755 "country_id" ;
+  obo:EUPATH_0000755 "grp" ;
+  rdfs:label "Country of investigative site" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:OBI_0001628
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "Country_ID" ;
+  MALED1:hasDescription2 "site code" ;
+  MALED1:hasSource "FSE" ;
+  obo:EUPATH_0000755 "Country_ID" ;
+  rdfs:label "Country of investigative site" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:OBI_0001629
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
+  MALED1:hasDescription1 "Site ID" ;
+  MALED1:hasSource "MOA" ;
+  obo:EUPATH_0000755 "country_id" ;
+  rdfs:label "Country of investigative site" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:OBI_0100051
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "mn_blood_iar_24m" ;
+  MALED1:hasDescription1 "Type of sample (blood, urine)" ;
+  MALED1:hasJieNotes "we always map it to OBI:specimen since urine specimen, blood specimen, etc. different kind of specimens are its subclasses" ;
+  MALED1:hasNotes "Please assess." ;
+  MALED1:hasSource "calculated" ;
+  obo:EUPATH_0000755 "sampletype" ;
+  rdfs:label "specimen" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+obo:PATO_0000047
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:hasDescription1 "Sex - Male=0, Female=1" ;
+  MALED1:hasDescription1 "sex of child" ;
+  MALED1:hasDescription2 "1=male, 2=female" ;
+  MALED1:hasSource "CAF" ;
+  MALED1:hasSource "PIDs" ;
+  obo:EUPATH_0000755 "CAFSEX" ;
+  obo:EUPATH_0000755 "ma0fe1" ;
+  rdfs:label "Sex" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
+.
+<http://www.ebi.ac.uk/efo/EFO_0004950>
+  rdf:type owl:Class ;
+  MALED1:belongsToDataset "bf_24m" ;
+  MALED1:belongsToDataset "fsq_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
+  MALED1:hasDescription1 "CAF date of birth" ;
+  MALED1:hasDescription1 "Date of birth" ;
+  MALED1:hasDescription1 "date of birth" ;
+  MALED1:hasDescription2 "dd-mm-yy" ;
+  MALED1:hasDescription2 "dd/mmm/yy" ;
+  MALED1:hasSource "CAF" ;
+  MALED1:hasSource "PIDs" ;
+  obo:EUPATH_0000755 "CAFDDOB" ;
+  obo:EUPATH_0000755 "cafddob" ;
+  obo:EUPATH_0000755 "dob" ;
+  rdfs:label "Date of birth" ;
+  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
