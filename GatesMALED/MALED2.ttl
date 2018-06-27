@@ -1,5 +1,4 @@
 # baseURI: http://doesntmatter.org/MALED2
-# imports: file:///GitWorkspace/GatesMALED/MALED2.xls
 # imports: http://purl.obolibrary.org/obo/gates/gates_maled
 
 @prefix MALED1: <http://doesntmatter.org/MALED1#> .
@@ -11,7 +10,6 @@
 
 <http://doesntmatter.org/MALED2>
   rdf:type owl:Ontology ;
-#  owl:imports <file:///GitWorkspace/GatesMALED/MALED2.xls> ;
   owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -29,7 +27,6 @@ Protected well = 05; Unprotected well = 06 ; Surface water (river/ dam/ lake/pon
   MALED1:hasSource "FSE" ;
   obo:EUPATH_0000755 "fsewdrink" ;
   rdfs:label "Primary source of drinking water?" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:ENVO_01000517
   rdf:type owl:Class ;
@@ -64,7 +61,6 @@ Other = 05""" ;
   MALED1:hasSource "FSE" ;
   obo:EUPATH_0000755 "fsefloor" ;
   rdfs:label "Floor material" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000009
   rdf:type owl:Class ;
@@ -100,7 +96,6 @@ obo:EUPATH_0000047
   MALED1:hasSource "BCH" ;
   obo:EUPATH_0000755 "BCHHB" ;
   rdfs:label "Hemoglobin (mg/dL) -correct." ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000091
   rdf:type owl:Class ;
@@ -109,46 +104,32 @@ obo:EUPATH_0000091
   MALED1:hasSource "SAF" ;
   obo:EUPATH_0000755 "date" ;
   rdfs:label "Date of observation" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000095
   rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
   MALED1:belongsToDataset "bf_24m" ;
   MALED1:belongsToDataset "diet_24m" ;
   MALED1:belongsToDataset "fsq_24m" ;
   MALED1:belongsToDataset "mn_blood_iar_24m" ;
   MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
   MALED1:hasDescription1 "Child ID (original)" ;
   MALED1:hasDescription1 "Child ID" ;
+  MALED1:hasDescription1 "PID" ;
   MALED1:hasDescription1 "Pid" ;
   MALED1:hasDescription1 "child id" ;
+  MALED1:hasDescription2 "unique identifier" ;
   MALED1:hasSource "BRF/UCF" ;
+  MALED1:hasSource "FSE" ;
   MALED1:hasSource "FSQ" ;
+  MALED1:hasSource "MOA" ;
   MALED1:hasSource "SAF" ;
   MALED1:hasSource "SRF" ;
+  obo:EUPATH_0000755 "PID" ;
   obo:EUPATH_0000755 "Pid" ;
   obo:EUPATH_0000755 "pid" ;
   rdfs:label "Subject ID" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
-.
-obo:EUPATH_0000096
-  rdf:type owl:Class ;
-  MALED1:belongsToDataset "wami_24m" ;
-  MALED1:hasDescription1 "PID" ;
-  MALED1:hasDescription2 "unique identifier" ;
-  MALED1:hasSource "FSE" ;
-  obo:EUPATH_0000755 "PID" ;
-  rdfs:label "Subject ID" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
-.
-obo:EUPATH_0000097
-  rdf:type owl:Class ;
-  MALED1:belongsToDataset "WHO" ;
-  MALED1:hasDescription1 "Child ID" ;
-  MALED1:hasSource "MOA" ;
-  obo:EUPATH_0000755 "pid" ;
-  rdfs:label "Subject ID" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000167
   rdf:type owl:Class ;
@@ -190,7 +171,7 @@ obo:EUPATH_0000184
   rdfs:label "household table asset" ;
   rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
-obo:EUPATH_0000336
+obo:EUPATH_0000335
   rdf:type owl:Class ;
   MALED1:belongsToDataset "wami_24m" ;
   MALED1:hasDescription1 "What kind of toilet facility do members of your household usually use? Equal to FSE toilet except when new data provided by TZH, SAV, and PEL conflict. It is preferable to use this variable than the raw variable as correct accounting for type of latrine has been made." ;
@@ -204,7 +185,6 @@ Other = 07""" ;
   MALED1:hasSource "Derived" ;
   obo:EUPATH_0000755 "fsetoiletmod" ;
   rdfs:label "Type of sanitary facility" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000644
   rdf:type owl:Class ;
@@ -232,7 +212,6 @@ obo:EUPATH_0000644
   obo:EUPATH_0000755 "agedays" ;
   obo:EUPATH_0000755 "round_age" ;
   rdfs:label "Age (days)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000647
   rdf:type owl:Class ;
@@ -241,7 +220,6 @@ obo:EUPATH_0000647
   MALED1:hasSource "AGP" ;
   obo:EUPATH_0000755 "AGPVAL1" ;
   rdfs:label "Alpha-1-Acid Glycoprotein (mg/dL)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000687
   rdf:type owl:Class ;
@@ -252,7 +230,6 @@ obo:EUPATH_0000687
   MALED1:hasSource "IAR" ;
   obo:EUPATH_0000755 "IARCONC" ;
   rdfs:label "IARCONC" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000688
   rdf:type owl:Class ;
@@ -264,7 +241,6 @@ obo:EUPATH_0000688
   MALED1:hasSource "BLL" ;
   obo:EUPATH_0000755 "BLLCONC" ;
   rdfs:label "Lead (ug/ml)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000711
   rdf:type owl:Class ;
@@ -277,7 +253,6 @@ obo:EUPATH_0000711
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFSTMUCUS" ;
   rdfs:label "Mucus in stool" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000714
   rdf:type owl:Class ;
@@ -287,7 +262,6 @@ obo:EUPATH_0000714
   MALED1:hasSource "FSE" ;
   obo:EUPATH_0000755 "fsesleep" ;
   rdfs:label "Number of persons sleeping in house" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000721
   rdf:type owl:Class ;
@@ -296,7 +270,6 @@ obo:EUPATH_0000721
   MALED1:hasSource "RAR" ;
   obo:EUPATH_0000755 "RARCONC" ;
   rdfs:label "Retinol (ug/dL)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000723
   rdf:type owl:Class ;
@@ -305,7 +278,6 @@ obo:EUPATH_0000723
   MALED1:hasSource "TFR" ;
   obo:EUPATH_0000755 "TFRCONC" ;
   rdfs:label "Soluble transferrin receptor" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000727
   rdf:type owl:Class ;
@@ -317,7 +289,6 @@ obo:EUPATH_0000727
   MALED1:hasSource "FSE" ;
   obo:EUPATH_0000755 "fseincomenum" ;
   rdfs:label "Total family income" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0000735
   rdf:type owl:Class ;
@@ -327,7 +298,6 @@ obo:EUPATH_0000735
   MALED1:hasSource "ZAR" ;
   obo:EUPATH_0000755 "ZARCONC" ;
   rdfs:label "Zinc (ug/ml)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010217
   rdf:type owl:Class ;
@@ -337,7 +307,6 @@ obo:EUPATH_0010217
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFCONSIST" ;
   rdfs:label "Consistency of whole stool sample" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010226
   rdf:type owl:Class ;
@@ -346,7 +315,6 @@ obo:EUPATH_0010226
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFMBSAMPID" ;
   rdfs:label "Stool specimen ID" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010436
   rdf:type owl:Class ;
@@ -365,7 +333,6 @@ obo:EUPATH_0010436
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "agemonths" ;
   rdfs:label "Age (months)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010437
   rdf:type owl:Class ;
@@ -383,7 +350,6 @@ obo:EUPATH_0010437
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "ageyears" ;
   rdfs:label "Age (years)" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010438
   rdf:type owl:Class ;
@@ -406,7 +372,6 @@ extened window, out of window""" ;
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "window" ;
   rdfs:label "Target window category" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010467
   rdf:type owl:Class ;
@@ -415,7 +380,6 @@ obo:EUPATH_0010467
   MALED1:hasSource "calculated" ;
   obo:EUPATH_0000755 "month_of_age" ;
   rdfs:label "Age, month" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010468
   rdf:type owl:Class ;
@@ -443,7 +407,6 @@ obo:EUPATH_0010468
   MALED1:hasSource "calculated" ;
   obo:EUPATH_0000755 "month_ss" ;
   rdfs:label "Age, month by birthday" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010474
   rdf:type owl:Class ;
@@ -452,7 +415,6 @@ obo:EUPATH_0010474
   MALED1:hasSource "illnessfull" ;
   obo:EUPATH_0000755 "dprev3" ;
   rdfs:label "Diarrheal days" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010482
   rdf:type owl:Class ;
@@ -461,7 +423,6 @@ obo:EUPATH_0010482
   MALED1:hasSource "illnessfull" ;
   obo:EUPATH_0000755 "lastdiar" ;
   rdfs:label "Days since last diarrheal episode" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010483
   rdf:type owl:Class ;
@@ -470,7 +431,6 @@ obo:EUPATH_0010483
   MALED1:hasSource "illnessfull" ;
   obo:EUPATH_0000755 "untildiar" ;
   rdfs:label "Days between diarrheal episodes" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010500
   rdf:type owl:Class ;
@@ -479,7 +439,6 @@ obo:EUPATH_0010500
   MALED1:hasSource "illnessfull" ;
   obo:EUPATH_0000755 "score" ;
   rdfs:label "Diarrheal episode score, combined Vesikari/Clark severity" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010524
   rdf:type owl:Class ;
@@ -488,7 +447,6 @@ obo:EUPATH_0010524
   MALED1:hasSource "illnessfull" ;
   obo:EUPATH_0000755 "gemsdef" ;
   rdfs:label "Moderate-to-severe diarrhea, GEMS criteria" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010548
   rdf:type owl:Class ;
@@ -498,7 +456,6 @@ obo:EUPATH_0010548
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFSPECTYPE" ;
   rdfs:label "Monthly, archive only sample" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010856
   rdf:type owl:Class ;
@@ -507,7 +464,6 @@ obo:EUPATH_0010856
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFDATE" ;
   rdfs:label "Date stool collection" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010857
   rdf:type owl:Class ;
@@ -516,7 +472,6 @@ obo:EUPATH_0010857
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFFRSTSID" ;
   rdfs:label "First sample ID if recollection" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010859
   rdf:type owl:Class ;
@@ -526,7 +481,6 @@ obo:EUPATH_0010859
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "sid.r1" ;
   rdfs:label "Sample ID for first recollection" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010860
   rdf:type owl:Class ;
@@ -534,7 +488,6 @@ obo:EUPATH_0010860
   MALED1:hasCSNotes "sample ID given 2st recollection of stool (SRFFRSTSID)" ;
   obo:EUPATH_0000755 "sid.r2" ;
   rdfs:label "Sample ID for second recollection" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010861
   rdf:type owl:Class ;
@@ -542,7 +495,6 @@ obo:EUPATH_0010861
   MALED1:hasCSNotes "sample ID given 3st recollection of stool (SRFFRSTSID)" ;
   obo:EUPATH_0000755 "sid.r3" ;
   rdfs:label "Sample ID for third recollection" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0010863
   rdf:type owl:Class ;
@@ -552,7 +504,6 @@ obo:EUPATH_0010863
   MALED1:hasSource "SRF" ;
   obo:EUPATH_0000755 "SRFSTBLOOD" ;
   rdfs:label "Blood in stool" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:EUPATH_0015003
   rdf:type owl:Class ;
@@ -2815,44 +2766,31 @@ obo:OBI_0001616
 .
 obo:OBI_0001627
   rdf:type owl:Class ;
+  MALED1:belongsToDataset "WHO" ;
   MALED1:belongsToDataset "bf_24m" ;
   MALED1:belongsToDataset "diet_24m" ;
   MALED1:belongsToDataset "fsq_24m" ;
   MALED1:belongsToDataset "mn_blood_iar_24m" ;
   MALED1:belongsToDataset "mpo_neo_ala_24m" ;
+  MALED1:belongsToDataset "wami_24m" ;
   MALED1:hasDescription1 "2 letter site code" ;
   MALED1:hasDescription1 "Country ID" ;
   MALED1:hasDescription1 "Country code" ;
   MALED1:hasDescription1 "Country" ;
+  MALED1:hasDescription1 "Country_ID" ;
+  MALED1:hasDescription1 "Site ID" ;
   MALED1:hasDescription1 "Study site number" ;
+  MALED1:hasDescription2 "site code" ;
   MALED1:hasSource "BRF" ;
   MALED1:hasSource "FRQ" ;
+  MALED1:hasSource "FSE" ;
+  MALED1:hasSource "MOA" ;
   MALED1:hasSource "SRF" ;
   MALED1:hasSource "calculated" ;
   obo:EUPATH_0000755 "Country_ID" ;
   obo:EUPATH_0000755 "country_id" ;
   obo:EUPATH_0000755 "grp" ;
   rdfs:label "Country of investigative site" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
-.
-obo:OBI_0001628
-  rdf:type owl:Class ;
-  MALED1:belongsToDataset "wami_24m" ;
-  MALED1:hasDescription1 "Country_ID" ;
-  MALED1:hasDescription2 "site code" ;
-  MALED1:hasSource "FSE" ;
-  obo:EUPATH_0000755 "Country_ID" ;
-  rdfs:label "Country of investigative site" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
-.
-obo:OBI_0001629
-  rdf:type owl:Class ;
-  MALED1:belongsToDataset "WHO" ;
-  MALED1:hasDescription1 "Site ID" ;
-  MALED1:hasSource "MOA" ;
-  obo:EUPATH_0000755 "country_id" ;
-  rdfs:label "Country of investigative site" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:OBI_0100051
   rdf:type owl:Class ;
@@ -2863,7 +2801,6 @@ obo:OBI_0100051
   MALED1:hasSource "calculated" ;
   obo:EUPATH_0000755 "sampletype" ;
   rdfs:label "specimen" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 obo:PATO_0000047
   rdf:type owl:Class ;
@@ -2877,7 +2814,6 @@ obo:PATO_0000047
   obo:EUPATH_0000755 "CAFSEX" ;
   obo:EUPATH_0000755 "ma0fe1" ;
   rdfs:label "Sex" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
 <http://www.ebi.ac.uk/efo/EFO_0004950>
   rdf:type owl:Class ;
@@ -2895,5 +2831,4 @@ obo:PATO_0000047
   obo:EUPATH_0000755 "cafddob" ;
   obo:EUPATH_0000755 "dob" ;
   rdfs:label "Date of birth" ;
-  rdfs:subClassOf <http://doesntmatter.org/MALED2#Variables> ;
 .
