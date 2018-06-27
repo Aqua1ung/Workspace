@@ -10,7 +10,7 @@
 
 <http://doesntmatter.org/MALED2>
   rdf:type owl:Ontology ;
-  owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
+#  owl:imports <http://purl.obolibrary.org/obo/gates/gates_maled> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 <http://doesntmatter.org/MALED2#Variables>
