@@ -1,0 +1,111 @@
+# baseURI: http://doesntmatter.org/Uganda
+# imports: http://purl.obolibrary.org/obo/eupath.owl
+# prefix: Uganda
+
+@prefix Uganda: <http://doesntmatter.org/Uganda#> .
+@prefix eupath: <http://purl.obolibrary.org/obo/eupath.owl#> .
+@prefix obi-edit.owl: <http://purl.obolibrary.org/obo/obi/dev/obi-edit.owl/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://doesntmatter.org/Uganda>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.obolibrary.org/obo/eupath.owl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+obo:LevelOfAntibody
+  rdf:type owl:Class ;
+  rdfs:label "Level of antibody" ;
+  rdfs:subClassOf obo:IAO_0000032 ;
+.
+obo:OBI_0001985
+  rdf:type owl:Class ;
+  obo:IAO_0000112 "Measuring if sera from an influenza A virus immunizedmouse binds to Hemagglutinin protein that is immobilized on a microarray." ;
+  obo:IAO_0000115 "An analyte assay where binding of the analyte to immobilized matrix is measured." ;
+  obo:IAO_0000117 "IEDB" ;
+  obo:IAO_0000119 "IEDB" ;
+  rdfs:label "microarray assay" ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          obo:OBI_0000443
+          [
+            rdf:type owl:Class ;
+            owl:intersectionOf (
+                [
+                  rdf:type owl:Restriction ;
+                  owl:onProperty obo:BFO_0000055 ;
+                  owl:someValuesFrom [
+                      rdf:type owl:Class ;
+                      owl:intersectionOf (
+                          obo:BFO_0000034
+                          [
+                            rdf:type owl:Restriction ;
+                            owl:onProperty obo:RO_0000052 ;
+                            owl:someValuesFrom obo:OBI_0400147 ;
+                          ]
+                        ) ;
+                    ] ;
+                ]
+                [
+                  rdf:type owl:Restriction ;
+                  owl:onProperty obo:OBI_0000293 ;
+                  owl:someValuesFrom obo:OBI_0400147 ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+.
+obo:OBI_0100016
+  rdf:type owl:Class ;
+  obo:IAO_0000111 "blood plasma specimen"@en ;
+  obo:IAO_0000112 "PMID: 18217225.Sex Transm Dis. 2008 Jan;35(1):55-60. Review.Human immunodeficiency virus viral load in blood plasma and semen: review and implications of empirical findings."@en ;
+  obo:IAO_0000114 obo:IAO_0000120 ;
+  obo:IAO_0000115 "a material entity which corresponds to the liquid component of blood, in which the blood cells are suspended."@en ;
+  obo:IAO_0000116 "03/21/2010: BP, blood plasma is defined as the output of certain separation processes, so this is in the domain of OBI, not FMA."@en ;
+  obo:IAO_0000117 "PERSON: Maura Gasparetto"@en ;
+  obo:IAO_0000117 "PERSON: Melanie Courtot"@en ;
+  obo:IAO_0000117 "PERSON: Philippe Rocca-Serra" ;
+  obo:IAO_0000118 "plasma"@en ;
+  obo:IAO_0000119 "WEB: http://en.wikipedia.org/wiki/Blood_plasma"@en ;
+  obo:IAO_0000412 <http://purl.obolibrary.org/obo/obi.owl> ;
+  rdfs:label "blood plasma specimen"@en ;
+  rdfs:subClassOf obo:BFO_0000040 ;
+  rdfs:subClassOf obo:OBI_0000953 ;
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          obo:BFO_0000040
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty obo:RO_0000087 ;
+            owl:someValuesFrom obo:OBI_0000112 ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty obo:OBI_0000312 ;
+      owl:someValuesFrom [
+          rdf:type owl:Class ;
+          owl:intersectionOf (
+              obo:OBI_0600014
+              [
+                rdf:type owl:Restriction ;
+                owl:onProperty obo:OBI_0000293 ;
+                owl:someValuesFrom obo:OBI_0000655 ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+.
+obo:hasEndTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain obo:BFO_0000015 ;
+  rdfs:label "has end time" ;
+  rdfs:range xsd:dateTime ;
+.
