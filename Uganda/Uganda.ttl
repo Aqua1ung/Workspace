@@ -18,7 +18,7 @@
 .
 obo:LevelOfAntibody
   rdf:type owl:Class ;
-  rdfs:label "Level of antibody" ;
+  rdfs:label "Antibody intensity" ;
   rdfs:subClassOf obo:IAO_0000032 ;
 .
 obo:OBI_0001985
@@ -103,9 +103,26 @@ obo:OBI_0100016
         ] ;
     ] ;
 .
+obo:hasDoB
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain obo:OBI_0100026 ;
+  rdfs:label "has date of birth" ;
+  rdfs:range xsd:dateTime ;
+.
 obo:hasEndTime
   rdf:type owl:DatatypeProperty ;
   rdfs:domain obo:BFO_0000015 ;
   rdfs:label "has end time" ;
   rdfs:range xsd:dateTime ;
+.
+obo:hasID
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "has ID" ;
+  rdfs:range xsd:string ;
+.
+obo:hasSex
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain obo:OBI_0100026 ;
+  rdfs:label "has sex" ;
+  rdfs:range obo:PATO_0000047 ;
 .
