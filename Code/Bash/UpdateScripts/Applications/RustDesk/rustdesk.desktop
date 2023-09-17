@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Rustdesk
+Type=Application
+Exec=rustdesk --tray
+Icon=/usr/share/rustdesk/files/rustdesk.png
+NoDisplay=false

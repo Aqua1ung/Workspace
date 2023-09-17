@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=NetBird
+Exec=netbird-ui
+Icon=netbird-ui
+StartupNotify=true
+Terminal=false
+Type=Application
