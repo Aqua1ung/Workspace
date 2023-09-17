@@ -52,4 +52,4 @@ sudo -u dad mkdir /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
-echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird.sh!"
+echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird_dad.sh!"

@@ -7,6 +7,14 @@ then
   exit
 fi
 
+read -p "Type in your Linux username, followed by Enter: " user
+printf '\n' # Skip to new line.
+if [ $user != mom ] && [ $user != gabe ] && [ $user != paul ]
+then
+  echo "You have mistyped the user name. Exiting ..."
+  exit
+fi
+
 # force=$(swupd check-update | grep -c "There are no updates available")
 force=6 # Apparently forcing Chrome re-install doesn't fix hardware acceleration.
 swupd update
@@ -17,7 +25,7 @@ printf '\n' # Skip to new line.
 # Install dependencies.
 # swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils # containers-basic
 
-cd /home/$USER/Applications
+cd /home/$user/Applications
 
 # Required by AURGA viewer.
 read -p "Do you use AURGA? (Y/N) " -n 1 aurga
@@ -50,7 +58,7 @@ then
     tar -xf rustdesk-1.2.3-0-x86_64.pkg.tar.zst -C /
     cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system
     cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications
-    cp RustDesk/rustdesk.desktop /home/$USER/.config/autostart/
+    cp RustDesk/rustdesk.desktop /home/$user/.config/autostart/
     cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications
     systemctl daemon-reload
     systemctl enable rustdesk
@@ -64,7 +72,7 @@ then
       tar -xf rustdesk-1.2.3-0-x86_64.pkg.tar.zst -C /
       cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system
       cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications
-      cp RustDesk/rustdesk.desktop /home/$USER/.config/autostart/
+      cp RustDesk/rustdesk.desktop /home/$user/.config/autostart/
       cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications
       systemctl daemon-reload
       systemctl enable rustdesk
@@ -148,8 +156,8 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  rm -f /home/$USER/.var/app/org.remmina.Remmina/data/remmina/*
-  tar -xf /home/$USER/Applications/remmina.tar.xz -C /home/$USER/.var/app/org.remmina.Remmina/data/remmina
+  rm -f /home/$user/.var/app/org.remmina.Remmina/data/remmina/*
+  tar -xf /home/$user/Applications/remmina.tar.xz -C /home/$user/.var/app/org.remmina.Remmina/data/remmina
 else
   echo "Skipping Remmina connections restore."
 fi

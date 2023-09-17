@@ -8,7 +8,17 @@ then
   exit
 fi
 
-if [ $USER == gabe ]
+printf '\n' # Skip to new line.
+
+read -p "Type in your Linux username, followed by Enter: " user
+printf '\n' # Skip to new line.
+if [ $user != mom ] && [ $user != gabe ] && [ $user != paul ]
+then
+  echo "You have mistyped the user name. Exiting ..."
+  exit
+fi
+
+if [ $user == gabe ]
 then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
   cp /run/media/gabe/InstallationKits/rmmod.* /etc/systemd/system
@@ -25,7 +35,7 @@ fi
 # Install swupd bundles.
 swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic # containers-basic
 
-cd /home/$USER/Downloads
+cd /home/$user/Downloads
 
 # Download and install Chrome.
 wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
@@ -46,20 +56,20 @@ sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Fl
 
 # Add permissions for Solaar to start as root.
 mkdir /etc/udev/rules.d/
-cp /run/media/$USER/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+cp /run/media/$user/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u $USER mkdir /home/$USER/.config/solaar
-sudo -u $USER cp /run/media/$USER/InstallationKits/Solaar/DadsGram/*.yaml /home/$USER/.config/solaar
-sudo -u $USER cp /run/media/$USER/InstallationKits/Solaar/solaar.desktop /home/$USER/.config/autostart
+sudo -u $user mkdir /home/$user/.config/solaar
+sudo -u $user cp /run/media/$user/InstallationKits/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
+sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$user/.config/autostart
 
 # Required by AURGA viewer.
-# cp /run/media/$USER/InstallationKits/AURGA/LinuxBinaries/99-input-permissions.rules /etc/udev/rules.d/
+# cp /run/media/$user/InstallationKits/AURGA/LinuxBinaries/99-input-permissions.rules /etc/udev/rules.d/
 # udevadm control --reload-rules && udevadm trigger
 
 # Install update scripts.
-tar -xf /run/media/$USER/InstallationKits/UpdateScripts/UpdateScripts.tar.xz -C /home/$USER
-rm /home/$USER/readme.txt
+tar -xf /run/media/$user/InstallationKits/UpdateScripts/UpdateScripts.tar.xz -C /home/$user
+rm /home/$user/readme.txt
 
 # Set bluetooth power up.
 tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
