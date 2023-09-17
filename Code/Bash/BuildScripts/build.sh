@@ -68,8 +68,11 @@ sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$
 # udevadm control --reload-rules && udevadm trigger
 
 # Install update scripts.
-tar -xf /run/media/$user/InstallationKits/UpdateScripts/UpdateScripts.tar.xz -C /home/$user
-rm /home/$user/readme.txt
+wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
+unzip master.zip
+cp -r Workspace-master/Code/Bash/UpdateScripts/Applications /home/$user/
+rm -r Workspace-master/
+rm master.zip
 
 # Set bluetooth power up.
 tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
