@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Update Computer
+Exec=sudo /run/media/dad/InstallationKits/UpdateDadsGram.sh
+# Exec=gnome-terminal --window-with-profile=Default -- sudo /run/media/dad/InstallationKits/UpdateDadsGram.sh
+Terminal=true

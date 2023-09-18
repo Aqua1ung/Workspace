@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Update NetBird
+Exec=/home/mom/Applications/netbird.sh
+Terminal=true

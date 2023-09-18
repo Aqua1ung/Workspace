@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Update NetBird
+Exec=/run/media/dad/InstallationKits/BuildScripts/netbird_dad.sh
+# Exec=gnome-terminal --window-with-profile=Default -- /run/media/dad/InstallationKits/BuildScripts/netbird_dad.sh
+Terminal=true

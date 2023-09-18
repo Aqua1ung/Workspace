@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Update Computer
+Exec=sudo /home/mom/Applications/Update.sh
+Terminal=true
