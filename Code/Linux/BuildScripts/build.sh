@@ -37,22 +37,22 @@ swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remot
 
 cd /home/$user/Downloads
 
-# Download and install Chrome.
-wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-rpm -U --nodeps google-chrome*.rpm
-sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
+# # Download and install Chrome.
+# wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+# rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
+# rpm -U --nodeps google-chrome*.rpm
+# sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
 
-# Download and install VSCodium.
-location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
-# echo $location
-tag=$(echo "$location" | sed 's/location: https.\+tag\///')
-wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
-rpm -Uvh --nodeps codium*.rpm
+# # Download and install VSCodium.
+# location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
+# # echo $location
+# tag=$(echo "$location" | sed 's/location: https.\+tag\///')
+# wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+# rpm -Uvh --nodeps codium*.rpm
 
 # Install remote flatpak bundles.
 sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware org.remmina.Remmina com.mattjakeman.ExtensionManager com.visualstudio.code org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware org.remmina.Remmina com.mattjakeman.ExtensionManager com.visualstudio.code org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
 mkdir /etc/udev/rules.d/
