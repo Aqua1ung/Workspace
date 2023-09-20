@@ -70,7 +70,7 @@ sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$
 # Install update scripts.
 wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
 unzip master.zip
-cp -r Workspace-master/Code/Bash/UpdateScripts/Applications /home/$user/
+cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
 rm -r Workspace-master/
 rm master.zip
 
