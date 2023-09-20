@@ -40,4 +40,11 @@ sudo -u dad mkdir /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
+# Configure Git email and username.
+git config --global user.name "Cristian Cocos"
+git config --global user.email "cristi@ieee.org"
+
+# Add update script desktop links.
+sudo -u dad cp /run/media/dad/InstallationKits/Update*.desktop /home/dad/.local/share/applications
+
 echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird_dad.sh!"

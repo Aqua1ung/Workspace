@@ -146,6 +146,7 @@ printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
   rm -f /home/dad/.var/app/org.remmina.Remmina/data/remmina/*
+  sudo -u dad mkdir -p /home/dad/.var/app/org.remmina.Remmina/data/remmina/
   tar -xf /run/media/dad/InstallationKits/remmina.tar.xz -C /home/dad/.var/app/org.remmina.Remmina/data/remmina
 else
   echo "Skipping Remmina connections restore."
