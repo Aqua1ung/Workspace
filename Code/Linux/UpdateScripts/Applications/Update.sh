@@ -164,6 +164,17 @@ else
 fi
 printf '\n' # Skip to new line.
 
+echo "Clearing Chrome's GPUCache ..."
+printf '\n' # Insert blank line.
+find /home/"$user"/.config -type d -name GPUCache | while read path
+do
+rm "$path"/*
+done
+printf '\n' # Insert blank line.
+echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
+
+printf '\n' # Insert blank line.
+
 # Update NetBird: run netbird.sh.
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird.sh to update NetBird."
