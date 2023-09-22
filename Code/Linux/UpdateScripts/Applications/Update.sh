@@ -164,7 +164,7 @@ else
 fi
 printf '\n' # Skip to new line.
 
-echo "Clearing Chrome's GPUCache ..."
+echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
 find /home/"$user"/.config -type d -name GPUCache | while read path
 do
