@@ -145,9 +145,9 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  rm -f /home/dad/.var/app/org.remmina.Remmina/data/remmina/*
-  sudo -u dad mkdir -p /home/dad/.var/app/org.remmina.Remmina/data/remmina/
-  tar -xf /run/media/dad/InstallationKits/remmina.tar.xz -C /home/dad/.var/app/org.remmina.Remmina/data/remmina
+  rm -f /home/dad/.local/share/remmina/*
+  sudo -u dad mkdir -p /home/dad/.local/share/remmina/
+  tar -xf /run/media/dad/InstallationKits/remmina.tar.xz -C /home/dad/.local/share/remmina/
 else
   echo "Skipping Remmina connections restore."
 fi
