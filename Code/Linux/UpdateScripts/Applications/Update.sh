@@ -114,13 +114,19 @@ fi
 printf '\n' # Insert blank line.
 
 # Download and install VSCodium.
-echo "Installing or updating VSCodium ..."
-printf '\n' # Insert blank line.
-location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
-# echo $location
-tag=$(echo "$location" | sed 's/location: https.\+tag\///')
-wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
-rpm -Uvh --nodeps codium*.rpm
+read -p "Do you want to install/update VSCodium? (Y/N) " -n 1 vsc
+printf '\n' # Skip to new line.
+if [ $vsc == y ] || [ $vsc == Y ]
+then
+  echo "Installing or updating VSCodium ..."
+  location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
+  # echo $location
+  tag=$(echo "$location" | sed 's/location: https.\+tag\///')
+  wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+  rpm -Uvh --nodeps codium*.rpm
+else
+  echo "Skipping VSCodium install/update."
+fi
 printf '\n' # Skip to new line.
 
 # Download and install/update Ugee drivers.
