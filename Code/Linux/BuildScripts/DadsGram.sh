@@ -47,4 +47,20 @@ git config --global user.email "cristi@ieee.org"
 # Add update script desktop links.
 sudo -u dad cp /run/media/dad/InstallationKits/Update*.desktop /home/dad/.local/share/applications
 
+# Add Rustdeak plugin to Remmina.
+# location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
+# # echo $location
+# tag=$(echo "$location" | sed 's/location: https.\+tag\///')
+# wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+# rpm -Uvh --nodeps codium*.rpm
+# printf '\n' # Skip to new line.
+
+# mkdir -p /usr/share/icons/hicolor/22x22/emblems
+# mkdir -p /usr/share/icons/hicolor/16x16/emblems
+# cp /home/dad/Downloads/usr/share/icons/hicolor/16x16/emblems/* /usr/share/icons/hicolor/16x16/emblems
+# cp /home/dad/Downloads/usr/share/icons/hicolor/22x22//emblems/* /usr/share/icons/hicolor/22x22/emblems
+# tar --use-compress-program=unzstd -xvf remmina*.tar.zst
+# cp /home/dad/Downloads/usr/lib/remmina/plugins/*.so /usr/lib64/remmina/plugins/
+# rm -rf usr
+
 echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird_dad.sh!"
