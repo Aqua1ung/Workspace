@@ -162,7 +162,7 @@ printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
-find /home/"$user"/.config -type d -name GPUCache | while read path
+find /home/dad/.config -type d -name GPUCache | while read path
 do
 rm "$path"/*
 done
