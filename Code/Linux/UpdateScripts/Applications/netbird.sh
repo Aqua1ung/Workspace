@@ -7,6 +7,8 @@ then
   exit
 fi
 
+pkill netbird-ui
+
 export USE_BIN_INSTALL=true
 
 # Download and install/update NetBird.
@@ -21,7 +23,6 @@ then
   echo "Logout or reboot needed."
 else
   echo "Updating NetBird ..."
-  pkill netbird-ui
   printf '\n' # Insert blank line.
   curl -fsSL https://pkgs.netbird.io/install.sh | sh -s -- --update
 fi
