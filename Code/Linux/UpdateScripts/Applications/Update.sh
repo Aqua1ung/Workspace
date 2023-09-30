@@ -15,8 +15,6 @@ then
   exit
 fi
 
-# force=$(swupd check-update | grep -c "There are no updates available")
-force=6 # Apparently forcing Chrome re-install doesn't fix hardware acceleration.
 swupd update
 flatpak update
 
@@ -91,23 +89,14 @@ printf '\n' # Insert blank line.
 # Download and install/update Chrome.
 read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
 printf '\n' # Skip to new line.
-if [ $chr == y ] || [ $chr == Y ] || [ $force -eq 0 ]
+if [ $chr == y ] || [ $chr == Y ]
 then
   wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Download Chrome.
-  if [ $force -eq 0 ] # Force Chrome re-install.
-  then
-    printf '\n' # Insert blank line.
-    echo "Forcing Chrome (re)install ..."
-    rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-    rpm -ivh --force --nodeps google-chrome*.rpm
-    sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
-  else
-    # printf '\n' # Insert blank line.
-    echo "Update Chrome ..."
-    rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-    rpm -Uvh --nodeps google-chrome*.rpm
-    sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
-  fi
+  printf '\n' # Insert blank line.
+  echo "Updating/installing Chrome ..."
+  rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
+  rpm -Uvh --nodeps google-chrome*.rpm
+  sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
 else
   echo "Skipping Chrome install/update."
 fi
@@ -169,6 +158,14 @@ else
   echo "Skipping Remmina connections restore."
 fi
 printf '\n' # Skip to new line.
+
+# Install Remmina Rustdesk plugin.
+mkdir -p /usr/lib64/remmina/plugins
+cp -n /home/$user/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
+mkdir -p /usr/share/icons/hicolor/16x16/emblems
+mkdir -p /usr/share/icons/hicolor/22x22/emblems
+cp -n /home/$user/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
+cp -n /home/$user/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
 
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
