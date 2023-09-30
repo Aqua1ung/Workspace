@@ -48,39 +48,10 @@ read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
 printf '\n' # Skip to new line.
 if [ $rdsk == y ] || [ $rdsk == Y ]
 then
-  outRD=$(wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-1.2.3-0-x86_64.pkg.tar.zst 2>&1 | grep -c "304 Not Modified")
-  rd="/usr/lib/rustdesk"
-  if [[ $outRD -eq 0 ]] # Update if newer on server.
-  then
-    echo "Updating Rustdesk ..."
-    tar -xf rustdesk-1.2.3-0-x86_64.pkg.tar.zst -C /
-    cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system
-    cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications
-    cp RustDesk/rustdesk.desktop /home/$user/.config/autostart/
-    cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications
-    systemctl daemon-reload
-    systemctl enable rustdesk
-    systemctl start rustdesk
-    update-desktop-database
-  else
-    if [[ ! -a "$rd" ]] # Install if unchanged on server and not already installed.
-    then
-      # printf '\n' # Insert blank line.
-      echo "Installing Rustdesk ..."
-      tar -xf rustdesk-1.2.3-0-x86_64.pkg.tar.zst -C /
-      cp /usr/share/rustdesk/files/rustdesk.service /etc/systemd/system
-      cp /usr/share/rustdesk/files/rustdesk.desktop /usr/share/applications
-      cp RustDesk/rustdesk.desktop /home/$user/.config/autostart/
-      cp /usr/share/rustdesk/files/rustdesk-link.desktop /usr/share/applications
-      systemctl daemon-reload
-      systemctl enable rustdesk
-      systemctl start rustdesk
-      update-desktop-database
-    else
-      # printf '\n' # Insert blank line.
-      echo "No Rustdesk update required."
-    fi
-  fi
+  echo "Installing/updating Rustdesk ..."
+  version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep x86_64.rpm | sed -n 's/^.*desk-//p' | sed -n 's/\.x86.*$//p') # Grab the nightly version.
+  wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version.x86_64.rpm # Download Rustdesk nightly.
+  rpm -Uvh --nodeps rustdesk-*.rpm # Install or update Rustdesk.
 else
   echo "Skipping Rustdesk install/update."
 fi
