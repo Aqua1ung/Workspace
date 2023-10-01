@@ -29,6 +29,15 @@ else
   noupd=$(curl -fsSL https://pkgs.netbird.io/install.sh | sh -s -- --update | grep -c "is up-to-date")
   if [[ ! $noupd -eq 0 ]]
   then
-    netbird-ui
+    echo "No update required. Restarting netbird-ui ..."
+    setsid /usr/bin/netbird-ui >/dev/null 2>&1 < /dev/null &
+    # nohup /usr/bin/netbird-ui >>/dev/null 2>>/dev/null &
+    # nohup /usr/bin/netbird-ui 2>&1 &
+    sleep 2
+    echo "Done."
+  else
+    echo "Netbird has been updated."
   fi
 fi
+
+# exit

@@ -22,11 +22,20 @@ then
   cp /home/$USER/Applications/netbird-ui.desktop /home/$USER/.config/autostart
   echo "Logout or reboot needed."
 else
-  echo "Updating NetBird ..."
+  echo "Looking to update NetBird ..."
   printf '\n' # Insert blank line.
   noupd=$(curl -fsSL https://pkgs.netbird.io/install.sh | sh -s -- --update | grep -c "is up-to-date")
   if [[ ! $noupd -eq 0 ]]
   then
-    netbird-ui
+    echo "No update required. Restarting netbird-ui ..."
+    setsid /usr/bin/netbird-ui >/dev/null 2>&1 < /dev/null &
+    # nohup /usr/bin/netbird-ui >>/dev/null 2>>/dev/null &
+    # nohup /usr/bin/netbird-ui 2>&1 &
+    sleep 2
+    echo "Done."
+  else
+    echo "Netbird has been updated."
   fi
 fi
+
+# exit
