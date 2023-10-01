@@ -25,7 +25,7 @@ else
   echo "Updating NetBird ..."
   printf '\n' # Insert blank line.
   noupd=$(curl -fsSL https://pkgs.netbird.io/install.sh | sh -s -- --update | grep -c "is up-to-date")
-  if [[ ! $noupd -eq 0]]
+  if [[ ! $noupd -eq 0 ]]
   then
     netbird-ui
   fi
