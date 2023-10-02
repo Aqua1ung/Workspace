@@ -12,9 +12,6 @@ flatpak update
 
 printf '\n' # Skip to new line.
 
-# Install dependencies.
-# swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils # containers-basic
-
 cd /run/media/dad/InstallationKits
 
 # Required by AURGA viewer.
@@ -138,8 +135,6 @@ printf '\n' # Insert blank line.
 echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
 
 printf '\n' # Insert blank line.
-
-# Install/update NetBird.
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean."
 printf '\n' # Skip to new line.

@@ -20,9 +20,6 @@ flatpak update
 
 printf '\n' # Skip to new line.
 
-# Install dependencies.
-# swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils # containers-basic
-
 cd /home/$user/Applications
 
 # Required by AURGA viewer.
@@ -122,9 +119,9 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  rm -f /home/$user/.var/app/org.remmina.Remmina/data/remmina/*
-  sudo -u $user mkdir -p /home/$user/.var/app/org.remmina.Remmina/data/remmina/
-  tar -xf /home/$user/Applications/remmina.tar.xz -C /home/$user/.var/app/org.remmina.Remmina/data/remmina
+  rm -f /home/$user/.local/share/remmina/*
+  sudo -u $user mkdir -p /home/$user/.local/share/remmina/
+  tar -xf /home/$user/Applications/remmina.tar.xz -C /home/$user/.local/share/remmina/
 else
   echo "Skipping Remmina connections restore."
 fi
@@ -148,8 +145,6 @@ printf '\n' # Insert blank line.
 echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
 
 printf '\n' # Insert blank line.
-
-# Update NetBird: run netbird.sh.
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird.sh to update NetBird."
 printf '\n' # Skip to new line.
