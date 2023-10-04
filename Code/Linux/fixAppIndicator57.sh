@@ -20,6 +20,6 @@ mv -f /home/$USER/Downloads/gnome-shell-extension-appindicator-57/* /home/$USER/
 # mv -f /home/$USER/Downloads/gnome-shell-extension-appindicator-57/interfaces-xml /home/$USER/.local/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
 # mv -f /home/$USER/Downloads/gnome-shell-extension-appindicator-57/schemas /home/$USER/.local/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
 
-gsettings set org.gnome.shell disable-user-extensions false
+# gsettings set org.gnome.shell disable-user-extensions false
 
 rm -rf *
