@@ -37,8 +37,11 @@ if [ $rdsk == y ] || [ $rdsk == Y ]
 then
   echo "Installing/updating Rustdesk ..."
   version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.rpm | sed -n 's/^.*desk-//p' | sed -n 's/\.x86.*$//p') # Grab the nightly version number.
-  wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version.x86_64.rpm # Download Rustdesk nightly.
-  rpm -Uvh --nodeps rustdesk-*.rpm # Install or update Rustdesk.
+  rdOld=$(wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version.x86_64.rpm | grep -c "Omitting Download") # Download Rustdesk nightly.
+  if [[ $rOld -eq 0 ]]
+  then
+    rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
+  fi
 else
   echo "Skipping Rustdesk install/update."
 fi
