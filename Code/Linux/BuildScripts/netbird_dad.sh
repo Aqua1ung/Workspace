@@ -9,8 +9,6 @@ fi
 
 pkill netbird-ui
 
-# read -p "Type your Linux username followed by Enter: " user
-# printf '\n' # Insert blank line.
 export USE_BIN_INSTALL=true
 
 # Download and install/update NetBird.
@@ -36,8 +34,9 @@ else
     sleep 2
     echo "Done."
   else
-    echo "Netbird has been updated."
+    echo "Netbird has been updated. Restarting netbird-ui ..."
+    setsid /usr/bin/netbird-ui >/dev/null 2>&1 < /dev/null &
+    sleep 2
+    echo "Done."
   fi
 fi
-
-# exit
