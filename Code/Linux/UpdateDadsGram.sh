@@ -54,15 +54,15 @@ read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
 printf '\n' # Skip to new line.
 if [ $chr == y ] || [ $chr == Y ]
 then
-  wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Download Chrome.
-  # curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+  # wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Download Chrome.
+  curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
   printf '\n' # Insert blank line.
   echo "Updating/installing Chrome ..."
-  # rpm2cpio google-chrome*.rpm | ( cd /; cpio -idv)
-  rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-  rpm -Uvh --nodeps google-chrome*.rpm
-  sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
-  # f=/etc/environment; s='export FONTCONFIG_PATH=/usr/share/defaults/fonts'; touch $f; if ! grep -q "$s" $f; then echo $s >> $f; fi
+  rpm2cpio google-chrome*.rpm | ( cd /; cpio -idv)
+  # rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
+  # rpm -Uvh --nodeps google-chrome*.rpm
+  #sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
+  f=/etc/environment; s='export FONTCONFIG_PATH=/usr/share/defaults/fonts'; touch $f; if ! grep -q "$s" $f; then echo $s >> $f; fi
 else
   echo "Skipping Chrome install/update."
 fi
