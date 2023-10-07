@@ -63,4 +63,7 @@ tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 AutoEnable=true 
 EOF
 
+# Turn on Gnome animations.
+gsettings set org.gnome.desktop.interface enable-animations true
+
 echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."

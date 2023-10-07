@@ -48,4 +48,7 @@ git config --global user.email "cristi@ieee.org"
 cp -n /run/media/dad/InstallationKits/Update*.desktop /home/dad/.local/share/applications
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
 
+# Turn on Gnome animations.
+gsettings set org.gnome.desktop.interface enable-animations true
+
 echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird_dad.sh!"
