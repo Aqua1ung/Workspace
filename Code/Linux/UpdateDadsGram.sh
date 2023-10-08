@@ -41,7 +41,7 @@ then
   if [[ $rdOld -eq 0 ]]
   then
     rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
-    cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/rustdesk.desktop /home/dad/.config/autostart
+    cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/rustdesk.desktop /home/dad/.config/autostart
   else
     echo "No update required."
   fi

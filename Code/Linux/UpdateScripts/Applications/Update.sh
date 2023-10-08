@@ -51,7 +51,7 @@ then
   if [[ $rdOld -eq 0 ]]
   then
     rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
-    cp -n /home/$user/Applications/RustDesk/rustdesk.desktop /home/$user/.config/autostart # Should this be sudo -u $user?
+    cp -u /home/$user/Applications/RustDesk/rustdesk.desktop /home/$user/.config/autostart # Should this be sudo -u $user?
   else
     echo "No update required."
   fi
