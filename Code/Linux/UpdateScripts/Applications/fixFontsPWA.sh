@@ -14,4 +14,4 @@ for file in /home/$USER/.local/share/applications/chrome-*-Default.desktop; do
     sed -i 's\/opt/google/chrome/google-chrome\env FONTCONFIG_PATH=/usr/share/defaults/fonts /opt/google/chrome/google-chrome\g' $file
   fi
 done
-echo "done!"
+echo "Done!"
