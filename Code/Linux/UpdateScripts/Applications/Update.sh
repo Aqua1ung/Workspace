@@ -51,7 +51,7 @@ then
   if [[ $rdOld -eq 0 ]]
   then
     rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
-    cp -u /usr/share/rustdesk/files/rustdesk.desktop /home/$user/.config/autostart
+    cp -n /home/$user/Applications/RustDesk/rustdesk.desktop /home/$user/.config/autostart # Should this be sudo -u $user?
   else
     echo "No update required."
   fi
@@ -72,8 +72,8 @@ then
   rpm2cpio google-chrome*.rpm | ( cd /; cpio -idv)
   # rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
   # rpm -Uvh --nodeps google-chrome*.rpm
-  # sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
-  f=/etc/environment; s='export FONTCONFIG_PATH=/usr/share/defaults/fonts'; touch $f; if ! grep -q "$s" $f; then echo $s >> $f; fi
+  sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
+  # f=/etc/environment; s='export FONTCONFIG_PATH=/usr/share/defaults/fonts'; touch $f; if ! grep -q "$s" $f; then echo $s >> $f; fi
 else
   echo "Skipping Chrome install/update."
 fi
@@ -137,13 +137,17 @@ fi
 printf '\n' # Skip to new line.
 
 # Install Remmina Rustdesk plugin.
-mkdir -p /usr/lib64/remmina/plugins
-cp -n /home/$user/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
-mkdir -p /usr/share/icons/hicolor/16x16/emblems
-mkdir -p /usr/share/icons/hicolor/22x22/emblems
-cp -n /home/$user/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
-cp -n /home/$user/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
+if [ -a /usr/bin/rustdesk ] && [ -a /usr/bin/remmina ]
+then
+  mkdir -p /usr/lib64/remmina/plugins
+  cp -n /home/$user/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
+  mkdir -p /usr/share/icons/hicolor/16x16/emblems
+  mkdir -p /usr/share/icons/hicolor/22x22/emblems
+  cp -n /home/$user/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
+  cp -n /home/$user/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
+fi
 
+# Clear GPUCache.
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
 find /home/"$user"/.config -type d -name GPUCache | while read path
@@ -152,8 +156,10 @@ rm "$path"/*
 done
 printf '\n' # Insert blank line.
 echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
-
 printf '\n' # Insert blank line.
+
+# Fix PWA fonts.
+sudo -u $user /home/$user/Applications/fixFontsPWA.sh
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird.sh to update NetBird."
 printf '\n' # Skip to new line.
