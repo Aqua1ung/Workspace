@@ -148,7 +148,7 @@ echo "Done. In case you notice 'cannot remove' error messages, that means that t
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
-sudo -u dad /home/dad/Applications/fixFontsPWA.sh
+sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
