@@ -130,11 +130,11 @@ printf '\n' # Skip to new line.
 if [ -a /usr/bin/rustdesk ] && [ -a /usr/bin/remmina ]
 then
   mkdir -p /usr/lib64/remmina/plugins
-  cp -n /home/dad/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
+  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
   mkdir -p /usr/share/icons/hicolor/16x16/emblems
   mkdir -p /usr/share/icons/hicolor/22x22/emblems
-  cp -n /home/dad/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
-  cp -n /home/dad/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
+  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
+  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
 fi
 
 echo "Clearing GPUCache ..."
