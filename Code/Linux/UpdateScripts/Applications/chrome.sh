@@ -69,6 +69,8 @@ sudo mv opt/google/chrome /opt/google/.
 
 sudo sed -i 's!/usr/bin/google-chrome-stable!/opt/google/chrome/google-chrome!g' \
    /usr/share/applications/google-chrome.desktop
+sudo sed -i 's!^\(Exec=\)\(.*\)!\1env FONTCONFIG_PATH=/usr/share/defaults/fonts \2!g' \
+   /usr/share/applications/google-chrome.desktop
 
 popd >/dev/null
 rm -fr /tmp/update.$$
