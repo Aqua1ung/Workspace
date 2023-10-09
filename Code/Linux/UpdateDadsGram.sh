@@ -55,15 +55,7 @@ read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
 printf '\n' # Skip to new line.
 if [ $chr == y ] || [ $chr == Y ]
 then
-  # wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # Download Chrome.
-  curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-  printf '\n' # Insert blank line.
-  echo "Updating/installing Chrome ..."
-  rpm2cpio google-chrome*.rpm | ( cd /; cpio -idv)
-  # rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
-  # rpm -Uvh --nodeps google-chrome*.rpm
-  sed -i 's\/usr/bin/google-chrome-stable\env FONTCONFIG_PATH=/usr/share/defaults/fonts /usr/bin/google-chrome-stable\g' /usr/share/applications/google-chrome.desktop
-  # f=/etc/environment; s='export FONTCONFIG_PATH=/usr/share/defaults/fonts'; touch $f; if ! grep -q "$s" $f; then echo $s >> $f; fi
+  sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
 else
   echo "Skipping Chrome install/update."
 fi
@@ -84,6 +76,7 @@ else
   echo "Skipping VSCodium install/update."
 fi
 printf '\n' # Skip to new line.
+cd /run/media/dad/InstallationKits
 
 # Download and install/update Ugee drivers.
 read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
@@ -149,7 +142,6 @@ printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
 sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
-
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
 printf '\n' # Skip to new line.
