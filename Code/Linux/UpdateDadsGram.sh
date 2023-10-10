@@ -129,6 +129,7 @@ then
   cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
   cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
 fi
+printf '\n' # Skip to new line.
 
 # Update NetBird.
 read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
