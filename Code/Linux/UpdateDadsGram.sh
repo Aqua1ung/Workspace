@@ -131,7 +131,14 @@ then
 fi
 
 # Update NetBird.
-sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
+printf '\n' # Skip to new line.
+if [ $nbd == y ] || [ $nbd == Y ]
+then
+  sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+else
+  echo "Skipping NetBird installation/update."
+fi
 
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
