@@ -8,7 +8,7 @@ then
 fi
 
 echo "Fixing PWA fonts ... "
-for file in /home/$USER/.local/share/applications/chrome-*-Default.desktop; do
+for file in /home/$USER/.local/share/applications/chrome-*.desktop; do
   if [[ $(grep -c "env FONTCONFIG_PATH=/usr/share/defaults/fonts" $file) -eq 0 ]]
   then
     sed -i 's\/opt/google/chrome/google-chrome\env FONTCONFIG_PATH=/usr/share/defaults/fonts /opt/google/chrome/google-chrome\g' $file
