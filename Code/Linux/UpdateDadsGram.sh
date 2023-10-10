@@ -130,6 +130,9 @@ then
   cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
 fi
 
+# Update NetBird.
+sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
 find /home/dad/.config -type d -name GPUCache | while read path

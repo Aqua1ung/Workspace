@@ -116,6 +116,9 @@ else
 fi
 printf '\n' # Insert blank line.
 
+# Update NetBird.
+sudo -u $user /home/$user/Applications/netbird.sh
+
 # Restore Remmina connections.
 read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
