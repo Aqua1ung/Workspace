@@ -40,7 +40,9 @@ sudo -u dad mkdir /home/dad/.config/solaar
 cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
-# Configure Git email and username.
+# Check out the Git folder.
+
+# Install and configure Git and VSCodium
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
 
@@ -51,4 +53,4 @@ cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
 
-echo "Please power off, and make sure you run UpdateDadsGram.sh and netbird_dad.sh!"
+echo "Please power off, and make sure you run UpdateDadsGram.sh!"
