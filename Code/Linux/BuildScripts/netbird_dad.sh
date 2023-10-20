@@ -42,3 +42,6 @@ else
 fi
 
 netbird up
+printf '\n' # Insert blank line.
+echo "You must do a logout and login cycle to restart NetBird."
+printf '\n' # Insert blank line.
