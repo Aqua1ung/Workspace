@@ -53,4 +53,9 @@ cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
 
+# Disable automount.
+gsettings set org.gnome.desktop.media-handling automount false
+gsettings set org.gnome.desktop.media-handling automount-open false
+systemctl restart gdm.service
+
 echo "Please power off, and make sure you run UpdateDadsGram.sh!"
