@@ -30,6 +30,8 @@ then
   # Masks the gpe6E flag on boot.
   cp /run/media/gabe/InstallationKits/params.conf /etc/kernel/cmdline.d
   clr-boot-manager update
+  # Disable sleep when lid closed.
+  /run/media/gabe/InstallationKits/BuildScripts/lidSwitch.sh
 fi
 
 # Install swupd bundles.
