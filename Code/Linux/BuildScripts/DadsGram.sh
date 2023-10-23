@@ -46,9 +46,10 @@ cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autos
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
 
-# Add update script desktop links.
-cp -n /run/media/dad/InstallationKits/Update*.desktop /home/dad/.local/share/applications
+# Add update (and other) script desktop links.
+cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
+cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
@@ -58,4 +59,4 @@ gsettings set org.gnome.desktop.media-handling automount false
 gsettings set org.gnome.desktop.media-handling automount-open false
 systemctl restart gdm.service
 
-echo "Please power off, and make sure you run UpdateDadsGram.sh!"
+# echo "Please power off, and make sure you run UpdateDadsGram.sh!"
