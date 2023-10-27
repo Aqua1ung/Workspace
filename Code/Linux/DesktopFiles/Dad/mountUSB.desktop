@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Mount USB Drives
-Exec=sudo /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
+Exec=/home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 Terminal=true
