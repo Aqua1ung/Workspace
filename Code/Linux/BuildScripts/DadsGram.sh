@@ -22,7 +22,7 @@ cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
 clr-boot-manager update
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic # containers-basic
 
 cd /home/dad/Downloads
 sudo -u dad mkdir /home/dad/Git
@@ -58,5 +58,8 @@ gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.media-handling automount false
 gsettings set org.gnome.desktop.media-handling automount-open false
 systemctl restart gdm.service
+
+# Install Excalidraw.
+npm install react react-dom @excalidraw/excalidraw
 
 # echo "Please power off, and make sure you run UpdateDadsGram.sh!"

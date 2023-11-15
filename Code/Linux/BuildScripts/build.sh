@@ -35,7 +35,7 @@ then
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic # containers-basic
 
 cd /home/$user/Downloads
 
@@ -67,5 +67,8 @@ EOF
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
+
+# Install Excalidraw.
+npm install react react-dom @excalidraw/excalidraw
 
 echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."
