@@ -154,8 +154,8 @@ then
     echo "No AURGA update available."
   else
     echo "Updating AURGA ..."
-    wget -P /run/media/dad/InstallationKits/AURGA/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
-    wine64 /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe
+    sudo -u dad wget -P /run/media/dad/InstallationKits/AURGA/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
+    sudo -u dad wine64 /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe
     echo "Done."
   fi    
 else
