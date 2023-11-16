@@ -140,6 +140,27 @@ then
 else
   echo "Skipping NetBird installation/update."
 fi
+printf '\n' # Skip to new line.
+
+# Update AURGA.
+read -p "Do you want to install/update AURGA? (Y/N) " -n 1 aurga
+printf '\n' # Skip to new line.
+if [ $aurga == y ] || [ $aurga == Y ]
+then
+  echo "Installing or updating AURGA."
+  aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
+  if [ -f /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe ]
+  then
+    echo "No AURGA update available."
+  else
+    echo "Updating AURGA ..."
+    wget -P /run/media/dad/InstallationKits/AURGA/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
+    wine64 /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe
+    echo "Done."
+  fi    
+else
+  echo "Skipping AURGA installation/update."
+fi
 
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
