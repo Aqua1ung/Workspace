@@ -15,7 +15,15 @@ then
   exit
 fi
 
-flatpak install org.videolan.VLC.Plugin.makemkv
+# Check to see if VLC.Plugin.makemkv is installed.
+vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
+if [[ $vlcP -eq 0 ]]
+then
+  flatpak install org.videolan.VLC.Plugin.makemkv
+else
+  echo "No need to install the MakeMKV plugin for VLC."
+fi
+printf '\n' # Skip to new line.
 
 swupd update
 flatpak update
