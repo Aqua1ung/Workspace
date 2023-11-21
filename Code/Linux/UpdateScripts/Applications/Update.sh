@@ -15,8 +15,11 @@ then
   exit
 fi
 
+flatpak install org.videolan.VLC.Plugin.makemkv
+
 swupd update
 flatpak update
+flatpak repair
 
 printf '\n' # Skip to new line.
 
