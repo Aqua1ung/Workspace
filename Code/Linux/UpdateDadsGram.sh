@@ -7,6 +7,9 @@ then
   exit
 fi
 
+cd /home/dad/Git/Workspace
+git pull
+
 # Check to see if VLC.Plugin.makemkv is installed.
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]
