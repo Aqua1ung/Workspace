@@ -162,7 +162,7 @@ read -p "Do you want to install/update AURGA? (Y/N) " -n 1 aurga
 printf '\n' # Skip to new line.
 if [ $aurga == y ] || [ $aurga == Y ]
 then
-  echo "Installing or updating AURGA."
+  echo "Installing or updating AURGA ..."
   aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
   if [ -f /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe ]
   then
