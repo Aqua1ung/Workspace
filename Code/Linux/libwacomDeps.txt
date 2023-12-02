@@ -1,0 +1,4 @@
+sudo swupd bundle-add  kde-frameworks5-dev
+sudo swupd bundle-add  devpkg-libxml2
+sudo swupd bundle-add  devpkg-libevdev
+sudo swupd bundle-add  devpkg-libgudev

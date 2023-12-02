@@ -1,0 +1,29 @@
+dad@DadsGram~/Downloads/HuionTablet_v15.0.0.121.202212081916.x86_64 $ sudo sh install.sh
+/home/dad/Downloads/HuionTablet_v15.0.0.121.202212081916.x86_64/.
+/usr/lib
+./huion/huiontablet
+cp: cannot create regular file '/etc/xdg/autostart/huiontablet.desktop': No such file or directory
+Installation Succeeded !
+安装成功 !
+Please reboot your Linux device to run the driver, or the driver will not be useful.
+请重新启动您的系统，以便驱动程序能够正常运行 !
+
+dad@DadsGram~/Downloads/HuionTablet_v15.0.0.103.202208301443.x86_64 $ sudo sh install.sh
+/home/dad/Downloads/HuionTablet_v15.0.0.103.202208301443.x86_64/.
+huionCore: no process found
+huiontablet: no process found
+/usr/lib
+./huion/huiontablet
+cp: cannot create regular file '/etc/xdg/autostart/huiontablet.desktop': No such file or directory
+Installation Succeeded !
+Please reboot your Linux device to run the driver, or the driver will not be useful.
+
+dad@DadsGram~/Downloads/HuionTablet_v15.0.0.89.202205241352.x86_64 $ sudo sh install.sh
+/home/dad/Downloads/HuionTablet_v15.0.0.89.202205241352.x86_64/.
+huionCore: no process found
+huiontablet: no process found
+/usr/lib
+./huion/huiontablet
+cp: cannot create regular file '/etc/xdg/autostart/huiontablet.desktop': No such file or directory
+Installation Succeeded !
+Please reboot your Linux device to run the driver, or the driver will not be useful.
