@@ -63,6 +63,6 @@ systemctl restart gdm.service
 npm install react react-dom @excalidraw/excalidraw
 
 # Install opentabletdriver.
-# sudo tar -xvf opentabletdriver-0.6.3.0-x64.tar.gz --strip 1
+# tar -xvf opentabletdriver-0.6.3.0-x64.tar.gz --strip 1
 
 # echo "Please power off, and make sure you run UpdateDadsGram.sh!"
