@@ -9,6 +9,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
 # Download and install OpenTabletDriver
 sudo tar -xvf opentabletdriver-0.6.3.0-x64.tar.gz -C / --strip 1
+sudo cp /home/dad/Git/Workspace/Code/Linux/opentabletdriver.service /usr/local/lib/systemd/user
 
 # Start opentabletdriver daemon.
 systemctl --user enable opentabletdriver.service --now
