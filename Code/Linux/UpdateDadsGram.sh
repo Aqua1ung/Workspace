@@ -45,6 +45,18 @@ cd /run/media/dad/InstallationKits
 # fi
 # printf '\n'
 
+# Download and install/update OpenTabletDriver.
+read -p "Do you want to install/update OpenTabletDriver? (Y/N) " -n 1 otd
+printf '\n' # Skip to new line.
+if [ $otd == y ] || [ $otd == Y ]
+then
+  echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
+  /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh
+else
+  echo "Skipping OpenTabletDriver install/update."
+fi
+printf '\n' # Insert blank line.
+
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
 printf '\n' # Skip to new line.
@@ -76,7 +88,7 @@ else
 fi
 printf '\n' # Insert blank line.
 
-# Download and install VSCodium.
+# Download and install/update VSCodium.
 read -p "Do you want to install/update VSCodium? (Y/N) " -n 1 vsc
 printf '\n' # Skip to new line.
 if [ $vsc == y ] || [ $vsc == Y ]
