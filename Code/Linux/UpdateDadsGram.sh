@@ -51,7 +51,7 @@ printf '\n' # Skip to new line.
 if [ $otd == y ] || [ $otd == Y ]
 then
   echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
-  /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh
+  sudo -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh
 else
   echo "Skipping OpenTabletDriver install/update."
 fi
