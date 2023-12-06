@@ -2,13 +2,13 @@ cd /home/dad/Downloads
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
 chmod +x ./dotnet-install.sh
 sudo -u $USER ./dotnet-install.sh --channel 6.0 # Not sudo!
-rm dotnet-install.sh
+# rm dotnet-install.sh
 
 # Append these two lines to /usr/share/defaults/etc/profile:
 tee -a /usr/share/defaults/etc/profile << EOF
 
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export DOTNET_ROOT=/home/dad/.dotnet
+export PATH=$PATH:/home/dad/.dotnet:/home/dad/.dotnet/tools
 EOF
 
 # Download and install OpenTabletDriver
