@@ -22,6 +22,7 @@ printf '\n' # Skip to new line.
 
 # Download and install OpenTabletDriver
 cd /run/media/dad/InstallationKits
+# sudo cp -u /home/dad/Git/Workspace/Code/Linux/70-opentabletdriver.rules /etc/udev/rules.d
 mkdir -p /home/dad/.local/share/OpenTabletDriver/Configurations
 cp -u /home/dad/Git/Workspace/Code/Linux/RMGL01.json /home/dad/.local/share/OpenTabletDriver/Configurations
 OTDv=$(curl -s -L -D - https://github.com/OpenTabletDriver/OpenTabletDriver/releases/latest | grep -n -m 1 "<title>" | sed -n 's/^.*tDriver v//p' | sed -n 's/ · OpenT.*$//p') # Grab the latest version number.
@@ -33,6 +34,7 @@ then
   echo "Done"
   # Start opentabletdriver daemon.
   systemctl --user enable opentabletdriver.service --now
+  # sudo udevadm control --reload-rules && sudo udevadm trigger
 else
   echo "No OpenTabletDriver update required."
 fi
