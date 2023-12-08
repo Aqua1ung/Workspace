@@ -3,7 +3,7 @@
 # Run as root/sudo.
 if [ ! $(id -u) == 0 ]
 then
-  echo "This script should be run as root! Exiting ..."
+  echo "This script should be run as root (sudo -E)! Exiting ..."
   exit
 fi
 
@@ -51,7 +51,7 @@ printf '\n' # Skip to new line.
 if [ $otd == y ] || [ $otd == Y ]
 then
   echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
-  sudo --preserve-env=DOTNET_ROOT -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh
+  sudo --preserve-env=DOTNET_ROOT -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh # Preserve the DOTNET_ROOT envir. variable.
 else
   echo "Skipping OpenTabletDriver install/update."
 fi
