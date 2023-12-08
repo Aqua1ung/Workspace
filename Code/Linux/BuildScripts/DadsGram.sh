@@ -41,7 +41,6 @@ cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/sola
 cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Check out the Git folder.
-
 # Install and configure Git and VSCodium
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"

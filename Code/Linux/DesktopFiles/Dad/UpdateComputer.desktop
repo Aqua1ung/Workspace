@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Update Computer
-Exec=sudo /home/dad/Git/Workspace/Code/Linux/UpdateDadsGram.sh
+Exec=sudo -E /home/dad/Git/Workspace/Code/Linux/UpdateDadsGram.sh
 # Exec=gnome-terminal --window-with-profile=Default -- sudo /run/media/dad/InstallationKits/UpdateDadsGram.sh
 Terminal=true
