@@ -22,7 +22,7 @@ cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
 clr-boot-manager update
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom # containers-basic
 
 cd /home/dad/Downloads
 sudo -u dad mkdir /home/dad/Git
@@ -60,6 +60,9 @@ systemctl restart gdm.service
 
 # Install Excalidraw.
 npm install react react-dom @excalidraw/excalidraw
+
+# Install hid-tools
+pip3 install hid-tools
 
 # Install opentabletdriver: see opentabletdriver.sh.
 # tar -xvf opentabletdriver-0.6.3.0-x64.tar.gz --strip 1
