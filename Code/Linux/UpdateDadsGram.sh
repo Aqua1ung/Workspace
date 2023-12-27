@@ -46,8 +46,9 @@ cd /run/media/dad/InstallationKits
 # printf '\n'
 
 # Download and install/update OpenTabletDriver.
-read -p "Do you want to install/update OpenTabletDriver? (Y/N) " -n 1 otd
-printf '\n' # Skip to new line.
+# read -p "Do you want to install/update OpenTabletDriver? (Y/N) " -n 1 otd
+# printf '\n' # Skip to new line.
+otd="n"
 if [ $otd == y ] || [ $otd == Y ]
 then
   echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
