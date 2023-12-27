@@ -1,0 +1,4 @@
+# PenPower RemoteGo LCD RMGL01
+evdev:input:b0003v256Cp5101*
+ EVDEV_ABS_00=::156
+ EVDEV_ABS_01=::221
