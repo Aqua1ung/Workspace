@@ -10,7 +10,7 @@ fi
 swupd bundle-add devpkg-libwacom
 
 # Install hid-tools
-pip3 install hid-tools
+sudo -u dad pip3 install hid-tools
 
 # Add RemoteGo tablet.
 mkdir -p /usr/lib/udev/hwdb.d
