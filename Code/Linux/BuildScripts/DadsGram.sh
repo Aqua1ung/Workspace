@@ -64,7 +64,10 @@ npm install react react-dom @excalidraw/excalidraw
 # Install hid-tools
 pip3 install hid-tools
 
-# Install opentabletdriver: see opentabletdriver.sh.
-# tar -xvf opentabletdriver-0.6.3.0-x64.tar.gz --strip 1
+# Add RemoteGo tablet.
+mkdir -p /usr/lib/udev/hwdb.d
+cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
+systemd-hwdb update
+udevadm trigger /dev/input/event*
 
 # echo "Please power off, and make sure you run UpdateDadsGram.sh!"
