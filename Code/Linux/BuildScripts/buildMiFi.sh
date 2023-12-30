@@ -20,7 +20,7 @@ sudo -u dad flatpak install --or-update --noninteractive -y org.gnome.Firmware c
 # Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
-sudo -u git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
+sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
 
 # Add update (and other) script desktop links.
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
@@ -29,12 +29,12 @@ cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.l
 
 # Add permissions for Solaar to start as root.
 mkdir /etc/udev/rules.d/
-cp /run/media/$user/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u $user mkdir /home/$user/.config/solaar
-sudo -u $user cp /run/media/$user/InstallationKits/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
-sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$user/.config/autostart
+sudo -u dad mkdir /home/dad/.config/solaar
+sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
+sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # # Turn on Gnome animations.
 # gsettings set org.gnome.desktop.interface enable-animations true
