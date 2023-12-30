@@ -36,6 +36,9 @@ sudo -u dad mkdir /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
+# Install PowerShell.
+/home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
+
 # # Turn on Gnome animations.
 # gsettings set org.gnome.desktop.interface enable-animations true
 
