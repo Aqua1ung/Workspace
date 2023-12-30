@@ -15,15 +15,15 @@ sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]
 then
-  flatpak install org.videolan.VLC.Plugin.makemkv
+  sudo -u dad flatpak install org.videolan.VLC.Plugin.makemkv
 else
   echo "No need to install the MakeMKV plugin for VLC."
 fi
 printf '\n' # Skip to new line.
 
 swupd update
-flatpak update
-flatpak repair
+sudo -u dad flatpak update
+sudo -u dad flatpak repair
 
 printf '\n' # Skip to new line.
 

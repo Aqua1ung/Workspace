@@ -40,10 +40,10 @@ sudo -u dad mkdir /home/dad/.config/solaar
 cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
-# Check out the Git folder.
-# Install and configure Git and VSCodium
+# Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
+sudo -u git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
 
 # Add update (and other) script desktop links.
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications

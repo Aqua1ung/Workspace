@@ -17,10 +17,10 @@ sudo -u dad mkdir /home/dad/Git
 sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo -u dad flatpak install --or-update --noninteractive -y org.gnome.Firmware com.mattjakeman.ExtensionManager # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
-# Check out the Git folder.
-# Install and configure Git and VSCodium
+# Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
+sudo -u git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
 
 # Add update (and other) script desktop links.
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
