@@ -8,7 +8,7 @@ then
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire Solaar-gui # containers-basic
 
 cd /home/dad/Downloads
 sudo -u dad mkdir /home/dad/Git
@@ -26,6 +26,15 @@ sudo -u git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
 cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
+
+# Add permissions for Solaar to start as root.
+mkdir /etc/udev/rules.d/
+cp /run/media/$user/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+
+# Add Solaar rules and other stuff.
+sudo -u $user mkdir /home/$user/.config/solaar
+sudo -u $user cp /run/media/$user/InstallationKits/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
+sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$user/.config/autostart
 
 # # Turn on Gnome animations.
 # gsettings set org.gnome.desktop.interface enable-animations true
