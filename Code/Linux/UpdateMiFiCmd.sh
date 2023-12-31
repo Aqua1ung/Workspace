@@ -19,9 +19,6 @@ printf '\n' # Skip to new line.
 
 cd /home/dad/Downloads
 
-https://github.com/PowerShell/PowerShell/releases/latest
-https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-x64.tar.gz
-
 # Download and install/update PowerShell.
 read -p "Do you want to install/update PowerShell? (Y/N) " -n 1 psh
 printf '\n' # Skip to new line.
