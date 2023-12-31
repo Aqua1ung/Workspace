@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Update Computer
+Exec=sudo --preserve-env=DOTNET_ROOT /home/dad/Git/Workspace/Code/Linux/UpdateMiFiCmd.sh
+# Exec=gnome-terminal --window-with-profile=Default -- sudo /run/media/dad/InstallationKits/UpdateDadsGram.sh
+Terminal=true

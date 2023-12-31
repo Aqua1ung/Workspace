@@ -7,8 +7,13 @@ then
   exit
 fi
 
-sudo -u dad curl -L -o powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-x64.tar.gz
-mkdir -p /opt/microsoft/powershell/7
-tar zxf powershell.tar.gz -C /opt/microsoft/powershell/7
-chmod +x /opt/microsoft/powershell/7/pwsh
-ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+# echo "Installing or updating PowerShell ..."
+location=$(curl -s -L -D - https://github.com/PowerShell/PowerShell/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
+tag=$(echo "$location" | sed 's/location: https.\+tag\///')
+ver=$(echo "$tag" | sed 's/v//') # Replace "v" with nothing.
+sudo -u dad curl -L -o powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/$tag/powershell-$ver-linux-x64.tar.gz
+# rm -rf /opt/microsoft/powershell
+mkdir -p /opt/microsoft/powershell
+tar zxf powershell.tar.gz -C /opt/microsoft/powershell
+chmod +x /opt/microsoft/powershell/pwsh
+ln -s -f /opt/microsoft/powershell/pwsh /usr/bin/pwsh
