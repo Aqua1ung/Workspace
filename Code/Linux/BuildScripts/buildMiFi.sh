@@ -39,6 +39,10 @@ sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.
 # Install PowerShell.
 /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 
+# Trigger MiFi reboot every day at 4:00AM.
+cp /home/dad/Git/Workspace/Code/Linux/SystemdUnits/mifi.* /etc/systemd/system/
+systemctl enable mifi.timer
+
 # # Turn on Gnome animations.
 # gsettings set org.gnome.desktop.interface enable-animations true
 
