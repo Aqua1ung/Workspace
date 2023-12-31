@@ -11,8 +11,7 @@ fi
 cp /run/media/dad/InstallationKits/rmmod.* /etc/systemd/system
 systemctl enable rmmod.timer
 
-mkdir /etc/kernel
-mkdir /etc/kernel/cmdline.d
+mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir /home/dad/.config/autostart/
 sudo -u dad  mkdir /home/dad/.var
 # mkdir /etc/udev/hwdb.d/
@@ -32,7 +31,7 @@ sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/
 sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus net.codeindustry.MasterPDFEditor # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
-mkdir /etc/udev/rules.d/
+mkdir -p /etc/udev/rules.d/
 cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
@@ -46,9 +45,9 @@ git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
-cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
-cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
-cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
+sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
+sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
+sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true

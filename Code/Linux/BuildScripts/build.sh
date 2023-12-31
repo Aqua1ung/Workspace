@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Run as root/sudo.
-
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root! Exiting ..."
@@ -53,9 +52,9 @@ sudo -u $user cp /run/media/$user/InstallationKits/Solaar/DadsGram/*.yaml /home/
 sudo -u $user cp /run/media/$user/InstallationKits/Solaar/solaar.desktop /home/$user/.config/autostart
 
 # Install update scripts.
-wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
+sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
 unzip master.zip
-cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
+sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
 rm -r Workspace-master/
 rm master.zip
 
