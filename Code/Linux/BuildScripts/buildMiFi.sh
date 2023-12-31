@@ -20,7 +20,7 @@ sudo -u dad flatpak install --or-update --noninteractive -y org.gnome.Firmware c
 # Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
-sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git
+sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
 cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
