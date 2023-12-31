@@ -1,0 +1,8 @@
+# mifi.service. To be placed in /etc/systemd/system/,
+# as per https://community.clearlinux.org/t/execute-command-upon-reboot-systemd-timer/8484.
+
+[Unit]
+Description=Reboots the MiFi router.
+
+[Service]
+ExecStart=/home/dad/Documents/rebootM2000.ps1

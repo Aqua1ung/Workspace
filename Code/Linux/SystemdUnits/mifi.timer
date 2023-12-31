@@ -1,0 +1,12 @@
+# mifi.timer. To be placed in /etc/systemd/system/,
+# as per https://community.clearlinux.org/t/execute-command-upon-reboot-systemd-timer/8484
+
+[Unit]
+Description=Triggers the mifi reboot service.
+
+[Timer]
+OnCalendar=*-*-* 4:00:00
+Unit=mifi.service
+
+[Install]
+WantedBy=timers.target
