@@ -5,7 +5,7 @@
 Description=Triggers the mifi reboot service.
 
 [Timer]
-OnCalendar=*-*-* 18:50:00
+OnCalendar=*-*-* 4:00:00
 Unit=mifi.service
 
 [Install]

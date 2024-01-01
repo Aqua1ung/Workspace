@@ -5,4 +5,4 @@
 Description=Reboots the MiFi router.
 
 [Service]
-ExecStart=/bin/bash -c "/home/dad/Documents/rebootM2000.ps1"
+ExecStart=pwsh -File /home/dad/Documents/rebootM2000.ps1
