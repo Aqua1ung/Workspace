@@ -13,7 +13,7 @@ sudo -u dad git pull
 
 swupd update
 sudo -u dad flatpak update
-sudo -u dad flatpak repair
+flatpak repair
 
 printf '\n' # Skip to new line.
 
