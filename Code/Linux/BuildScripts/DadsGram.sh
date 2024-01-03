@@ -20,6 +20,9 @@ sudo -u dad  mkdir /home/dad/.var
 cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
 clr-boot-manager update
 
+# Disable sleep when lid closed.
+/run/media/dad/InstallationKits/BuildScripts/lidSwitch.sh
+
 # Install swupd bundles.
 swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom # containers-basic
 
