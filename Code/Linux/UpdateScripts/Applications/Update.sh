@@ -26,7 +26,7 @@ fi
 printf '\n' # Skip to new line.
 
 swupd update
-sudo -u dad flatpak update
+sudo -u $user flatpak update
 flatpak repair
 
 printf '\n' # Skip to new line.
