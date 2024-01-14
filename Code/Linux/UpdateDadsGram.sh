@@ -24,6 +24,7 @@ printf '\n' # Skip to new line.
 swupd update
 sudo -u dad flatpak update
 flatpak repair
+npm update -g
 
 printf '\n' # Skip to new line.
 
