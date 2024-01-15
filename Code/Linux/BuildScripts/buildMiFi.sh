@@ -8,7 +8,7 @@ then
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire Solaar-gui # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire Solaar-gui hardinfo # containers-basic
 
 cd /home/dad/Downloads
 sudo -u dad mkdir /home/dad/Git
