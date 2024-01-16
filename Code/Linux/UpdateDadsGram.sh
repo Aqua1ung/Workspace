@@ -142,7 +142,7 @@ if [ $rmn == y ] || [ $rmn == Y ]
 then
   rm -f /home/dad/.local/share/remmina/*
   sudo -u dad mkdir -p /home/dad/.local/share/remmina/
-  tar -xf /run/media/dad/InstallationKits/remmina.tar.xz -C /home/dad/.local/share/remmina/
+  tar -xf /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C /home/dad/.local/share/remmina/
 else
   echo "Skipping Remmina connections restore."
 fi
