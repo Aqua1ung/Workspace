@@ -49,15 +49,14 @@ cd /run/media/dad/InstallationKits
 # Download and install/update OpenTabletDriver.
 # read -p "Do you want to install/update OpenTabletDriver? (Y/N) " -n 1 otd
 # printf '\n' # Skip to new line.
-otd="n"
-if [ $otd == y ] || [ $otd == Y ]
-then
-  echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
-  sudo --preserve-env=DOTNET_ROOT -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh # Preserve the DOTNET_ROOT envir. variable.
-else
-  echo "Skipping OpenTabletDriver install/update."
-fi
-printf '\n' # Insert blank line.
+# if [ $otd == y ] || [ $otd == Y ]
+# then
+#   echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
+#   sudo --preserve-env=DOTNET_ROOT -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh # Preserve the DOTNET_ROOT envir. variable.
+# else
+#   echo "Skipping OpenTabletDriver install/update."
+# fi
+# printf '\n' # Insert blank line.
 
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
@@ -104,32 +103,32 @@ printf '\n' # Skip to new line.
 cd /run/media/dad/InstallationKits
 
 # Download and install/update Ugee drivers.
-read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
-printf '\n' # Skip to new line.
-if [ $ug == y ] || [ $ug == Y ]
-then
-  outUg=$(wget -N https://www.ugee.com/download/file/id/713/pid/452/ext/rpm/ugee-pentablet.x86_64.rpm 2>&1 | grep -c "304 Not Modified")
-  nOfUg=$(rpm -qa | grep -ic ugee)
-  if [[ $outUg -eq 0 ]] # Update if newer on server.
-  then
-    # printf '\n' # Insert blank line.
-    echo "Updating Ugee drivers ..."
-    rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-  else
-    if [[ $nOfUg -eq 0 ]] # Install if unchanged on server and not already installed.
-    then
-      # printf '\n' # Insert blank line.
-      echo "Installing Ugee drivers ..."
-      rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-    else
-      # printf '\n' # Insert blank line.
-      echo "No Ugee driver update required."
-    fi
-  fi
-else
-  echo "Skipping Ugee driver installation."
-fi
-printf '\n' # Insert blank line.
+# read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
+# printf '\n' # Skip to new line.
+# if [ $ug == y ] || [ $ug == Y ]
+# then
+#   outUg=$(wget -N https://www.ugee.com/download/file/id/713/pid/452/ext/rpm/ugee-pentablet.x86_64.rpm 2>&1 | grep -c "304 Not Modified")
+#   nOfUg=$(rpm -qa | grep -ic ugee)
+#   if [[ $outUg -eq 0 ]] # Update if newer on server.
+#   then
+#     # printf '\n' # Insert blank line.
+#     echo "Updating Ugee drivers ..."
+#     rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
+#   else
+#     if [[ $nOfUg -eq 0 ]] # Install if unchanged on server and not already installed.
+#     then
+#       # printf '\n' # Insert blank line.
+#       echo "Installing Ugee drivers ..."
+#       rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
+#     else
+#       # printf '\n' # Insert blank line.
+#       echo "No Ugee driver update required."
+#     fi
+#   fi
+# else
+#   echo "Skipping Ugee driver installation."
+# fi
+# printf '\n' # Insert blank line.
 
 # Restore Remmina connections.
 read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
@@ -193,14 +192,7 @@ printf '\n' # Skip to new line.
 if [ $cdrd == y ] || [ $cdrd == Y ]
 then
   echo "Installing or updating cdrdao ..."
-  location=$(curl -s -L -D - https://github.com/cdrdao/cdrdao/releases/latest -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
-  # echo $location
-  tag=$(echo "$location" | sed 's/location: https.\+tag\///')
-  ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
-  wget -N https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
-  sudo -u dad cp cdrdao-$ver.tar.bz2 /home/dad/Downloads
-  sudo -u dad mv /home/dad/Downloads/cdrdao-$ver.tar.bz2 /home/dad/Downloads/cdrdao.tar.bz2
-  rpm -Uvh --nodeps cdrdao*.rpm
+  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
 else
   echo "Skipping cdrdao install/update."
 fi
