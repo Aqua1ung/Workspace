@@ -9,6 +9,7 @@ fi
 
 cd /home/dad/Git/Workspace
 sudo -u dad git pull
+chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 
 # Check to see if VLC.Plugin.makemkv is installed.
@@ -83,6 +84,7 @@ read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
 printf '\n' # Skip to new line.
 if [ $chr == y ] || [ $chr == Y ]
 then
+  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
   sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
 else
   echo "Skipping Chrome install/update."
@@ -95,7 +97,9 @@ printf '\n' # Skip to new line.
 if [ $vsc == y ] || [ $vsc == Y ]
 then
   echo "Installing or updating VSCodium ..."
+  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
+
 else
   echo "Skipping VSCodium install/update."
 fi
@@ -160,6 +164,7 @@ read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
 printf '\n' # Skip to new line.
 if [ $nbd == y ] || [ $nbd == Y ]
 then
+  chmod +x /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
   sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
 else
   echo "Skipping NetBird installation/update."
@@ -192,6 +197,7 @@ printf '\n' # Skip to new line.
 if [ $cdrd == y ] || [ $cdrd == Y ]
 then
   echo "Installing or updating cdrdao ..."
+  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
 else
   echo "Skipping cdrdao install/update."
@@ -209,6 +215,7 @@ echo "Done. In case you notice 'cannot remove' error messages, that means that t
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
+chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
