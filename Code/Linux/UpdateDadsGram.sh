@@ -190,6 +190,7 @@ then
 else
   echo "Skipping AURGA installation/update."
 fi
+printf '\n' # Skip to new line.
 
 # Download and install/update cdrdao.
 read -p "Do you want to install/update cdrdao? (Y/N) " -n 1 cdrd
