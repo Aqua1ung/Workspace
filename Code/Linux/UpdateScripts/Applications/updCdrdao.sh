@@ -12,7 +12,7 @@ $iV=$(cdrdao 2>&1 | grep version | sed -n 's/^.\+on //p' | sed -n 's/ -.*$//p') 
 location=$(curl -s -L -D - https://github.com/cdrdao/cdrdao/releases/latest -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
 tag=$(echo "$location" | sed 's/location: https.\+tag\///')
 ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
-if [[ "$iV" != "$ver"]]
+if [[ "$iV" != "$ver" ]]
 then
   sudo -u dad wget -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
   sudo -u dad mkdir /home/dad/Downloads/cdrdao
