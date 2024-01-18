@@ -24,7 +24,7 @@ printf '\n' # Skip to new line.
 swupd update
 sudo -u dad flatpak update
 flatpak repair
-npm update -g
+npm update -g # Update excalidraw and other npm packages.
 
 printf '\n' # Skip to new line.
 
@@ -190,6 +190,23 @@ then
 else
   echo "Skipping AURGA installation/update."
 fi
+
+# Download and install/update cdrdao.
+read -p "Do you want to install/update cdrdao? (Y/N) " -n 1 cdrd
+printf '\n' # Skip to new line.
+if [ $cdrd == y ] || [ $cdrd == Y ]
+then
+  echo "Installing or updating cdrdao ..."
+  location=$(curl -s -L -D - https://github.com/cdrdao/cdrdao/releases/latest -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
+  # echo $location
+  tag=$(echo "$location" | sed 's/location: https.\+tag\///')
+  ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
+  wget -N https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
+  rpm -Uvh --nodeps cdrdao*.rpm
+else
+  echo "Skipping cdrdao install/update."
+fi
+printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
 printf '\n' # Insert blank line.
