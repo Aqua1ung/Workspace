@@ -16,7 +16,7 @@ if [[ "$iV" != "$ver" ]]
 then
   sudo -u dad wget -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
   sudo -u dad mkdir /home/dad/Downloads/cdrdao
-  sudo -u dad tar -xf /home/dad/Downloads/cdrdao.tar.bz2 /home/dad/Downloads/cdrdao --strip 1
+  sudo -u dad tar -xf /home/dad/Downloads/cdrdao.tar.bz2 -C /home/dad/Downloads/cdrdao --strip 1
   cd /home/dad/Downloads/cdrdao
   sudo -u dad configure && make
   make install
