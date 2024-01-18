@@ -18,7 +18,7 @@ then
   sudo -u dad mkdir /home/dad/Downloads/cdrdao
   sudo -u dad tar -xf /home/dad/Downloads/cdrdao.tar.bz2 -C /home/dad/Downloads/cdrdao --strip 1
   cd /home/dad/Downloads/cdrdao
-  sudo -u dad configure && make
+  sudo -u dad ./configure && make
   make install
   sudo -u dad make clean
   cd -
