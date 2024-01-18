@@ -96,11 +96,7 @@ printf '\n' # Skip to new line.
 if [ $vsc == y ] || [ $vsc == Y ]
 then
   echo "Installing or updating VSCodium ..."
-  location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
-  # echo $location
-  tag=$(echo "$location" | sed 's/location: https.\+tag\///')
-  wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
-  rpm -Uvh --nodeps codium*.rpm
+  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
 else
   echo "Skipping VSCodium install/update."
 fi
@@ -202,6 +198,8 @@ then
   tag=$(echo "$location" | sed 's/location: https.\+tag\///')
   ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
   wget -N https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
+  sudo -u dad cp cdrdao-$ver.tar.bz2 /home/dad/Downloads
+  sudo -u dad mv /home/dad/Downloads/cdrdao-$ver.tar.bz2 /home/dad/Downloads/cdrdao.tar.bz2
   rpm -Uvh --nodeps cdrdao*.rpm
 else
   echo "Skipping cdrdao install/update."
