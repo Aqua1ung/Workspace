@@ -25,6 +25,7 @@ printf '\n' # Skip to new line.
 if [ $psh == y ] || [ $psh == Y ]
 then
   echo "Installing or updating PowerShell ..."
+  chmod +x /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
   /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 else
   echo "Skipping PowerShell install/update."
