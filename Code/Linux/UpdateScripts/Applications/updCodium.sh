@@ -12,7 +12,7 @@ location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/
 tag=$(echo "$location" | sed 's/location: https.\+tag\///')
 instRel=$(cat /usr/share/codium/resources/app/package.json | grep release | sed -n 's/  "rel.* "//p' |sed -n 's/".*$//p')
 iV=$(sudo -u dad codium -v | sed -n 1p)
-iV+=.$instRel
+iV+=.$instRel # Concatenate iV + instRel.
 # echo "iV  is: $iV"
 # echo "tag is: $tag"
 if [[ "$iV" != "$tag" ]]
