@@ -90,10 +90,17 @@ if [ $vsc == y ] || [ $vsc == Y ]
 then
   echo "Installing or updating VSCodium ..."
   location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')
-  # echo $location
   tag=$(echo "$location" | sed 's/location: https.\+tag\///')
-  wget -N https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
-  rpm -Uvh --nodeps codium*.rpm
+  instRel=$(cat /usr/share/codium/resources/app/package.json | grep release | sed -n 's/  "rel.* "//p' |sed -n 's/".*$//p')
+  iV=$(sudo -u $user codium -v | sed -n 1p)
+  iV+=.$instRel # Concatenate iV + instRel.
+  if [[ "$iV" != "$tag" ]]
+  then
+    sudo -u $user wget -O /home/$user/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+    rpm -Uvh --nodeps /home/$user/Downloads/codium.rpm
+  else
+    echo "No VSCodium update required."
+  fi
 else
   echo "Skipping VSCodium install/update."
 fi
