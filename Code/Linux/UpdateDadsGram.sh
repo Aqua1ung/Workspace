@@ -4,11 +4,16 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root (sudo -E)! Exiting ..."
-  exit
+  exit 1
 fi
 
 cd /home/dad/Git/Workspace
-sudo -u dad git pull
+noUDG=$(sudo -u dad git pull | grep -c UpdateDadsGram.sh)
+if [[ ! $noUDG -eq 0 ]]
+then
+  echo "Please re-run the UpdateDadsGram script, as it has changed on the disk."
+  exit 1
+fi
 chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 
