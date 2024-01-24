@@ -99,12 +99,24 @@ then
   echo "Installing or updating VSCodium ..."
   chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
-
 else
   echo "Skipping VSCodium install/update."
 fi
 printf '\n' # Skip to new line.
 cd /run/media/dad/InstallationKits
+
+# Download and install/update WineGUI.
+read -p "Do you want to install/update WineGUI? (Y/N) " -n 1 wg
+printf '\n' # Skip to new line.
+if [ $wg == y ] || [ $wg == Y ]
+then
+  echo "Installing or updating WIneGUI ..."
+  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
+  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
+else
+  echo "Skipping WineGUI install/update."
+fi
+printf '\n' # Skip to new line.
 
 # Download and install/update Ugee drivers.
 # read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
