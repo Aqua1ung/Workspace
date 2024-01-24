@@ -13,7 +13,7 @@ tag=$(curl -s -L -D - https://gitlab.melroy.org/melroy/winegui/-/tags?format=ato
 if [[ "$iV" != "$tag" ]]
 then
   sudo -u dad wget -O /home/dad/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tag.rpm
-  rpm -Uvh --nodeps WineGUI.rpm
+  rpm -Uvh --nodeps /home/dad/Downloads/WineGUI.rpm
 else
   echo "No WineGUI update required."
 fi
