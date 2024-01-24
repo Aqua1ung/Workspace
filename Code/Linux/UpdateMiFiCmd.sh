@@ -4,7 +4,7 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root (sudo -E)! Exiting ..."
-  exit
+  exit 1
 fi
 
 cd /home/dad/Git/Workspace

@@ -5,7 +5,7 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root! Exiting ..."
-  exit
+  exit 1
 fi
 
 iV=$(cdrdao 2>&1 | grep version | sed -n 's/^.\+on //p' | sed -n 's/ -.*$//p') # Check installed version.

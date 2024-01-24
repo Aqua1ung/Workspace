@@ -5,7 +5,7 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root! Exiting ..."
-  exit
+  exit 1
 fi
 
 location=$(curl -s -L -D - https://github.com/VSCodium/vscodium/releases/latest/ -o /dev/null -w '%{url_effective}' | grep location | tr -d '\r')

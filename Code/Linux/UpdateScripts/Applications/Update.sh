@@ -4,7 +4,7 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root! Exiting ..."
-  exit
+  exit 1
 fi
 
 read -p "Type in your Linux username, followed by Enter: " user
@@ -12,7 +12,7 @@ printf '\n' # Skip to new line.
 if [ $user != mom ] && [ $user != gabe ] && [ $user != paul ]
 then
   echo "You have mistyped the user name. Exiting ..."
-  exit
+  exit 1
 fi
 
 # Check to see if VLC.Plugin.makemkv is installed.

@@ -4,7 +4,7 @@
 if [ ! $(id -u) == 0 ]
 then
   echo "This script should be run as root! Exiting ..."
-  exit
+  exit 1
 fi
 
 # Removes kernel module int3403_thermal, to stop the spamming of the log.

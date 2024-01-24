@@ -4,7 +4,7 @@
 if [ $(id -u) == 0 ]
 then
   echo "This script should NOT be run as root! Exiting ..."
-  exit
+  exit 1
 fi
 
 # mkdir -p /run/media/dad/CloneZilla /run/media/dad/InstallationKits /run/media/dad/VentoyCZ /run/media/dad/VentoyIK
