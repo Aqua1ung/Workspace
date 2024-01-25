@@ -106,6 +106,25 @@ else
 fi
 printf '\n' # Skip to new line.
 
+# Download and install/update WineGUI.
+read -p "Do you want to install/update WineGUI? (Y/N) " -n 1 wg
+printf '\n' # Skip to new line.
+if [ $wg == y ] || [ $wg == Y ]
+then
+  iV=$(winegui --version | sed -n 's/^.\+ //p') # Check installed version.
+  tag=$(curl -s -L -D - https://gitlab.melroy.org/melroy/winegui/-/tags?format=atom | grep -n -m 1 tags/v | sed -n 's/^.*tags\/v//p' | sed -n 's/<.*$//p')
+  if [[ "$iV" != "$tag" ]]
+  then
+    sudo -u dad wget -O /home/$user/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tag.rpm
+    rpm -Uvh --nodeps /home/$user/Downloads/WineGUI.rpm
+  else
+    echo "No WineGUI update required."
+  fi
+else
+  echo "Skipping WineGUI install/update."
+fi
+printf '\n' # Skip to new line.
+
 # Download and install/update Ugee drivers.
 read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
 printf '\n' # Skip to new line.
