@@ -14,7 +14,6 @@ systemctl enable rmmod.timer
 mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir /home/dad/.config/autostart/
 sudo -u dad  mkdir /home/dad/.var
-# mkdir /etc/udev/hwdb.d/
 
 # Masks the gpe6E flag on boot.
 cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
@@ -39,8 +38,8 @@ cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions
 
 # Add Solaar rules and other stuff.
 sudo -u dad mkdir /home/dad/.config/solaar
-cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
+sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
+sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"
@@ -48,9 +47,9 @@ git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
-sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
-sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
-sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
+sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
+# sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
+# sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
