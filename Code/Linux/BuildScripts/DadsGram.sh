@@ -20,6 +20,7 @@ cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
 clr-boot-manager update
 
 # Disable sleep when lid closed.
+chmod +x /run/media/dad/InstallationKits/BuildScripts/lidSwitch.sh
 /run/media/dad/InstallationKits/BuildScripts/lidSwitch.sh
 
 # Install swupd bundles.
