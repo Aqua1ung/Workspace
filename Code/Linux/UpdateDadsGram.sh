@@ -14,8 +14,8 @@ then
   echo "Please re-run the UpdateDadsGram script, as it has changed on the disk."
   exit 1
 fi
-chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
-sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
+# chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
+# sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 
 # Check to see if VLC.Plugin.makemkv is installed.
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)

@@ -43,8 +43,8 @@ sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Check out the Git folder; configure Git first.
-git config --global user.name "Cristian Cocos"
-git config --global user.email "cristi@ieee.org"
+sudo -u dad git config --global user.name "Cristian Cocos"
+sudo -u dad git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
@@ -52,24 +52,25 @@ sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/d
 # sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
 # sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
-# Turn on Gnome animations.
-gsettings set org.gnome.desktop.interface enable-animations true
-
-# Disable automount.
-gsettings set org.gnome.desktop.media-handling automount false
-gsettings set org.gnome.desktop.media-handling automount-open false
-systemctl restart gdm.service
-
 # Install Excalidraw.
-npm install react react-dom @excalidraw/excalidraw
+sudo -u dad npm install react react-dom @excalidraw/excalidraw
 
 # Install hid-tools
-pip3 install hid-tools
+sudo -u dad pip3 install hid-tools
 
 # Add RemoteGo tablet.
 mkdir -p /usr/lib/udev/hwdb.d
 cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
 systemd-hwdb update
 udevadm trigger /dev/input/event*
+
+printf '\n' # Skip to new line.
+read -p "The remainder of this script will kick you out of the current Gnome session. Press any key to continue." -n 1 wg
+# Turn on Gnome animations.
+gsettings set org.gnome.desktop.interface enable-animations true
+# Disable automount.
+gsettings set org.gnome.desktop.media-handling automount false
+gsettings set org.gnome.desktop.media-handling automount-open false
+systemctl restart gdm.service
 
 # echo "Please power off, and make sure you run UpdateDadsGram.sh!"
