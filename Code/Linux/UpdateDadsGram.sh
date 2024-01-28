@@ -223,13 +223,14 @@ fi
 printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
-printf '\n' # Insert blank line.
-find /home/dad/.config -type d -name GPUCache | while read path
-do
-rm "$path"/*
-done
-printf '\n' # Insert blank line.
-echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
+sudo -u dad for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
+# printf '\n' # Insert blank line.
+# find /home/dad/.config -type d -name GPUCache | while read path
+# do
+# rm "$path"/*
+# done
+# printf '\n' # Insert blank line.
+# echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
