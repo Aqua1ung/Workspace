@@ -188,14 +188,8 @@ then
 fi
 
 # Clear GPUCache.
-echo "Clearing GPUCache ..."
-printf '\n' # Insert blank line.
-find /home/"$user"/.config -type d -name GPUCache | while read path
-do
-rm "$path"/*
-done
-printf '\n' # Insert blank line.
-echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
+chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
+sudo -u $user ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.

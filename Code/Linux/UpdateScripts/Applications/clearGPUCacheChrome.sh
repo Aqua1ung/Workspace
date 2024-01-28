@@ -8,10 +8,5 @@ then
 fi
 
 echo "Clearing Chrome's GPUCache ..."
-printf '\n' # Insert blank line.
-find /home/"$USER"/.config -type d -name GPUCache | while read path
-do
-rm "$path"/*
-done
-printf '\n' # Insert blank line.
+for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
 echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
