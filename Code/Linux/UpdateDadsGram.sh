@@ -225,7 +225,7 @@ fi
 printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
-sudo -u dad for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
+for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
 # printf '\n' # Insert blank line.
 # find /home/dad/.config -type d -name GPUCache | while read path
 # do
