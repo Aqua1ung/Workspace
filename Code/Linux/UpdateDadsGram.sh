@@ -31,6 +31,8 @@ swupd update
 sudo -u dad flatpak update
 flatpak repair
 npm update -g # Update excalidraw and other npm packages.
+echo "Currently installed npm version is $(npm --version)"
+echo "Latest npm version on server is $(curl -s -L -D - https://github.com/npm/cli/releases/latest | grep -n -m 1 "<title>" | sed -n 's/^.*e v//p' | sed -n 's/ ·.*$//p')"
 
 printf '\n' # Skip to new line.
 
