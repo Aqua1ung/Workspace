@@ -15,9 +15,9 @@ mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir /home/dad/.config/autostart/
 sudo -u dad  mkdir /home/dad/.var
 
-# Masks the gpe6E flag on boot.
-cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
-clr-boot-manager update
+# Masks the gpe6E flag on boot, in order to fix high CPU usage; superseded by rmmod ucsi_acpi (see rmmod.service).
+# cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
+# clr-boot-manager update
 
 # Disable sleep when lid closed.
 chmod +x /run/media/dad/InstallationKits/BuildScripts/lidSwitch.sh
