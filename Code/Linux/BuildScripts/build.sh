@@ -22,13 +22,13 @@ then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
   cp /run/media/gabe/InstallationKits/rmmod.* /etc/systemd/system
   systemctl enable rmmod.timer
-  mkdir /etc/kernel
-  mkdir /etc/kernel/cmdline.d
+  # mkdir /etc/kernel
+  # mkdir /etc/kernel/cmdline.d
   sudo -u gabe mkdir /home/gabe/.config/autostart/
   sudo -u gabe  mkdir /home/gabe/.var
   # Masks the gpe6E flag on boot.
-  cp /run/media/gabe/InstallationKits/params.conf /etc/kernel/cmdline.d
-  clr-boot-manager update
+  # cp /run/media/gabe/InstallationKits/params.conf /etc/kernel/cmdline.d
+  # clr-boot-manager update
   # Disable sleep when lid closed.
   /run/media/gabe/InstallationKits/BuildScripts/lidSwitch.sh
 fi
