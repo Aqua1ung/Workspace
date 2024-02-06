@@ -17,6 +17,12 @@ fi
 # chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 # sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 
+if [ -f /etc/kernel/cmdline.d/params.conf ]
+then
+  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
+  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
+fi
+
 # Check to see if VLC.Plugin.makemkv is installed.
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]

@@ -1,0 +1,12 @@
+# rmmod.timer. To be placed in /etc/systemd/system/,
+# as per https://community.clearlinux.org/t/execute-command-upon-reboot-systemd-timer/8484
+
+[Unit]
+Description=Runs the rmmod service.
+
+[Timer]
+OnBootSec=30
+Unit=rmmod.service
+
+[Install]
+WantedBy=timers.target

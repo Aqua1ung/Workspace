@@ -1,0 +1,25 @@
+# rmmod.service. To be placed in /etc/systemd/system/,
+# as per https://community.clearlinux.org/t/execute-command-upon-reboot-systemd-timer/8484.
+
+[Unit]
+Description=Run rmmod.
+
+[Service]
+Type=oneshot
+
+# This stops the ACPI spamming of the syslog.
+ExecStart=/bin/bash -c "rmmod int3403_thermal"
+ExecStart=/bin/bash -c "rmmod ucsi_acpi"
+
+# This unmasks the gpe6E flag (that was masked at boot time). Not working.
+# ExecStart=/bin/bash -c "echo 'unmask' > /sys/firmware/acpi/interrupts/gpe6E"
+
+# This sets the battery charge threshold to 80%. (Not working in Clear Linux.)
+# ExecStart=/bin/bash -c "echo 80 > /sys/class/power_supply/CMB0/charge_control_end_threshold"
+
+# This locks the screen, to work around the "monitors not detected" bug.
+# ExecStart=/bin/bash -c "xdg-screensaver lock"
+# ExecStart=/bin/bash -c "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true"
+
+[Install]
+WantedBy=multi-user.target

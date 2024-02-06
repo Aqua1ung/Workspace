@@ -7,11 +7,17 @@ then
   exit 1
 fi
 
-# Removes kernel module int3403_thermal, to stop the spamming of the log.
-cp /run/media/dad/InstallationKits/rmmod.* /etc/systemd/system
+# Check out the Git folder; configure Git first.
+sudo -u dad mkdir /home/dad/Git
+sudo -u dad git config --global user.name "Cristian Cocos"
+sudo -u dad git config --global user.email "cristi@ieee.org"
+sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
+
+# Removes kernel modules int3403_thermal and ucsi_acpi, to stop the spamming of the log and kill the CPU usage bug.
+cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
 systemctl enable rmmod.timer
 
-mkdir -p /etc/kernel/cmdline.d
+# mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir /home/dad/.config/autostart/
 sudo -u dad  mkdir /home/dad/.var
 
@@ -27,7 +33,6 @@ chmod +x /run/media/dad/InstallationKits/BuildScripts/lidSwitch.sh
 swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder # containers-basic
 
 cd /home/dad/Downloads
-sudo -u dad mkdir /home/dad/Git
 
 # Install remote flatpak bundles.
 sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -41,11 +46,6 @@ cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions
 sudo -u dad mkdir /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
-
-# Check out the Git folder; configure Git first.
-sudo -u dad git config --global user.name "Cristian Cocos"
-sudo -u dad git config --global user.email "cristi@ieee.org"
-sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
 sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
