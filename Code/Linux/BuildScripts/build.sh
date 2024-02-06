@@ -26,7 +26,7 @@ then
   # mkdir /etc/kernel/cmdline.d
   sudo -u gabe mkdir /home/gabe/.config/autostart/
   sudo -u gabe  mkdir /home/gabe/.var
-  # Masks the gpe6E flag on boot.
+  # Masks the gpe6E flag on boot; no need for this anymore, as rmmod.service does rmmod rmmod ucsi_acpi.
   # cp /run/media/gabe/InstallationKits/params.conf /etc/kernel/cmdline.d
   # clr-boot-manager update
   # Disable sleep when lid closed.
