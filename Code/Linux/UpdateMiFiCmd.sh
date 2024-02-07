@@ -8,8 +8,12 @@ then
 fi
 
 cd /home/dad/Git/Workspace
-sudo -u dad git pull
-# sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
+noUDG=$(sudo -u dad git pull | grep -c UpdateMiFiCmd.sh)
+if [[ ! $noUDG -eq 0 ]]
+then
+  echo "Please re-run the UpdateMiFiCmd script, as it has changed on the disk."
+  exit 1
+fi
 
 swupd update
 sudo -u dad flatpak update
@@ -75,13 +79,7 @@ fi
 printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
-printf '\n' # Insert blank line.
-find /home/dad/.config -type d -name GPUCache | while read path
-do
-rm "$path"/*
-done
-printf '\n' # Insert blank line.
-echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
+for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.

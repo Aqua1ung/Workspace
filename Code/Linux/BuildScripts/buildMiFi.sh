@@ -36,30 +36,9 @@ sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Install PowerShell.
+chmod +x /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 
 # Trigger MiFi reboot every day at 4:00AM.
 cp /home/dad/Git/Workspace/Code/Linux/SystemdUnits/mifi.* /etc/systemd/system/
 systemctl enable mifi.timer --now
-
-# # Turn on Gnome animations.
-# gsettings set org.gnome.desktop.interface enable-animations true
-
-# # Disable automount.
-# gsettings set org.gnome.desktop.media-handling automount false
-# gsettings set org.gnome.desktop.media-handling automount-open false
-# systemctl restart gdm.service
-
-# # Install Excalidraw.
-# npm install react react-dom @excalidraw/excalidraw
-
-# # Install hid-tools
-# pip3 install hid-tools
-
-# # Add RemoteGo tablet.
-# mkdir -p /usr/lib/udev/hwdb.d
-# cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
-# systemd-hwdb update
-# udevadm trigger /dev/input/event*
-
-# echo "Please power off, and make sure you run UpdateDadsGram.sh!"
