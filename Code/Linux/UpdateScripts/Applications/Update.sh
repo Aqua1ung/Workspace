@@ -25,6 +25,13 @@ else
 fi
 printf '\n' # Skip to new line.
 
+if [ -f /etc/kernel/cmdline.d/params.conf ]
+then
+  rm /etc/kernel/cmdline.d/params.conf
+  clr-boot-manager update
+  cp /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.service /etc/systemd/system
+fi
+
 swupd update
 sudo -u $user flatpak update
 flatpak repair
@@ -32,24 +39,6 @@ flatpak repair
 printf '\n' # Skip to new line.
 
 cd /home/$user/Applications
-
-# Required by AURGA viewer.
-# read -p "Do you use AURGA? (Y/N) " -n 1 aurga
-# printf '\n' # Skip to new line.
-# if [ $aurga == y ] || [ $aurga == Y ]
-# then
-#   av="/etc/udev/rules.d/99-input-permissions.rules"
-#   if [[ ! -a "$av" ]]
-#   then
-#     cp AURGA/LinuxBinaries/99-input-permissions.rules /etc/udev/rules.d/
-#     udevadm control --reload-rules && udevadm trigger
-#   else
-#     echo "No AURGA tweak needed."
-#   fi
-# else
-#   echo "Skipping AURGA tweak install."
-# fi
-# printf '\n'
 
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
