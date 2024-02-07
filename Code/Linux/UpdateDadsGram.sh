@@ -14,8 +14,6 @@ then
   echo "Please re-run the UpdateDadsGram script, as it has changed on the disk."
   exit 1
 fi
-# chmod +x /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
-# sudo -u dad /home/dad/Git/Workspace/Code/Linux/mountUSB.sh
 
 if [ -f /etc/kernel/cmdline.d/params.conf ]
 then
@@ -43,34 +41,6 @@ echo "Latest npm version on server is $(curl -s -L -D - https://github.com/npm/c
 printf '\n' # Skip to new line.
 
 cd /run/media/dad/InstallationKits
-
-# Required by AURGA viewer.
-# read -p "Do you use AURGA? (Y/N) " -n 1 aurga
-# printf '\n' # Skip to new line.
-# if [ $aurga == y ] || [ $aurga == Y ]
-# then
-#   av="/etc/udev/rules.d/99-input-permissions.rules"
-#   if [[ ! -a "$av" ]]
-#   then
-#     cp /run/media/dad/InstallationKits/AURGA/LinuxBinaries/99-input-permissions.rules /etc/udev/rules.d/
-#     udevadm control --reload-rules && udevadm trigger
-#   fi
-# else
-#   echo "Skipping AURGA tweak install."
-# fi
-# printf '\n'
-
-# Download and install/update OpenTabletDriver.
-# read -p "Do you want to install/update OpenTabletDriver? (Y/N) " -n 1 otd
-# printf '\n' # Skip to new line.
-# if [ $otd == y ] || [ $otd == Y ]
-# then
-#   echo "Installing/updating OpenTabletDriver (incl. .NET(!)) ..."
-#   sudo --preserve-env=DOTNET_ROOT -u dad /home/dad/Git/Workspace/Code/Linux/opentabletdriver.sh # Preserve the DOTNET_ROOT envir. variable.
-# else
-#   echo "Skipping OpenTabletDriver install/update."
-# fi
-# printf '\n' # Insert blank line.
 
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
@@ -130,34 +100,6 @@ else
   echo "Skipping WineGUI install/update."
 fi
 printf '\n' # Skip to new line.
-
-# Download and install/update Ugee drivers.
-# read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
-# printf '\n' # Skip to new line.
-# if [ $ug == y ] || [ $ug == Y ]
-# then
-#   outUg=$(wget -N https://www.ugee.com/download/file/id/713/pid/452/ext/rpm/ugee-pentablet.x86_64.rpm 2>&1 | grep -c "304 Not Modified")
-#   nOfUg=$(rpm -qa | grep -ic ugee)
-#   if [[ $outUg -eq 0 ]] # Update if newer on server.
-#   then
-#     # printf '\n' # Insert blank line.
-#     echo "Updating Ugee drivers ..."
-#     rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-#   else
-#     if [[ $nOfUg -eq 0 ]] # Install if unchanged on server and not already installed.
-#     then
-#       # printf '\n' # Insert blank line.
-#       echo "Installing Ugee drivers ..."
-#       rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-#     else
-#       # printf '\n' # Insert blank line.
-#       echo "No Ugee driver update required."
-#     fi
-#   fi
-# else
-#   echo "Skipping Ugee driver installation."
-# fi
-# printf '\n' # Insert blank line.
 
 # Restore Remmina connections.
 read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
@@ -232,13 +174,6 @@ printf '\n' # Skip to new line.
 
 echo "Clearing GPUCache ..."
 for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
-# printf '\n' # Insert blank line.
-# find /home/dad/.config -type d -name GPUCache | while read path
-# do
-# rm "$path"/*
-# done
-# printf '\n' # Insert blank line.
-# echo "Done. In case you notice 'cannot remove' error messages, that means that the cache was already empty."
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
