@@ -29,7 +29,7 @@ if [ -f /etc/kernel/cmdline.d/params.conf ]
 then
   rm /etc/kernel/cmdline.d/params.conf
   clr-boot-manager update
-  cp /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.service /etc/systemd/system
+  cp /home/$user/Applications/rmmod.service /etc/systemd/system
 fi
 
 swupd update
@@ -177,8 +177,8 @@ then
 fi
 
 # Clear GPUCache.
-chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
-sudo -u $user ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
+chmod +x /home/$user/Applications/clearGPUCacheChrome.sh
+sudo -u $user /home/$user/Applications/clearGPUCacheChrome.sh
 printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
