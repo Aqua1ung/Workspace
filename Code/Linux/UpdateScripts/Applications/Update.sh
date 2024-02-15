@@ -15,6 +15,13 @@ then
   exit 1
 fi
 
+read -p "This script requires that the Applications folder be up to date. Press Y if you are sure it is, N otherwise. " -n 1 apps
+if [ ! $apps == y ] && [ ! $apps == Y ]
+then
+  echo "Make sure to update the Applications folder first. Exiting."
+  exit 1
+fi
+
 # Check to see if VLC.Plugin.makemkv is installed.
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]
