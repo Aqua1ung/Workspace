@@ -15,12 +15,19 @@ then
   exit 1
 fi
 
-read -p "This script requires that the Applications folder be up to date. Press Y if you are sure it is, N otherwise. " -n 1 apps
-if [ ! $apps == y ] && [ ! $apps == Y ]
-then
-  echo "Make sure to update the Applications folder first. Exiting."
-  exit 1
-fi
+# read -p "This script requires that the Applications folder be up to date. Press Y if you are sure it is, N otherwise. " -n 1 apps
+# if [ ! $apps == y ] && [ ! $apps == Y ]
+# then
+#   echo "Make sure to update the Applications folder first. Exiting."
+#   exit 1
+# fi
+
+# Install update scripts.
+cd /home/$user/Downloads
+sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
+unzip master.zip
+sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
+rm master.zip
 
 # Check to see if VLC.Plugin.makemkv is installed.
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
