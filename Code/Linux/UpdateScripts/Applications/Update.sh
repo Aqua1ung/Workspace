@@ -166,6 +166,7 @@ then
 else
   echo "Skipping NetBird installation/update."
 fi
+printf '\n' # Insert blank line.
 
 # Restore Remmina connections.
 read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
