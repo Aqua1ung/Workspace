@@ -25,7 +25,7 @@ fi
 # Install update scripts.
 cd /home/$user/Downloads
 sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
-unzip master.zip
+sudo -u $user unzip master.zip
 sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
 rm master.zip
 
