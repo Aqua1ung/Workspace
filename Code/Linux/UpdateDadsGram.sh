@@ -71,7 +71,7 @@ then
   then
     read -p "What flavor? (Type 1 for native, anything else for Flatpak.) " -n 1 fon
     printf '\n' # Insert blank line.
-    if [ $fon -eq 1 ]
+    if [[ $fon -eq 1 ]]
     then # Install or update the native flavor.
       chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
       sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
