@@ -40,7 +40,7 @@ echo "Latest npm version on server is $(curl -s -L -D - https://github.com/npm/c
 
 printf '\n' # Skip to new line.
 
-cd /run/media/dad/InstallationKits
+cd /home/dad/Downloads
 
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
@@ -105,7 +105,6 @@ else
   echo "Skipping VSCodium install/update."
 fi
 printf '\n' # Skip to new line.
-cd /run/media/dad/InstallationKits
 
 # Download and install/update WineGUI.
 read -p "Do you want to install/update WineGUI? (Y/N) " -n 1 wg
@@ -164,13 +163,14 @@ if [ $aurga == y ] || [ $aurga == Y ]
 then
   echo "Installing or updating AURGA ..."
   aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
-  if [ -f /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe ]
+  if [ -f /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGAViewer_Installer_x64_v$aurgaV.exe ]
   then
     echo "No AURGA update available."
   else
     echo "Updating AURGA ..."
-    sudo -u dad wget -P /run/media/dad/InstallationKits/AURGA/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
-    sudo -u dad wine64 /run/media/dad/InstallationKits/AURGA/AURGAViewer_Installer_x64_v$aurgaV.exe
+    sudo -u dad wget -P /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
+    # sudo -u dad git push
+    sudo -u dad wine64 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGAViewer_Installer_x64_v$aurgaV.exe
     echo "Done."
   fi    
 else
