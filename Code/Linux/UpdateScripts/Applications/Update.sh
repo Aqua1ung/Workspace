@@ -27,6 +27,7 @@ cd /home/$user/Downloads
 sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
 sudo -u $user unzip master.zip
 sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
+rm -rf Workspace-master/
 rm master.zip
 
 # Check to see if VLC.Plugin.makemkv is installed.
