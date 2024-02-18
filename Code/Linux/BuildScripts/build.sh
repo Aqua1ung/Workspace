@@ -17,20 +17,25 @@ then
   exit 1
 fi
 
+# Install update scripts.
+cd /home/$user/Downloads
+sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
+sudo -u $user unzip master.zip
+sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home/$user/
+rm -rf Workspace-master/
+rm master.zip
+
+# Lid switch fix.
+chmod +x /home/$user/Applications/lidSwitch.sh
+/home/$user/Applications/lidSwitch.sh
+
 if [ $user == gabe ]
 then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
-  cp /run/media/gabe/InstallationKits/rmmod.* /etc/systemd/system
+  cp /home/$user/Applications/rmmod.* /etc/systemd/system
   systemctl enable rmmod.timer
-  # mkdir /etc/kernel
-  # mkdir /etc/kernel/cmdline.d
-  sudo -u gabe mkdir /home/gabe/.config/autostart/
-  sudo -u gabe  mkdir /home/gabe/.var
-  # Masks the gpe6E flag on boot; no need for this anymore, as rmmod.service does rmmod rmmod ucsi_acpi.
-  # cp /run/media/gabe/InstallationKits/params.conf /etc/kernel/cmdline.d
-  # clr-boot-manager update
-  # Disable sleep when lid closed.
-  /run/media/gabe/InstallationKits/BuildScripts/lidSwitch.sh
+  sudo -u gabe mkdir /home/$user/.config/autostart/
+  sudo -u gabe  mkdir /home/$user/.var
 fi
 
 # Install swupd bundles.
