@@ -69,6 +69,9 @@ tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 AutoEnable=true 
 EOF
 
+# Allow Bluetooth activation upon startup.
+install -dm700 /var/lib/bluetooth
+
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
 

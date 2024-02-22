@@ -64,13 +64,22 @@ cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hw
 systemd-hwdb update
 udevadm trigger /dev/input/event*
 
+# Set bluetooth power up.
+tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+[Policy]
+AutoEnable=true 
+EOF
+
+# Allow Bluetooth activation upon startup.
+install -dm700 /var/lib/bluetooth
+
 printf '\n' # Skip to new line.
 read -p "The remainder of this script will kick you out of the current Gnome session. Press any key to continue." -n 1 wg
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
 # Disable automount.
-gsettings set org.gnome.desktop.media-handling automount false
-gsettings set org.gnome.desktop.media-handling automount-open false
-systemctl restart gdm.service
+# gsettings set org.gnome.desktop.media-handling automount false
+# gsettings set org.gnome.desktop.media-handling automount-open false
+# systemctl restart gdm.service
 
 # echo "Please power off, and make sure you run UpdateDadsGram.sh!"
