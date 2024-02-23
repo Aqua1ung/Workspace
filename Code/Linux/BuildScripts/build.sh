@@ -25,6 +25,9 @@ sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home
 rm -rf Workspace-master/
 rm master.zip
 
+# Enable Bluetooth service.
+systemctl enable bluetooth --now
+
 # Lid switch fix.
 chmod +x /home/$user/Applications/lidSwitch.sh
 /home/$user/Applications/lidSwitch.sh
@@ -63,14 +66,11 @@ sudo -u $user cp -r Workspace-master/Code/Linux/UpdateScripts/Applications /home
 rm -rf Workspace-master/
 rm master.zip
 
-# Set bluetooth power up.
+# Start Bluetooth on startup.
 tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 [Policy]
 AutoEnable=true 
 EOF
-
-# Allow Bluetooth activation upon startup.
-install -dm700 /var/lib/bluetooth
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true

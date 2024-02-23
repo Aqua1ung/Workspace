@@ -17,6 +17,9 @@ sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Wo
 cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
 systemctl enable rmmod.timer
 
+# Enable Bluetooth service.
+systemctl enable bluetooth --now
+
 # mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir /home/dad/.config/autostart/
 sudo -u dad  mkdir /home/dad/.var
@@ -64,14 +67,11 @@ cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hw
 systemd-hwdb update
 udevadm trigger /dev/input/event*
 
-# Set bluetooth power up.
+# Start Bluetooth on startup.
 tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 [Policy]
 AutoEnable=true 
 EOF
-
-# Allow Bluetooth activation upon startup.
-install -dm700 /var/lib/bluetooth
 
 printf '\n' # Skip to new line.
 read -p "The remainder of this script will kick you out of the current Gnome session. Press any key to continue." -n 1 wg
