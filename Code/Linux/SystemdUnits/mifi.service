@@ -5,4 +5,4 @@
 Description=Reboots the MiFi router.
 
 [Service]
-ExecStart=pwsh -File /home/dad/Documents/rebootM2000.ps1
+ExecStart=pwsh -File /home/dad/Git/Workspace/Code/PowerShell/rebootM2000.ps1
