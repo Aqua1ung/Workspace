@@ -57,15 +57,15 @@ fi
 printf '\n' # Insert blank line.
 
 # Download and install/update Chrome.
-read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
-printf '\n' # Skip to new line.
-if [ $chr == y ] || [ $chr == Y ]
-then
-  sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
-else
-  echo "Skipping Chrome install/update."
-fi
-printf '\n' # Insert blank line.
+# read -p "Do you want to install/update Chrome? (Y/N) " -n 1 chr
+# printf '\n' # Skip to new line.
+# if [ $chr == y ] || [ $chr == Y ]
+# then
+#   sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
+# else
+#   echo "Skipping Chrome install/update."
+# fi
+# printf '\n' # Insert blank line.
 
 # Update NetBird.
 read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
@@ -78,12 +78,12 @@ else
 fi
 printf '\n' # Skip to new line.
 
-echo "Clearing GPUCache ..."
-for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
-printf '\n' # Insert blank line.
+# echo "Clearing GPUCache ..."
+# for i in $(find ~/.config ~/.var -type d -name "GPUCache" 2>/dev/null); do rm -rf ${i}; done
+# printf '\n' # Insert blank line.
 
-# Fix PWA fonts.
-sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
+# # Fix PWA fonts.
+# sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
 printf '\n' # Skip to new line.

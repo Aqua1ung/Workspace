@@ -8,10 +8,13 @@ then
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire Solaar-gui hardinfo postfix input-remapper # containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils nfs-utils waypipe devpkg-nfs-utils storage-utils nmap nodejs-basic dev-utils-gui audio-pipewire Solaar-gui hardinfo postfix input-remapper containers-basic
 
 cd /home/dad/Downloads
-sudo -u dad mkdir /home/dad/Git
+sudo -u dad mkdir /home/dad/Git /home/dad/.haos
+
+# Start Docker service.
+systemctl enable docker --now
 
 # Install remote flatpak bundles.
 sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -23,8 +26,8 @@ git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Add update (and other) script desktop links.
-sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Update*.desktop /home/dad/.local/share/applications
-cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # In case of broken Flatpak install (or to /usr/share/applications?).
+sudo -u dad cp -n /home/dad/Git/Workspace/Code/Linux/DesktopFiles/Dad/UpdateMiFiCmd.desktop /home/dad/.local/share/applications
+# cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # In case of broken Flatpak install (or to /usr/share/applications?).
 
 # Add permissions for Solaar to start as root.
 mkdir -p /etc/udev/rules.d/
@@ -38,6 +41,9 @@ sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.
 # Install PowerShell.
 chmod +x /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
+
+# Install HAOS Docker container.
+docker run -d --name homeassistant --privileged --restart=unless-stopped -e TZ=America/New_York -v /home/dad/.haos:/config -v /run/dbus:/run/dbus:ro --network=host ghcr.io/home-assistant/home-assistant:stable
 
 # Trigger MiFi reboot every day at 4:00AM.
 cp /home/dad/Git/Workspace/Code/Linux/SystemdUnits/mifi.* /etc/systemd/system/
