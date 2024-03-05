@@ -14,7 +14,7 @@ cd /home/dad/Downloads
 sudo -u dad mkdir /home/dad/Git /home/dad/.haos
 
 # Start Docker service.
-systemctl enable docker --now
+systemctl enable docker.service --now
 
 # Install remote flatpak bundles.
 sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -43,7 +43,7 @@ chmod +x /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh
 
 # Install HAOS Docker container.
-docker run -d --name homeassistant --privileged --restart=unless-stopped -e TZ=America/New_York -v /home/dad/.haos:/config -v /run/dbus:/run/dbus:ro --network=host ghcr.io/home-assistant/home-assistant:stable
+sudo docker run -d --name homeassistant --device=/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20231216151619-if00 --privileged --restart=unless-stopped -e TZ=America/New_York -v /home/dad/.haos:/config -v /run/dbus:/run/dbus:ro --network=host ghcr.io/home-assistant/home-assistant:stable
 
 # Trigger MiFi reboot every day at 4:00AM.
 cp /home/dad/Git/Workspace/Code/Linux/SystemdUnits/mifi.* /etc/systemd/system/
