@@ -1,0 +1,11 @@
+# solaar.service
+
+[Unit]
+Description=Enable Solaar upon reboot.
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c "solaar"
+
+[Install]
+WantedBy=multi-user.target

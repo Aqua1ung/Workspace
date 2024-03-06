@@ -31,12 +31,12 @@ sudo -u dad cp -n /home/dad/Git/Workspace/Code/Linux/DesktopFiles/Dad/UpdateMiFi
 
 # Add permissions for Solaar to start as root.
 mkdir -p /etc/udev/rules.d/
-cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+cp /home/dad/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
 sudo -u dad mkdir /home/dad/.config/solaar
-sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
+sudo -u dad cp /home/dad/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
+sudo -u dad cp /home/dad/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Install PowerShell.
 chmod +x /home/dad/Git/Workspace/Code/Linux/installPowerShell.sh

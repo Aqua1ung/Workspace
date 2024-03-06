@@ -1,0 +1,36 @@
+- 1.1.8
+- _NAME: K850
+  _absent: [hi-res-scroll, lowres-scroll-mode, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert,
+    thumb-scroll-mode, onboard_profiles, report_rate, pointer_speed, dpi, speed-change, backlight, backlight-timed, reprogrammable-keys, crown-smooth, divert-crown,
+    divert-gkeys, m-key-leds, mr-key-led, gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer]
+  _battery: 4096
+  _modelId: B34D40620000
+  _serial: 668F43E1
+  _unitId: F62D66BE
+  _wpid: '4062'
+  change-host: null
+  disable-keyboard-keys: {1: false, 2: false, 4: false, 8: false, 16: false}
+  divert-keys: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 10: 0, 189: 0, 191: 0, 192: 0, 193: 0, 194: 0, 209: 0, 210: 0, 211: 0, 212: 0, 213: 0, 214: 0, 221: 0}
+  fn-swap: true
+  multiplatform: 0
+  persistent-remappable-keys: null
+- _NAME: M720 Triathlon Multi-Device Mouse
+  _absent: [hi-res-scroll, lowres-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert, thumb-scroll-mode, onboard_profiles, report_rate, dpi,
+    speed-change, backlight, backlight-timed, fn-swap, disable-keyboard-keys, crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, multiplatform,
+    gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer]
+  _battery: 4096
+  _modelId: B015405E0000
+  _sensitive: {divert-keys: false, persistent-remappable-keys: false}
+  _serial: E1EA0598
+  _unitId: D8FCD963
+  _wpid: 405E
+  change-host: null
+  divert-keys: {82: 0, 83: 1, 86: 1, 91: 0, 93: 0, 208: 0}
+  hires-scroll-mode: false
+  hires-smooth-invert: false
+  hires-smooth-resolution: true
+  persistent-remappable-keys: null
+  pointer_speed: 256
+  reprogrammable-keys: {80: 80, 81: 81, 82: 82, 83: 83, 86: 86, 91: 91, 93: 93, 208: 208}
+- {_NAME: Multi Device Silent Mouse M585/M590, _serial: 4C728814, _wpid: 406B}
+- {_NAME: MX Anywhere 2S, _serial: 678D5A2C, _wpid: 406A}

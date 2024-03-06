@@ -1,0 +1,1 @@
+rules.yaml.old is for the scenario with the "Vertical Workspaces" extension disabled. In that scenario, it needs to be renamed rules.yaml and used with DadsGram.sh (namely copy it into /home/dad/.config/solaar).
