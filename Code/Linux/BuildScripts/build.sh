@@ -67,18 +67,18 @@ rm -rf Workspace-master/
 rm master.zip
 
 # Start Bluetooth on startup.
-tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
-[Policy]
-AutoEnable=true 
-EOF
+# tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+# [Policy]
+# AutoEnable=true 
+# EOF
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
 
 # Install Excalidraw.
-npm install react react-dom @excalidraw/excalidraw
+sudo -u $user npm install react react-dom @excalidraw/excalidraw
 
 # Install hid-tools
-pip3 install hid-tools
+sudo -u $user pip3 install hid-tools
 
 echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."

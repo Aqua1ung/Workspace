@@ -68,10 +68,10 @@ systemd-hwdb update
 udevadm trigger /dev/input/event*
 
 # Start Bluetooth on startup.
-tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
-[Policy]
-AutoEnable=true 
-EOF
+# tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+# [Policy]
+# AutoEnable=true 
+# EOF
 
 printf '\n' # Skip to new line.
 read -p "The remainder of this script will kick you out of the current Gnome session. Press any key to continue." -n 1 wg
