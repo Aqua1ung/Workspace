@@ -1,0 +1,12 @@
+substitutions:
+  name: slzb-aa5d20
+  friendly_name: SLZB
+packages:
+  slzb-06.bluetooth-proxy: github://smlight-dev/slzb-06-esphome/slzb-06-esphome-btproxy.yaml@main
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  # encryption:
+    # key: cAe2Emy30mzSouaI3evncvjqxbP9+7Tacf3leMYb140=
