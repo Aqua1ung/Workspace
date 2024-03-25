@@ -17,14 +17,15 @@ psram:
 
 # Enable logging
 logger:
+  # level: VERBOSE
 
 # Enable Home Assistant API
 api:
-  encryption:
-    key: "some key"
+  # encryption:
+    # key: "CGvnxeqFG4C3RGemr8xhvR0VHl6tykTYDsEZHhqeR8Q="
 
 ota:
-  password: "some password"
+  password: "51601a4a74335930d1890c15ba49b448"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -33,7 +34,11 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Lilygo"
-    password: "some password"
+    password: "(NsdbJE23.Ppn,$"
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: true
 
 bluetooth_proxy:
   active: True
