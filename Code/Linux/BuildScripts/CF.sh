@@ -1,3 +1,5 @@
+# CF = ClearFraction
+
 #!/bin/bash
 
 # Run as root/sudo.
