@@ -67,10 +67,10 @@ rm -rf Workspace-master/
 rm master.zip
 
 # Start Bluetooth on startup.
-# tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
-# [Policy]
-# AutoEnable=true 
-# EOF
+tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+[Policy]
+AutoEnable=true 
+EOF
 
 # Turn on Gnome animations.
 gsettings set org.gnome.desktop.interface enable-animations true
