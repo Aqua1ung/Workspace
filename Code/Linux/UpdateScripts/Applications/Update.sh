@@ -130,32 +130,32 @@ fi
 printf '\n' # Skip to new line.
 
 # Download and install/update Ugee drivers.
-read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
-printf '\n' # Skip to new line.
-if [ $ug == y ] || [ $ug == Y ]
-then
-  outUg=$(wget -N https://www.ugee.com/download/file/id/713/pid/452/ext/rpm/ugee-pentablet.x86_64.rpm 2>&1 | grep -c "304 Not Modified")
-  nOfUg=$(rpm -qa | grep -ic ugee)
-  if [[ $outUg -eq 0 ]] # Update if newer on server.
-  then
-    # printf '\n' # Insert blank line.
-    echo "Updating Ugee drivers ..."
-    rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-  else
-    if [[ $nOfUg -eq 0 ]] # Install if unchanged on server and not already installed.
-    then
-      # printf '\n' # Insert blank line.
-      echo "Installing Ugee drivers ..."
-      rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
-    else
-      # printf '\n' # Insert blank line.
-      echo "No Ugee driver update required."
-    fi
-  fi
-else
-  echo "Skipping Ugee driver installation."
-fi
-printf '\n' # Insert blank line.
+# read -p "Do you want to install/update Ugee drivers? (Y/N) " -n 1 ug
+# printf '\n' # Skip to new line.
+# if [ $ug == y ] || [ $ug == Y ]
+# then
+#   outUg=$(wget -N https://www.ugee.com/download/file/id/713/pid/452/ext/rpm/ugee-pentablet.x86_64.rpm 2>&1 | grep -c "304 Not Modified")
+#   nOfUg=$(rpm -qa | grep -ic ugee)
+#   if [[ $outUg -eq 0 ]] # Update if newer on server.
+#   then
+#     # printf '\n' # Insert blank line.
+#     echo "Updating Ugee drivers ..."
+#     rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
+#   else
+#     if [[ $nOfUg -eq 0 ]] # Install if unchanged on server and not already installed.
+#     then
+#       # printf '\n' # Insert blank line.
+#       echo "Installing Ugee drivers ..."
+#       rpm -Uvh --nodeps ugee-pentablet.x86_64.rpm
+#     else
+#       # printf '\n' # Insert blank line.
+#       echo "No Ugee driver update required."
+#     fi
+#   fi
+# else
+#   echo "Skipping Ugee driver installation."
+# fi
+# printf '\n' # Insert blank line.
 
 # Update NetBird.
 read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
