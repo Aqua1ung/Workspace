@@ -161,20 +161,21 @@ read -p "Do you want to install/update AURGA? (Y/N) " -n 1 aurga
 printf '\n' # Skip to new line.
 if [ $aurga == y ] || [ $aurga == Y ]
 then
-  echo "Installing or updating AURGA ..."
+  # echo "Installing or updating AURGA ..."
   aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
-  if [ -f /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGAViewer_Installer_x64_v$aurgaV.exe ]
+  if [ -f /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat version)" ]
   then
     echo "No AURGA update available."
   else
-    echo "Updating AURGA ..."
-    sudo -u dad wget -P /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
+    echo "Updating/installing AURGA ..."
+    sudo -u dad wget -P /home/dad/Downloads/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
     # sudo -u dad git push
-    sudo -u dad wine64 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGAViewer_Installer_x64_v$aurgaV.exe
+    sudo -u dad wine64 /home/dad/Downloads/AURGAViewer_Installer_x64_v$aurgaV.exe
     echo "Done."
-  fi    
+    sudo -u dad echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
+  fi
 else
-  echo "Skipping AURGA installation/update."
+    echo "Skipping AURGA installation/update."
 fi
 printf '\n' # Skip to new line.
 
