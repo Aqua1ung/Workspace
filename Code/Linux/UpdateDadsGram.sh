@@ -163,13 +163,12 @@ if [ $aurga == y ] || [ $aurga == Y ]
 then
   # echo "Installing or updating AURGA ..."
   aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
-  if [ -f /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat version)" ]
+  if [ -f /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
   then
     echo "No AURGA update available."
   else
     echo "Updating/installing AURGA ..."
     sudo -u dad wget -P /home/dad/Downloads/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
-    # sudo -u dad git push
     sudo -u dad wine64 /home/dad/Downloads/AURGAViewer_Installer_x64_v$aurgaV.exe
     echo "Done."
     sudo -u dad echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
