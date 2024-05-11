@@ -21,7 +21,7 @@ fi
 cd /home/$user/Downloads
 sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
 sudo -u $user unzip master.zip
-sudo -u $user mkdir /home/$user/Git/Workspace/
+sudo -u $user mkdir -p /home/$user/Git/Workspace/
 sudo -u $user cp -r Workspace-master/Code /home/$user/Git/Workspace/
 rm -rf Workspace-master/
 rm master.zip
@@ -38,8 +38,8 @@ then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
   cp /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
   systemctl enable rmmod.timer
-  sudo -u gabe mkdir /home/$user/.config/autostart/
-  sudo -u gabe  mkdir /home/$user/.var
+  sudo -u gabe mkdir -p /home/$user/.config/autostart/
+  sudo -u gabe  mkdir -p /home/$user/.var
 fi
 
 # Install swupd bundles.
@@ -52,11 +52,11 @@ sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/
 sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
-mkdir /etc/udev/rules.d/
+mkdir -p /etc/udev/rules.d/
 cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u $user mkdir /home/$user/.config/solaar
+sudo -u $user mkdir -p /home/$user/.config/solaar
 sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
 sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop /home/$user/.config/autostart
 
