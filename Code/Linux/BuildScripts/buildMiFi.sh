@@ -16,9 +16,9 @@ sudo -u dad mkdir /home/dad/Git /home/dad/.haos
 # Start Docker service.
 systemctl enable docker.service --now
 
-# Install remote flatpak bundles.
-sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo -u dad flatpak install --or-update --noninteractive -y org.gnome.Firmware com.mattjakeman.ExtensionManager # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+# Install remoteflatpak bundles.
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --or-update --noninteractive -y org.gnome.Firmware com.mattjakeman.ExtensionManager # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Check out the Git folder; configure Git first.
 git config --global user.name "Cristian Cocos"

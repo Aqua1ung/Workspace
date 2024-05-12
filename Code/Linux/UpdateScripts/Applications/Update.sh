@@ -27,7 +27,7 @@ rm master.zip
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]
 then
-  sudo -u $user flatpak install org.videolan.VLC.Plugin.makemkv
+  flatpak install org.videolan.VLC.Plugin.makemkv
 else
   echo "No need to install the MakeMKV plugin for VLC."
 fi
@@ -41,7 +41,7 @@ then
 fi
 
 swupd update
-sudo -u $user flatpak update
+flatpak update
 flatpak repair
 sudo -u $user npm update excalidraw # Update excalidraw.
 echo "Currently installed npm version is $(npm --version)"
