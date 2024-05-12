@@ -77,8 +77,8 @@ then
       sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
     else # Install the Flatpak flavor.
       sudo -u dad flatpak install --or-update --noninteractive -y --system com.google.Chrome
-      chmod +x /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
-      sudo -u dad /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
+      sudo -u dad flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.google.Chrome
+      echo "You will need to log out and log back in to enable PWA shortcuts."
       if [ ! -f /home/dad/.local/share/flatpak/overrides/com.google.Chrome ]
       then
         echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."

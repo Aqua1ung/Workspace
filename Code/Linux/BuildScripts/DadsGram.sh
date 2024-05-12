@@ -8,7 +8,7 @@ then
 fi
 
 # Check out the Git folder; configure Git first.
-sudo -u dad mkdir /home/dad/Git
+sudo -u dad mkdir -p /home/dad/Git
 sudo -u dad git config --global user.name "Cristian Cocos"
 sudo -u dad git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
@@ -21,8 +21,8 @@ systemctl enable rmmod.timer
 systemctl enable bluetooth --now
 
 # mkdir -p /etc/kernel/cmdline.d
-sudo -u dad mkdir /home/dad/.config/autostart/
-sudo -u dad  mkdir /home/dad/.var
+sudo -u dad mkdir -p /home/dad/.config/autostart/
+sudo -u dad  mkdir -p /home/dad/.var
 
 # Masks the gpe6E flag on boot, in order to fix high CPU usage; superseded by rmmod ucsi_acpi (see rmmod.service).
 # cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
@@ -46,7 +46,7 @@ mkdir -p /etc/udev/rules.d/
 cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u dad mkdir /home/dad/.config/solaar
+sudo -u dad mkdir -p /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
