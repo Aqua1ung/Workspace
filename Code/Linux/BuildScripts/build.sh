@@ -76,7 +76,8 @@ sudo -u $user npm install react react-dom @excalidraw/excalidraw
 sudo -u $user pip3 install hid-tools
 
 # Patch Chrome permissions in FlatSeal for the installation of PWAs.
-flatpak override --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.google.Chrome
+chmod +x /home/$user/Git/Workspace/Code/Linux/patchFlatseal.sh
+sudo -u $user /home/$user/Git/Workspace/Code/Linux/patchFlatseal.sh
 if [ ! -f /home/$user/.local/share/flatpak/overrides/com.google.Chrome ]
 then
   echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."
