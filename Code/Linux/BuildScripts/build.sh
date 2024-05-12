@@ -48,8 +48,8 @@ swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remot
 # cd /home/$user/Downloads
 
 # Install remote flatpak bundles.
-sudo -u dad flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo -u dad flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo -u $user flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo -u $user flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
 mkdir -p /etc/udev/rules.d/
@@ -74,5 +74,13 @@ sudo -u $user npm install react react-dom @excalidraw/excalidraw
 
 # Install hid-tools
 sudo -u $user pip3 install hid-tools
+
+# Patch Chrome permissions in FlatSeal for the installation of PWAs.
+sudo -u $user flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.google.Chrome
+if [ ! -f /home/$user/.local/share/flatpak/overrides/com.google.Chrome ]
+then
+  echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."
+  exit 1
+fi
 
 echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."

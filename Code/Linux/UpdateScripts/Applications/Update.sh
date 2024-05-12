@@ -27,7 +27,7 @@ rm master.zip
 vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
 if [[ $vlcP -eq 0 ]]
 then
-  flatpak install org.videolan.VLC.Plugin.makemkv
+  sudo -u $user flatpak install org.videolan.VLC.Plugin.makemkv
 else
   echo "No need to install the MakeMKV plugin for VLC."
 fi
@@ -123,14 +123,6 @@ printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
 # sudo -u $user /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
-
-# Patch Chrome permissions in FlatSeal for the installation of PWAs.
-flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.google.Chrome
-if [ ! -f /home/$user/.local/share/flatpak/overrides/com.google.Chrome ]
-then
-  echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."
-  exit 1
-fi
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean."
 printf '\n' # Skip to new line.
