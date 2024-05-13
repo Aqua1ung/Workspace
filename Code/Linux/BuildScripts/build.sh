@@ -67,7 +67,7 @@ AutoEnable=true
 EOF
 
 # Turn on Gnome animations.
-gsettings set org.gnome.desktop.interface enable-animations true
+sudo -u $user gsettings set org.gnome.desktop.interface enable-animations true
 
 # Install Excalidraw.
 sudo -u $user npm install react react-dom @excalidraw/excalidraw
