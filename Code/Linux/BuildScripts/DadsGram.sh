@@ -74,7 +74,7 @@ AutoEnable=true
 EOF
 
 printf '\n' # Skip to new line.
-read -p "The remainder of this script may kick you out of the current Gnome session. Press any key to continue." -n 1 wg
+# read -p "The remainder of this script may kick you out of the current Gnome session. Press any key to continue." -n 1 wg
 # Turn on Gnome animations.
 sudo -u dad gsettings set org.gnome.desktop.interface enable-animations true
 # Disable automount.
