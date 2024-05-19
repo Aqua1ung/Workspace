@@ -29,6 +29,9 @@ rm master.zip
 # Enable Bluetooth service.
 systemctl enable bluetooth --now
 
+sudo -u $user mkdir -p /home/$user/.config/autostart/
+sudo -u $user  mkdir -p /home/$user/.var
+
 # Lid switch fix.
 chmod +x /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
@@ -38,8 +41,6 @@ then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
   cp /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
   systemctl enable rmmod.timer
-  sudo -u gabe mkdir -p /home/$user/.config/autostart/
-  sudo -u gabe  mkdir -p /home/$user/.var
 fi
 
 # Install swupd bundles.
