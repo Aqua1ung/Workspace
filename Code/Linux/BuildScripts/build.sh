@@ -59,7 +59,7 @@ cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-log
 # Add Solaar rules and other stuff.
 sudo -u $user mkdir -p /home/$user/.config/solaar
 sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
-sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop /home/$user/.config/autostart
+# sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop /home/$user/.config/autostart
 
 # Start Bluetooth on startup.
 tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'

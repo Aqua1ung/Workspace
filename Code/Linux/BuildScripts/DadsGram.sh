@@ -48,7 +48,7 @@ cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions
 # Add Solaar rules and other stuff.
 sudo -u dad mkdir -p /home/dad/.config/solaar
 sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
+# sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Add update (and other) script desktop links.
 sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
