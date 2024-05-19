@@ -152,6 +152,7 @@ if [ $nbd == y ] || [ $nbd == Y ]
 then
   chmod +x /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
   sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+  cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/dad/.config/autostart
 else
   echo "Skipping NetBird installation/update."
 fi

@@ -97,7 +97,9 @@ read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
 printf '\n' # Skip to new line.
 if [ $nbd == y ] || [ $nbd == Y ]
 then
+  chmod +x /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
   sudo -u $user /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
+  sudo -u $user cp -u /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/$user/.config/autostart
 else
   echo "Skipping NetBird installation/update."
 fi

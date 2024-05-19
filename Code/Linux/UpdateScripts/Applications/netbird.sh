@@ -18,7 +18,7 @@ then
   echo "Installing NetBird ..."
   printf '\n' # Insert blank line.
   curl -fsSL https://pkgs.netbird.io/install.sh | sh
-  cp /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/$USER/.config/autostart
+  # cp /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/$USER/.config/autostart
   # echo "Logout or reboot needed."
 else
   echo "Attempting to update NetBird ..."
