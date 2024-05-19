@@ -67,8 +67,8 @@ tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 AutoEnable=true 
 EOF
 
-# Turn on Gnome animations.
-sudo -u $user gsettings set org.gnome.desktop.interface enable-animations true
+# Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
+# sudo -u $user gsettings set org.gnome.desktop.interface enable-animations true
 
 # Install Excalidraw.
 sudo -u $user npm install react react-dom @excalidraw/excalidraw
