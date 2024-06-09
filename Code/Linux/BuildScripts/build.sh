@@ -26,9 +26,6 @@ sudo -u $user cp -r Workspace-master/Code /home/$user/Git/Workspace/
 rm -rf Workspace-master/
 rm master.zip
 
-# Enable Bluetooth service.
-systemctl enable bluetooth --now
-
 sudo -u $user mkdir -p /home/$user/.config/autostart/
 sudo -u $user  mkdir -p /home/$user/.var
 
@@ -44,7 +41,7 @@ then
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic
+swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui
 
 # cd /home/$user/Downloads
 
@@ -85,4 +82,17 @@ then
   exit 1
 fi
 
-echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."
+# Add userid to the kvm and libvirt groups.
+usermod -G kvm -a $USER
+usermod -G libvirt -a $USER
+
+# Enable libvirtd daemon.
+systemctl enable libvirtd --now
+
+# Enable Bluetooth service.
+systemctl enable bluetooth --now
+
+# Enable Docker daemon.
+systemctl enable docker --now
+
+# echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."
