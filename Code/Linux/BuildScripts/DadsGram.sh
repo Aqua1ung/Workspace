@@ -17,9 +17,6 @@ sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Wo
 cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
 systemctl enable rmmod.timer
 
-# Enable Bluetooth service.
-systemctl enable bluetooth --now
-
 # mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir -p /home/dad/.config/autostart/
 sudo -u dad  mkdir -p /home/dad/.var
@@ -78,7 +75,13 @@ usermod -G kvm -a $USER
 usermod -G libvirt -a $USER
 
 # Enable libvirtd daemon.
-systemctl enable libvirtd
+systemctl enable libvirtd --now
+
+# Start the Docker daemon.
+systemctl enable docker --now
+
+# Enable Bluetooth service.
+systemctl enable bluetooth --now
 
 printf '\n' # Skip to new line.
 
