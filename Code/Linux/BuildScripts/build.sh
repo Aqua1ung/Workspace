@@ -8,6 +8,7 @@ then
 fi
 
 # Copy Code folder from Git.
+mkdir -p ~/Git
 cd ~/Git/
 git clone https://github.com/Aqua1ung/Workspace.git
 
