@@ -10,7 +10,19 @@ fi
 # Copy Code folder from Git.
 cd ~/Git/
 git clone https://github.com/Aqua1ung/Workspace.git
+
+# Copy update.sh file to home, and make shortcut.
 cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/update.sh ~
+sudo chmod +x ~/update.sh
+mkdir -p ~/.local/share/applications/
+tee "/home/$USER/.local/share/applications/updateComputer.desktop" >/dev/null <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=Update Computer
+Exec=~/update.sh
+Terminal=true
+EOF
+sed -i "s/~/\/home\/$USER/g" "/home/$USER/.local/share/applications/updateComputer.desktop" # Desktop files do not understand tilda, so it needs to be replaced w/full path.
 
 cd ~/Downloads
 
