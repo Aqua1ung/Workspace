@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd /home/$USER/Downloads
+cd ~/Downloads
 
 if [ -f /etc/kernel/cmdline.d/params.conf ]
 then
   sudo rm /etc/kernel/cmdline.d/params.conf
   sudo clr-boot-manager update
-  sudo cp /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.service /etc/systemd/system
+  sudo cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.service /etc/systemd/system
 fi
 
 sudo swupd update
@@ -31,8 +31,8 @@ then
   iV+=.$instRel # Concatenate iV + instRel.
   if [[ "$iV" != "$tag" ]]
   then
-    wget -O /home/$USER/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
-    sudo rpm -Uvh --nodeps /home/$USER/Downloads/codium.rpm
+    wget -O ~/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+    sudo rpm -Uvh --nodeps ~/Downloads/codium.rpm
   else
     echo "No VSCodium update required."
   fi
@@ -51,8 +51,8 @@ then
   tagWg=$(curl -s -L -D - https://gitlab.melroy.org/melroy/winegui/-/tags?format=atom | grep -n -m 1 tags/v | sed -n 's/^.*tags\/v//p' | sed -n 's/<.*$//p')
   if [[ "$iVwg" != "$tagWg" ]]
   then
-    wget -O /home/$USER/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tagWg.rpm
-    sudo rpm -Uvh --nodeps /home/$USER/Downloads/WineGUI.rpm
+    wget -O ~/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tagWg.rpm
+    sudo rpm -Uvh --nodeps ~/Downloads/WineGUI.rpm
   else
     echo "No WineGUI update required."
   fi
@@ -66,9 +66,9 @@ read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
 printf '\n' # Skip to new line.
 if [ $nbd == y ] || [ $nbd == Y ]
 then
-  sudo chmod +x /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
-  /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
-  cp -u /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/$USER/.config/autostart
+  sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
+  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird.sh
+  cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop ~/.config/autostart
 else
   echo "Skipping NetBird installation/update."
 fi
@@ -79,17 +79,17 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  sudo rm -f /home/$USER/.local/share/remmina/*
-  mkdir -p /home/$USER/.var/app/org.remmina.Remmina/data/remmina
-  sudo tar -xf /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C /home/$USER/.var/app/org.remmina.Remmina/data/remmina
+  rm -f ~/.local/share/remmina/*
+  mkdir -p ~/.var/app/org.remmina.Remmina/data/remmina
+  tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.var/app/org.remmina.Remmina/data/remmina
 else
   echo "Skipping Remmina connections restore."
 fi
 printf '\n' # Skip to new line.
 
 # Clear GPUCache.
-sudo chmod +x /home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
-/home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
+sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/clearGPUCacheChrome.sh
 printf '\n' # Insert blank line.
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean."

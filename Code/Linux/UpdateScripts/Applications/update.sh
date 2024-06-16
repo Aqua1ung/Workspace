@@ -8,6 +8,7 @@ then
 fi
 
 # Install update scripts.
-cd /home/$USER/Git/Workspace
+cd ~/Git/Workspace
 git pull
-/home/$USER/Git/Workspace/Code/Linux/UpdateScripts/Applications/Update.sh
+sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/Update.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/Update.sh

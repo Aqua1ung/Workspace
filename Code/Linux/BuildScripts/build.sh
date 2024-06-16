@@ -1,98 +1,86 @@
 #!/bin/bash
 
-# Run as root/sudo.
-if [ ! $(id -u) == 0 ]
+# Do not run as root/sudo.
+if [ $(id -u) == 0 ]
 then
-  echo "This script should be run as root! Exiting ..."
-  exit 1
-fi
-
-printf '\n' # Skip to new line.
-
-read -p "Type in your Linux username, followed by Enter: " user
-printf '\n' # Skip to new line.
-if [ $user != mom ] && [ $user != gabe ] && [ $user != paul ]
-then
-  echo "You have mistyped the user name. Exiting ..."
+  echo "This script should be NOT run as root! Exiting ..."
   exit 1
 fi
 
 # Copy Code folder from Git.
-cd /home/$user/Downloads
-sudo -u $user wget https://github.com/Aqua1ung/Workspace/archive/refs/heads/master.zip
-sudo -u $user unzip master.zip
-sudo -u $user mkdir -p /home/$user/Git/Workspace/
-sudo -u $user cp -r Workspace-master/Code /home/$user/Git/Workspace/
-rm -rf Workspace-master/
-rm master.zip
+cd ~/Git/
+git clone https://github.com/Aqua1ung/Workspace.git
+cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/update.sh ~
 
-sudo -u $user mkdir -p /home/$user/.config/autostart/
-sudo -u $user  mkdir -p /home/$user/.var
+cd ~/Downloads
+
+mkdir -p ~/.config/autostart/
+mkdir -p ~/.var
 
 # Lid switch fix.
-chmod +x /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
-/home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
+sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
+sudo ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
-if [ $user == gabe ]
+if [ $USER == gabe ]
 then
   # Removes kernel module int3403_thermal, to stop the spamming of the log.
-  cp /home/$user/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
-  systemctl enable rmmod.timer
+  sudo cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
+  sudo systemctl enable rmmod.timer
 fi
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui
 
-# cd /home/$user/Downloads
+# cd ~/Downloads
 
 # Install remote flatpak bundles.
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina # net.codeindustry.MasterPDFEditor fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
-mkdir -p /etc/udev/rules.d/
-cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+sudo mkdir -p /etc/udev/rules.d/
+sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u $user mkdir -p /home/$user/.config/solaar
-sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/$user/.config/solaar
-# sudo -u $user cp /run/media/$user/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop /home/$user/.config/autostart
+mkdir -p ~/.config/solaar
+cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml ~/.config/solaar
+# cp /run/media/$USER/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Start Bluetooth on startup.
-tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+sudo tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 [Policy]
 AutoEnable=true 
 EOF
 
 # Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
-# sudo -u $user gsettings set org.gnome.desktop.interface enable-animations true
+# gsettings set org.gnome.desktop.interface enable-animations true
 
 # Install Excalidraw.
-sudo -u $user npm install react react-dom @excalidraw/excalidraw
+npm install react react-dom @excalidraw/excalidraw
 
 # Install hid-tools
-sudo -u $user pip3 install hid-tools
+pip3 install hid-tools
+
+# Add userid to the kvm and libvirt groups.
+sudo usermod -G kvm -a $USER
+sudo usermod -G libvirt -a $USER
+
+# Enable libvirtd daemon.
+sudo systemctl enable libvirtd --now
+
+# Enable Bluetooth service.
+sudo systemctl enable bluetooth --now
+
+# Enable Docker daemon.
+sudo systemctl enable docker --now
 
 # Patch Chrome permissions in FlatSeal for the installation of PWAs.
-chmod +x /home/$user/Git/Workspace/Code/Linux/patchFlatseal.sh
-sudo -u $user /home/$user/Git/Workspace/Code/Linux/patchFlatseal.sh
-if [ ! -f /home/$user/.local/share/flatpak/overrides/com.google.Chrome ]
+sudo chmod +x ~/Git/Workspace/Code/Linux/patchFlatseal.sh
+~/Git/Workspace/Code/Linux/patchFlatseal.sh
+if [ ! -f ~/.local/share/flatpak/overrides/com.google.Chrome ]
 then
   echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."
   exit 1
 fi
-
-# Add userid to the kvm and libvirt groups.
-usermod -G kvm -a $USER
-usermod -G libvirt -a $USER
-
-# Enable libvirtd daemon.
-systemctl enable libvirtd --now
-
-# Enable Bluetooth service.
-systemctl enable bluetooth --now
-
-# Enable Docker daemon.
-systemctl enable docker --now
 
 # echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."
