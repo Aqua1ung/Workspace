@@ -7,5 +7,7 @@
 #u = print(type(y))
 #print(u)
 #print(float(y) == z)
-import sys
-print(sys.version)
+# import sys
+# print(sys.version)
+from comment_parser import comment_parser
+comment_parser.extract_comments('/home/dad/Git/Workspace/Code/Python/Refactorer.py', mime='text/x-python')
