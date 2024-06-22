@@ -32,7 +32,7 @@ mkdir -p ~/.var
 
 # Lid switch fix.
 sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
-sudo ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
 if [ $USER == gabe ]
 then
