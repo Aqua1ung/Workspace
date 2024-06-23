@@ -2,9 +2,9 @@
 
 # Do not run as root/sudo.
 
-if [ ! $(id -u) == 0 ]
+if [ $(id -u) == 0 ]
 then
-  echo "This script should be run as root! Exiting ..."
+  echo "This script should NOT be run as root! Exiting ..."
   exit 1
 fi
 
