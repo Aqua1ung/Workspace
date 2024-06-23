@@ -8,18 +8,18 @@ then
 fi
 
 # Check out the Git folder; configure Git first.
-sudo -u dad mkdir -p /home/dad/Git
-sudo -u dad git config --global user.name "Cristian Cocos"
-sudo -u dad git config --global user.email "cristi@ieee.org"
-sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
+mkdir -p /home/dad/Git
+git config --global user.name "Cristian Cocos"
+git config --global user.email "cristi@ieee.org"
+git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Removes kernel modules int3403_thermal and ucsi_acpi, to stop the spamming of the log and kill the CPU usage bug.
 sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
 sudo systemctl enable rmmod.timer
 
 # mkdir -p /etc/kernel/cmdline.d
-sudo -u dad mkdir -p /home/dad/.config/autostart/
-sudo -u dad  mkdir -p /home/dad/.var
+mkdir -p /home/dad/.config/autostart/
+mkdir -p /home/dad/.var
 
 # Masks the gpe6E flag on boot, in order to fix high CPU usage; superseded by rmmod ucsi_acpi (see rmmod.service).
 # cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
@@ -43,20 +43,20 @@ sudo mkdir -p /etc/udev/rules.d/
 sudo cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-sudo -u dad mkdir -p /home/dad/.config/solaar
-sudo -u dad cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-# sudo -u dad cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
+mkdir -p /home/dad/.config/solaar
+cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
+# cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Add update (and other) script desktop links.
-sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
-# sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
-# sudo -u dad cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
+cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
+# cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
+# cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
 # Install Excalidraw.
-sudo -u dad npm install react react-dom @excalidraw/excalidraw
+npm install react react-dom @excalidraw/excalidraw
 
 # Install hid-tools
-sudo -u dad pip3 install hid-tools
+pip3 install hid-tools
 
 # Add RemoteGo tablet.
 sudo mkdir -p /usr/lib/udev/hwdb.d
@@ -85,8 +85,20 @@ sudo systemctl enable bluetooth --now
 
 printf '\n' # Skip to new line.
 
+# Copy update.sh file to home, and make shortcut.
+cp /home/dad/Git/Workspace/Code/Linux/updateDadsGram.sh ~
+sudo chmod +x ~/updateDadsGram.sh
+mkdir -p ~/.local/share/applications/
+tee "/home/dad/.local/share/applications/updateComputer.desktop" >/dev/null <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=Update Computer
+Exec=~/updateDadsGram.sh
+Terminal=true
+EOF
+
 # Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
-# sudo -u dad gsettings set org.gnome.desktop.interface enable-animations true
+# gsettings set org.gnome.desktop.interface enable-animations true
 
 # Disable automount.
 # gsettings set org.gnome.desktop.media-handling automount false
