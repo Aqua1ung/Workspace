@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Run as root/sudo.
-if [ ! $(id -u) == 0 ]
+# Do not run as root/sudo.
+if [ $(id -u) == 0 ]
 then
-  echo "This script should be run as root (sudo -E)! Exiting ..."
+  echo "This script should NOT be run as root (sudo -E)! Exiting ..."
   exit 1
 fi
 
 cd /home/dad/Git/Workspace
-noUDG=$(sudo -u dad git pull | grep -c UpdateDadsGram.sh)
+noUDG=$(git pull | grep -c UpdateDadsGram.sh)
 if [[ ! $noUDG -eq 0 ]]
 then
   echo "Please re-run the UpdateDadsGram script, as it has changed on the disk."
@@ -17,24 +17,14 @@ fi
 
 if [ -f /etc/kernel/cmdline.d/params.conf ]
 then
-  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
-  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
+  sudo /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/ucsiAcpi.sh
 fi
 
-# Check to see if VLC.Plugin.makemkv is installed.
-vlcP=$(flatpak list | grep -c VLC.Plugin.makemkv)
-if [[ $vlcP -eq 0 ]]
-then
-  flatpak install org.videolan.VLC.Plugin.makemkv
-else
-  echo "No need to install the MakeMKV plugin for VLC."
-fi
-printf '\n' # Skip to new line.
-
-swupd update
-flatpak update
-flatpak repair
-sudo -u dad npm update excalidraw # Update excalidraw.
+sudo swupd update
+sudo flatpak update
+sudo flatpak repair
+npm update excalidraw # Update excalidraw.
 echo "Currently installed npm version is $(npm --version)"
 echo "Latest npm version on server is $(curl -s -L -D - https://github.com/npm/cli/releases/latest | grep -n -m 1 "<title>" | sed -n 's/^.*e v//p' | sed -n 's/ ·.*$//p')"
 
@@ -52,7 +42,7 @@ then
   rdOld=$(wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version.x86_64.rpm 2>&1 | grep -c "Omitting download") # Download Rustdesk nightly.
   if [[ $rdOld -eq 0 ]]
   then
-    rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
+    sudo rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
     cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/rustdesk.desktop /home/dad/.config/autostart
   else
     echo "No update required."
@@ -73,12 +63,12 @@ then
     printf '\n' # Insert blank line.
     if [[ $fon -eq 1 ]]
     then # Install or update the native flavor.
-      chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
-      sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
+      sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
+      /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
     else # Install the Flatpak flavor.
-      flatpak install --or-update --noninteractive -y com.google.Chrome
-      chmod +x /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
-      sudo -u dad /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
+      sudo flatpak install --or-update --noninteractive -y com.google.Chrome
+      sudo chmod +x /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
+      /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
       echo "You will need to log out and log back in to enable PWA shortcuts."
       if [ ! -f /home/dad/.local/share/flatpak/overrides/com.google.Chrome ]
       then
@@ -100,7 +90,7 @@ printf '\n' # Skip to new line.
 if [ $vsc == y ] || [ $vsc == Y ]
 then
   echo "Installing or updating VSCodium ..."
-  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
 else
   echo "Skipping VSCodium install/update."
@@ -113,7 +103,7 @@ printf '\n' # Skip to new line.
 if [ $wg == y ] || [ $wg == Y ]
 then
   echo "Installing or updating WIneGUI ..."
-  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
 else
   echo "Skipping WineGUI install/update."
@@ -126,7 +116,7 @@ printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
   rm -f /home/dad/.local/share/remmina/*
-  sudo -u dad mkdir -p /home/dad/.local/share/remmina/
+  mkdir -p /home/dad/.local/share/remmina/
   tar -xf /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C /home/dad/.local/share/remmina/
 else
   echo "Skipping Remmina connections restore."
@@ -136,12 +126,12 @@ printf '\n' # Skip to new line.
 # Install Remmina Rustdesk plugin.
 if [ -a /usr/bin/rustdesk ] && [ -a /usr/bin/remmina ]
 then
-  mkdir -p /usr/lib64/remmina/plugins
-  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
-  mkdir -p /usr/share/icons/hicolor/16x16/emblems
-  mkdir -p /usr/share/icons/hicolor/22x22/emblems
-  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
-  cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
+  sudo mkdir -p /usr/lib64/remmina/plugins
+  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
+  sudo mkdir -p /usr/share/icons/hicolor/16x16/emblems
+  sudo mkdir -p /usr/share/icons/hicolor/22x22/emblems
+  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
+  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
 fi
 printf '\n' # Skip to new line.
 
@@ -150,8 +140,8 @@ read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
 printf '\n' # Skip to new line.
 if [ $nbd == y ] || [ $nbd == Y ]
 then
-  chmod +x /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
-  sudo -u dad /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+  /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
   cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/dad/.config/autostart
 else
   echo "Skipping NetBird installation/update."
@@ -170,10 +160,10 @@ then
     echo "No AURGA update available."
   else
     echo "Updating/installing AURGA ..."
-    sudo -u dad wget -P /home/dad/Downloads/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
-    sudo -u dad wine64 /home/dad/Downloads/AURGAViewer_Installer_x64_v$aurgaV.exe
+    wget -P /home/dad/Downloads/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
+    wine64 /home/dad/Downloads/AURGAViewer_Installer_x64_v$aurgaV.exe
     echo "Done."
-    sudo -u dad echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
+    echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
   fi
 else
     echo "Skipping AURGA installation/update."
@@ -186,7 +176,7 @@ printf '\n' # Skip to new line.
 if [ $cdrd == y ] || [ $cdrd == Y ]
 then
   echo "Installing or updating cdrdao ..."
-  chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
   /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
 else
   echo "Skipping cdrdao install/update."
@@ -199,7 +189,7 @@ printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
 chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
-sudo -u dad /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
+/home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
 printf '\n' # Skip to new line.

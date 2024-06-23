@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Run as root/sudo.
+# Do not run as root/sudo.
 
-if [ ! $(id -u) == 0 ]
+if [ $(id -u) == 0 ]
 then
-  echo "This script should be run as root! Exiting ..."
+  echo "This script should NOT be run as root! Exiting ..."
   exit 1
 fi
 
@@ -14,13 +14,13 @@ tag=$(echo "$location" | sed 's/location: https.\+tag\///')
 ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
 if [[ "$iV" != "$ver" ]]
 then
-  sudo -u dad wget -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
-  sudo -u dad mkdir /home/dad/Downloads/cdrdao
-  sudo -u dad tar -xf /home/dad/Downloads/cdrdao.tar.bz2 -C /home/dad/Downloads/cdrdao --strip 1
+  wget -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
+  mkdir /home/dad/Downloads/cdrdao
+  tar -xf /home/dad/Downloads/cdrdao.tar.bz2 -C /home/dad/Downloads/cdrdao --strip 1
   cd /home/dad/Downloads/cdrdao
-  sudo -u dad ./configure && make
-  make install
-  sudo -u dad make clean
+  ./configure && make
+  sudo make install
+  make clean
   cd -
 else
   echo "No cdrdao update required."
