@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Run as root/sudo.
-if [ ! $(id -u) == 0 ]
+# Do not run as root/sudo.
+if [ $(id -u) == 0 ]
 then
-  echo "This script should be run as root! Exiting ..."
+  echo "This script should NOT be run as root! Exiting ..."
   exit 1
 fi
 
@@ -14,8 +14,8 @@ sudo -u dad git config --global user.email "cristi@ieee.org"
 sudo -u dad git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 
 # Removes kernel modules int3403_thermal and ucsi_acpi, to stop the spamming of the log and kill the CPU usage bug.
-cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
-systemctl enable rmmod.timer
+sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
+sudo systemctl enable rmmod.timer
 
 # mkdir -p /etc/kernel/cmdline.d
 sudo -u dad mkdir -p /home/dad/.config/autostart/
@@ -26,21 +26,21 @@ sudo -u dad  mkdir -p /home/dad/.var
 # clr-boot-manager update
 
 # Disable sleep when lid closed.
-chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
+sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
 # Install swupd bundles.
-swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman
 
 cd /home/dad/Downloads
 
 # Install remote flatpak bundles.
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus net.codeindustry.MasterPDFEditor org.freac.freac io.podman_desktop.PodmanDesktop # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus net.codeindustry.MasterPDFEditor org.freac.freac io.podman_desktop.PodmanDesktop # fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
-mkdir -p /etc/udev/rules.d/
-cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+sudo mkdir -p /etc/udev/rules.d/
+sudo cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
 sudo -u dad mkdir -p /home/dad/.config/solaar
@@ -59,29 +59,29 @@ sudo -u dad npm install react react-dom @excalidraw/excalidraw
 sudo -u dad pip3 install hid-tools
 
 # Add RemoteGo tablet.
-mkdir -p /usr/lib/udev/hwdb.d
-cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
-systemd-hwdb update
-udevadm trigger /dev/input/event*
+sudo mkdir -p /usr/lib/udev/hwdb.d
+sudo cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
+sudo systemd-hwdb update
+sudo udevadm trigger /dev/input/event*
 
 # Start Bluetooth on startup.
-tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
+sudo tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 [Policy]
 AutoEnable=true 
 EOF
 
 # Add userid to the kvm and libvirt groups.
-usermod -G kvm -a $USER
-usermod -G libvirt -a $USER
+sudo usermod -G kvm -a $USER
+sudo usermod -G libvirt -a $USER
 
 # Enable libvirtd daemon.
-systemctl enable libvirtd --now
+sudo systemctl enable libvirtd --now
 
 # Start the Docker daemon.
-systemctl enable docker --now
+sudo systemctl enable docker --now
 
 # Enable Bluetooth service.
-systemctl enable bluetooth --now
+sudo systemctl enable bluetooth --now
 
 printf '\n' # Skip to new line.
 
