@@ -93,7 +93,7 @@ tee "/home/dad/.local/share/applications/updateComputer.desktop" >/dev/null <<'E
 [Desktop Entry]
 Type=Application
 Name=Update Computer
-Exec=~/updateDadsGram.sh
+Exec=/home/dad/updateDadsGram.sh
 Terminal=true
 EOF
 
