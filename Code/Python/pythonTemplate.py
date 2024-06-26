@@ -7,7 +7,7 @@ from <module_name> import <list_of_objects_from_module>
 ...
 
 # Function declarations:
-def <function_name>(list_of_function_parameters):
+def <function_name>(<list_of_function_parameters>):
     <function_body>
     return [<expression_based_on_variables_in_function_body>]
 ...
