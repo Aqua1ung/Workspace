@@ -97,6 +97,19 @@ else
 fi
 printf '\n' # Skip to new line.
 
+# Download and install/update PDF4QT.
+read -p "Do you want to install/update VSCodium? (Y/N) " -n 1 pdf
+printf '\n' # Skip to new line.
+if [ $pdf == y ] || [ $pdf == Y ]
+then
+  echo "Installing or updating PDF4QT ..."
+  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updPDF4QT.sh
+  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updPDF4QT.sh
+else
+  echo "Skipping updPDF4QT.sh install/update."
+fi
+printf '\n' # Skip to new line.
+
 # Download and install/update WineGUI.
 read -p "Do you want to install/update WineGUI? (Y/N) " -n 1 wg
 printf '\n' # Skip to new line.
