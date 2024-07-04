@@ -98,7 +98,7 @@ fi
 printf '\n' # Skip to new line.
 
 # Download and install/update PDF4QT.
-read -p "Do you want to install/update VSCodium? (Y/N) " -n 1 pdf
+read -p "Do you want to install/update PDF4QT? (Y/N) " -n 1 pdf
 printf '\n' # Skip to new line.
 if [ $pdf == y ] || [ $pdf == Y ]
 then
