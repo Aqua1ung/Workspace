@@ -39,7 +39,7 @@ echo "Installing/updating Rustdesk ..."
 version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
 wget -N -q https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
 sudo flatpak install --or-update --bundle rustdesk-$version-x86_64.flatpak
-cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop /home/dad/.config/autostart
+# cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop /home/dad/.config/autostart
 printf '\n' # Insert blank line.
 
 # Download and install/update Chrome.
