@@ -35,21 +35,10 @@ cd /home/dad/Downloads
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
 printf '\n' # Skip to new line.
-if [ $rdsk == y ] || [ $rdsk == Y ]
-then
-  echo "Installing/updating Rustdesk ..."
-  version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.rpm | sed -n 's/^.*desk-//p' | sed -n 's/\.x86.*$//p') # Grab the nightly version number.
-  rdOld=$(wget -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version.x86_64.rpm 2>&1 | grep -c "Omitting download") # Download Rustdesk nightly.
-  if [[ $rdOld -eq 0 ]]
-  then
-    sudo rpm -Uvh --force --nodeps rustdesk-*.rpm # Update Rustdesk.
-    cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/rustdesk.desktop /home/dad/.config/autostart
-  else
-    echo "No update required."
-  fi
-else
-  echo "Skipping Rustdesk install/update."
-fi
+echo "Installing/updating Rustdesk ..."
+version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
+wget -N -q https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
+cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop /home/dad/.config/autostart
 printf '\n' # Insert blank line.
 
 # Download and install/update Chrome.

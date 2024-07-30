@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=RustDesk
+GenericName=Remote Desktop
+Comment=Remote Desktop
+Exec=/usr/bin/flatpak run --branch=master --arch=x86_64 --command=rustdesk --file-forwarding com.rustdesk.RustDesk @@u %u @@
+Icon=com.rustdesk.RustDesk
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;RemoteAccess;GTK;
+Keywords=internet;
+Actions=new-window;
+X-Desktop-File-Install-Version=0.23
+X-Flatpak=com.rustdesk.RustDesk
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=/usr/bin/flatpak run --branch=master --arch=x86_64 --command=rustdesk --file-forwarding com.rustdesk.RustDesk @@u %u @@
