@@ -48,7 +48,7 @@ cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/sola
 # cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
 
 # Add update (and other) script desktop links.
-cp -n /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
+cp -u /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
 # cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
 # cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
 
