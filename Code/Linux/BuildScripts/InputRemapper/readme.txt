@@ -1,0 +1,1 @@
+Copy Default.json in the ~/.config/input-remapper-2/presets/<mouse_name> folder, and restart Input Remapper.

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=RustDesk
-GenericName=Remote Desktop
-Comment=Remote Desktop
-Exec=rustdesk --tray
-Icon=rustdesk
-Terminal=false
-Type=Application
-StartupNotify=true
