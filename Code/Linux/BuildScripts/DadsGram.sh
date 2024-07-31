@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Do not run as root/sudo.
+# Do NOT run as root/sudo.
 if [ $(id -u) == 0 ]
 then
   echo "This script should NOT be run as root! Exiting ..."
@@ -21,10 +21,6 @@ sudo systemctl enable rmmod.timer
 mkdir -p /home/dad/.config/autostart/
 mkdir -p /home/dad/.var
 
-# Masks the gpe6E flag on boot, in order to fix high CPU usage; superseded by rmmod ucsi_acpi (see rmmod.service).
-# cp /run/media/dad/InstallationKits/params.conf /etc/kernel/cmdline.d
-# clr-boot-manager update
-
 # Disable sleep when lid closed.
 sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
@@ -40,20 +36,25 @@ sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal 
 
 # Add permissions for Solaar to start as root.
 sudo mkdir -p /etc/udev/rules.d/
-sudo cp /run/media/dad/InstallationKits/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
+sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
-# Add Solaar rules and other stuff.
-mkdir -p /home/dad/.config/solaar
-cp /run/media/dad/InstallationKits/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-# cp /run/media/dad/InstallationKits/Solaar/solaar.desktop /home/dad/.config/autostart
+# Add Solaar rules and other stuff. (No longer needed since mouse buttons are being handled by input-remapper.)
+# mkdir -p /home/dad/.config/solaar
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 
-# Add update (and other) script desktop links.
-cp -u /run/media/dad/InstallationKits/DesktopFiles/*.desktop /home/dad/.local/share/applications
-# cp -n /run/media/dad/InstallationKits/DesktopFiles/Flatpak/*.desktop /usr/share/applications # Broken Flatpak install (or to /usr/share/applications?).
-# cp -n /run/media/dad/InstallationKits/DesktopFiles/mountUSB.desktop /home/dad/.local/share/applications
+# Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Install Excalidraw.
 npm install react react-dom @excalidraw/excalidraw
+
+# Autostart Input Remapper.
+sudo systemctl enable input-remapper --now
+
+# Copy Input Remapper rules and other config files.
+mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
+cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
+cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/config.json ~/.config/input-remapper-2
 
 # Install hid-tools
 pip3 install hid-tools
@@ -86,7 +87,7 @@ sudo systemctl enable bluetooth --now
 printf '\n' # Skip to new line.
 
 # Copy update.sh file to home, and make shortcut.
-cp /home/dad/Git/Workspace/Code/Linux/updateDadsGram.sh ~
+cp ~/Git/Workspace/Code/Linux/updateDadsGram.sh ~
 sudo chmod +x ~/updateDadsGram.sh
 mkdir -p ~/.local/share/applications/
 tee "/home/dad/.local/share/applications/updateComputer.desktop" >/dev/null <<'EOF'
