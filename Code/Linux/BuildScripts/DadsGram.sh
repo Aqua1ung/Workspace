@@ -98,6 +98,13 @@ Exec=/home/dad/updateDadsGram.sh
 Terminal=true
 EOF
 
+# Start Remmina on autostart.
+cp ~/Git/Workspace/Code/Linux/DesktopFiles/Dad/remmina-applet.desktop ~/.config/autostart
+
+# Restore Remmina connections.
+mkdir -p ~/.var/app/org.remmina.Remmina/data/remmina
+tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.var/app/org.remmina.Remmina/data/remmina
+
 # Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
 # gsettings set org.gnome.desktop.interface enable-animations true
 
