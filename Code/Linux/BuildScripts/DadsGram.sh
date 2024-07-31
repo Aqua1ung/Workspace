@@ -45,11 +45,11 @@ sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unif
 # Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
 # cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
-# Install Excalidraw.
-npm install react react-dom @excalidraw/excalidraw
-
 # Autostart Input Remapper.
 sudo systemctl enable input-remapper --now
+
+# Install Excalidraw.
+npm install react react-dom @excalidraw/excalidraw
 
 # Copy Input Remapper rules and other config files.
 mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"

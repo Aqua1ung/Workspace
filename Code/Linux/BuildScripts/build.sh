@@ -73,6 +73,9 @@ EOF
 # Install Excalidraw.
 npm install react react-dom @excalidraw/excalidraw
 
+# Autostart Input Remapper.
+sudo systemctl enable input-remapper --now
+
 # Install hid-tools
 pip3 install hid-tools
 
