@@ -79,7 +79,7 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  rm -f ~/.local/share/remmina/*
+  rm -f ~/.var/app/org.remmina.Remmina/data/remmina/*
   mkdir -p ~/.var/app/org.remmina.Remmina/data/remmina
   tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.var/app/org.remmina.Remmina/data/remmina
 else

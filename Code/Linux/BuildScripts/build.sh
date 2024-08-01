@@ -104,8 +104,8 @@ fi
 # Start Remmina on autostart.
 cp ~/Git/Workspace/Code/Linux/DesktopFiles/Others/remmina-applet.desktop ~/.config/autostart
 
-# Restore Remmina connections.
+# Restore Remmina connections. Not here, leave this for the update script.
 mkdir -p ~/.var/app/org.remmina.Remmina/data/remmina
-tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.var/app/org.remmina.Remmina/data/remmina
+# tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.var/app/org.remmina.Remmina/data/remmina
 
 # echo "Please power off, and make sure you run netbird.sh and Update.sh afterwards."
