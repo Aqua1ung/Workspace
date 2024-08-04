@@ -1,0 +1,3 @@
+/dev/disk/by-id/usb-Micron_CT4000X8SSD9_2249E6F03408-0:0-part3 /home/dad/Downloads/ExternalDwnlds auto nosuid,nodev,nofail 0 0
+/dev/disk/by-id/usb-Micron_CT4000X8SSD9_2249E6F03408-0:0-part6 /home/dad/Documents/ExternalDocs auto nosuid,nodev,nofail 0 0
+/dev/disk/by-id/usb-Micron_CT4000X8SSD9_2249E6F03408-0:0-part7 /home/dad/Pictures/ExternalPics auto nosuid,nodev,nofail 0 0

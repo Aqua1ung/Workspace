@@ -32,7 +32,7 @@ cd /home/dad/Downloads
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus net.codeindustry.MasterPDFEditor org.freac.freac io.podman_desktop.PodmanDesktop # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles net.codeindustry.MasterPDFEditor
 
 # Add permissions for Solaar to start as root.
 sudo mkdir -p /etc/udev/rules.d/
@@ -63,7 +63,7 @@ pip3 install hid-tools
 
 # Add RemoteGo tablet.
 sudo mkdir -p /usr/lib/udev/hwdb.d
-sudo cp /run/media/dad/InstallationKits/RemoteGo/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
+sudo cp ~/Git/Workspace/Code/Linux/61-evdev-local.hwdb /usr/lib/udev/hwdb.d
 sudo systemd-hwdb update
 sudo udevadm trigger /dev/input/event*
 
@@ -106,6 +106,10 @@ cp ~/Git/Workspace/Code/Linux/DesktopFiles/Dad/remmina-applet.desktop ~/.config/
 # Restore Remmina connections. Not here, leave this for the update script.
 mkdir -p ~/.local/share/remmina
 # tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.local/share/remmina
+
+# Mount drives into folders.
+sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/fstab /etc
+sudo systemctl daemon-reload
 
 # Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
 # gsettings set org.gnome.desktop.interface enable-animations true
