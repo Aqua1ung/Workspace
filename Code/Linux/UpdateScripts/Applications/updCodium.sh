@@ -17,7 +17,7 @@ iV+=.$instRel # Concatenate iV + instRel.
 # echo "tag is: $tag"
 if [[ "$iV" != "$tag" ]]
 then
-  wget -O /home/dad/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+  wget -O /home/dad/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el8.x86_64.rpm
   sudo rpm -Uvh --nodeps /home/dad/Downloads/codium.rpm
 else
   echo "No VSCodium update required."
