@@ -7,7 +7,7 @@ then
   exit 1
 fi
 
-cd /home/dad/Git/Workspace
+cd ~/Git/Workspace
 noUDG=$(git pull | grep -c UpdateDadsGram.sh)
 if [[ ! $noUDG -eq 0 ]]
 then
@@ -30,7 +30,7 @@ echo "Latest npm version on server is $(curl -s -L -D - https://github.com/npm/c
 
 printf '\n' # Skip to new line.
 
-cd /home/dad/Downloads
+cd ~/Downloads
 
 # Download and install/update Rustdesk.
 read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
@@ -41,7 +41,7 @@ then
   version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
   wget -N -q https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
   sudo flatpak install --or-update --bundle rustdesk-$version-x86_64.flatpak
-  # cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop /home/dad/.config/autostart
+  # cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop ~/.config/autostart
 else
   echo "Skipping Rustdesk install/update."
 fi
@@ -59,13 +59,13 @@ then
     if [[ $fon -eq 1 ]]
     then # Install or update the native flavor.
       sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
-      /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
+      ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/chrome.sh
     else # Install the Flatpak flavor.
       sudo flatpak install --or-update --noninteractive -y com.google.Chrome
       sudo chmod +x /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
-      /home/dad/Git/Workspace/Code/Linux/patchFlatseal.sh
+      ~/Git/Workspace/Code/Linux/patchFlatseal.sh
       echo "You will need to log out and log back in to enable PWA shortcuts."
-      if [ ! -f /home/dad/.local/share/flatpak/overrides/com.google.Chrome ]
+      if [ ! -f ~/.local/share/flatpak/overrides/com.google.Chrome ]
       then
         echo "WARNING! Flatseal override did not go through! Check Flatseal Chrome permission settings. Exiting script."
         exit 1
@@ -86,7 +86,7 @@ if [ $vsc == y ] || [ $vsc == Y ]
 then
   echo "Installing or updating VSCodium ..."
   sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
-  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
+  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCodium.sh
 else
   echo "Skipping VSCodium install/update."
 fi
@@ -99,7 +99,7 @@ if [ $pdf == y ] || [ $pdf == Y ]
 then
   echo "Installing or updating PDF4QT ..."
   sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updPDF4QT.sh
-  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updPDF4QT.sh
+  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/updPDF4QT.sh
 else
   echo "Skipping PDF4QT install/update."
 fi
@@ -112,7 +112,7 @@ if [ $wg == y ] || [ $wg == Y ]
 then
   echo "Installing or updating WIneGUI ..."
   sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
-  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
+  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
 else
   echo "Skipping WineGUI install/update."
 fi
@@ -123,9 +123,9 @@ read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
 if [ $rmn == y ] || [ $rmn == Y ]
 then
-  rm -f /home/dad/.local/share/remmina/*
-  mkdir -p /home/dad/.local/share/remmina/
-  tar -xf /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C /home/dad/.local/share/remmina/
+  rm -f ~/.local/share/remmina/*
+  mkdir -p ~/.local/share/remmina/
+  tar -xf ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina.tar.xz -C ~/.local/share/remmina/
 else
   echo "Skipping Remmina connections restore."
 fi
@@ -149,8 +149,8 @@ printf '\n' # Skip to new line.
 if [ $nbd == y ] || [ $nbd == Y ]
 then
   sudo chmod +x /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
-  /home/dad/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
-  cp -u /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop /home/dad/.config/autostart
+  ~/Git/Workspace/Code/Linux/BuildScripts/netbird_dad.sh
+  cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/netbird-ui.desktop ~/.config/autostart
 else
   echo "Skipping NetBird installation/update."
 fi
@@ -164,7 +164,7 @@ then
   # echo "Installing or updating AURGA ..."
   tag=$(curl -s -L -D - https://github.com/aurgatech/apps/releases/latest/ | grep -n -m 1 'href="/aurgatech/apps/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
   aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
-  if [ -f /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
+  if [ -f ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
   then
     echo "No AURGA update available."
   else
@@ -172,7 +172,7 @@ then
     wget -P ~/Downloads/ https://github.com/aurgatech/apps/releases/download/$tag/AURGAViewer_Win_x64_v$aurgaV.exe
     wine64 ~/Downloads/AURGAViewer_Win_x64_v$aurgaV.exe
     echo "Done."
-    echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
+    echo "$aurgaV" > ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version
   fi
 else
     echo "Skipping AURGA installation/update."
@@ -186,7 +186,7 @@ if [ $cdrd == y ] || [ $cdrd == Y ]
 then
   echo "Installing or updating cdrdao ..."
   sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
-  /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
+  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/updCdrdao.sh
 else
   echo "Skipping cdrdao install/update."
 fi
@@ -198,7 +198,7 @@ printf '\n' # Insert blank line.
 
 # Fix PWA fonts.
 chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
-/home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/fixFontsPWA.sh
 
 echo "You may need to do a reboot, followed by swupd clean, swupd repair, another reboot, and swupd clean. Run netbird_dad.sh to update NetBird."
 printf '\n' # Skip to new line.
