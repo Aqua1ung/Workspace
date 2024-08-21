@@ -162,14 +162,15 @@ printf '\n' # Skip to new line.
 if [ $aurga == y ] || [ $aurga == Y ]
 then
   # echo "Installing or updating AURGA ..."
-  aurgaV=$(curl -s -L -D - https://www.aurga.com/pages/download | grep -n -m 1 "Windows 8+" | sed -n 's/^.*x64_v//p' | sed -n 's/\.exe.*$//p')
+  tag=$(curl -s -L -D - https://github.com/aurgatech/apps/releases/latest/ | grep -n -m 1 'href="/aurgatech/apps/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
+  aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
   if [ -f /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
   then
     echo "No AURGA update available."
   else
     echo "Updating/installing AURGA ..."
-    wget -P /home/dad/Downloads/ https://cdn.shopify.com/s/files/1/0627/4659/1401/files/AURGAViewer_Installer_x64_v$aurgaV.exe
-    wine64 /home/dad/Downloads/AURGAViewer_Installer_x64_v$aurgaV.exe
+    wget -P ~/Downloads/ https://github.com/aurgatech/apps/releases/download/$tag/AURGAViewer_Win_x64_v$aurgaV.exe
+    wine64 ~/Downloads/AURGAViewer_Win_x64_v$aurgaV.exe
     echo "Done."
     echo "$aurgaV" > /home/dad/.wine/drive_c/"Program Files"/"AURGA Viewer"/version
   fi
