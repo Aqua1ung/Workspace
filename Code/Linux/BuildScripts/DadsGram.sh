@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Do NOT run as root/sudo.
-if [ $(id -u) == 0 ]
+if [ "$(id -u)" == 0 ]
 then
   echo "This script should NOT be run as root! Exiting ..."
   exit 1
@@ -28,11 +28,17 @@ sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidS
 # Install swupd bundles.
 sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman kdenlive snapshot cabextract
 
-cd /home/dad/Downloads
+cd ~/Downloads || exit
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles net.codeindustry.MasterPDFEditor
+
+# Install the ClearFraction 3-rd party repository.
+~/Git/Workspace/Code/Linux/BuildScripts/cf.sh
+
+# Install ffmpeg.
+sudo swupd 3rd-party bundle-add codecs
 
 # Add permissions for Solaar to start as root.
 sudo mkdir -p /etc/udev/rules.d/
