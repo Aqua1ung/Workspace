@@ -22,6 +22,7 @@ then
 fi
 
 sudo swupd update
+sudo swupd 3rd-party update
 sudo flatpak update
 sudo flatpak repair
 npm update excalidraw # Update excalidraw.
