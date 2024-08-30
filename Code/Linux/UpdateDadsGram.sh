@@ -106,19 +106,6 @@ else
 fi
 printf '\n' # Skip to new line.
 
-# Download and install/update WineGUI.
-read -p "Do you want to install/update WineGUI? (Y/N) " -n 1 wg
-printf '\n' # Skip to new line.
-if [ $wg == y ] || [ $wg == Y ]
-then
-  echo "Installing or updating WIneGUI ..."
-  sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
-  ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/updWineGUI.sh
-else
-  echo "Skipping WineGUI install/update."
-fi
-printf '\n' # Skip to new line.
-
 # Restore Remmina connections.
 read -p "Do you want to update Reminna connections? (Y/N) " -n 1 rmn
 printf '\n' # Skip to new line.
@@ -157,23 +144,34 @@ else
 fi
 printf '\n' # Skip to new line.
 
-# Update AURGA.
+# Update AURGA. https://github.com/aurgatech/linux-binaries/releases/download/v2.0.0.3/AURGA.Viewer-2.0.0.3_x86_64.deb
 read -p "Do you want to install/update AURGA? (Y/N) " -n 1 aurga
 printf '\n' # Skip to new line.
 if [ $aurga == y ] || [ $aurga == Y ]
 then
   # echo "Installing or updating AURGA ..."
-  tag=$(curl -s -L -D - https://github.com/aurgatech/apps/releases/latest/ | grep -n -m 1 'href="/aurgatech/apps/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
-  aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
-  if [ -f ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ "$aurgaV" == "$(cat ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
+  tag=$(curl -s -L -D - https://github.com/aurgatech/linux-binaries/releases/latest/ | grep -n -m 1 'href="/aurgatech/linux-binaries/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
+  # aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
+  aurgaV="${tag/v/}"
+  if [ -f ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ ${tag/v/} == "$(cat ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
   then
     echo "No AURGA update available."
   else
     echo "Updating/installing AURGA ..."
-    wget -P ~/Downloads/ https://github.com/aurgatech/apps/releases/download/$tag/AURGAViewer_Win_x64_v$aurgaV.exe
-    wine64 ~/Downloads/AURGAViewer_Win_x64_v$aurgaV.exe
+    wget -P ~/Downloads/ https://github.com/aurgatech/linux-binaries/releases/download/$tag/AURGA.Viewer-${tag/v/}_x86_64.tar.xz
+    # wine64 ~/Downloads/AURGAViewer_Win_x64_v$aurgaV.exe
+    tar -xf AURGA.Viewer-${tag/v/}_x86_64.tar.xz
+    rm aurgav/libav*
+    rm aurgav/libsw*
+    sudo rm -rf /usr/share/aurgav
+    sudo cp -r aurgav/ /usr/share
+    sudo cp aurgav/aurgav /usr/bin
+    sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGA/aurgav.png /usr/share/icons/hicolor/256x256/apps
+    sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGA/aurgav.desktop /usr/share/applications
     echo "Done."
-    echo "$aurgaV" > ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version
+    echo "${tag/v/}" > version
+    sudo mv version /usr/share/aurgav
+    sed -i "s/VERSION="
   fi
 else
     echo "Skipping AURGA installation/update."

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=2.0.0.5
+Name=AURGA Viewer
+GenericName=AURGA Viewer
+Comment=Low-latency video streaming.
+Exec=/usr/share/aurgav/aurgav %u
+Icon=/usr/share/icons/hicolor/256x256/apps/aurgav.png
+Terminal=false
+Type=Application
+Categories=Network;Utility;
