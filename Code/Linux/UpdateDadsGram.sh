@@ -144,14 +144,12 @@ else
 fi
 printf '\n' # Skip to new line.
 
-# Update AURGA. https://github.com/aurgatech/linux-binaries/releases/download/v2.0.0.3/AURGA.Viewer-2.0.0.3_x86_64.deb
+# Update AURGA.
 read -p "Do you want to install/update AURGA? (Y/N) " -n 1 aurga
 printf '\n' # Skip to new line.
 if [ $aurga == y ] || [ $aurga == Y ]
 then
-  # echo "Installing or updating AURGA ..."
   tag=$(curl -s -L -D - https://github.com/aurgatech/linux-binaries/releases/latest/ | grep -n -m 1 'href="/aurgatech/linux-binaries/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
-  # aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
   aurgaV="${tag/v/}"
   if [ -f /usr/share/aurgav/version ] && [ "$aurgaV" == "$(cat /usr/share/aurgav/version)" ]
   then
