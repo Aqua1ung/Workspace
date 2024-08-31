@@ -49,17 +49,3 @@ EOF
 EOF
       ;;
 esac
-
-# Add symlinks for Aurga.
-cd /opt/3rd-party/bundles/clearfraction/usr/lib64
-sudo ln -s $(ls libavcodec.so.*.*) libavcodec.so
-sudo ln -s $(ls libavformat.so.*.*) libavformat.so
-sudo ln -s $(ls libavutil.so.*.*) libavutil.so
-sudo ln -s $(ls libswscale.so.*.*) libswscale.so
-cd -
-
-# To unlink use:
-# sudo unlink libavformat.so
-# sudo unlink libavcodec.so
-# sudo unlink libavutil.so
-# sudo unlink libswscale.so
