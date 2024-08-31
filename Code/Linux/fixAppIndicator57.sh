@@ -10,7 +10,7 @@ fi
 gsettings set org.gnome.shell disable-user-extensions true
 
 cd /home/$USER/Downloads
-wget -N https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/refs/tags/v57.tar.gz
+wget -q -N https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/refs/tags/v57.tar.gz
 tar -xf /home/$USER/Downloads/v57.tar.gz
 cd /home/$USER/Downloads/gnome-shell-extension-appindicator-57
 rm -rf indicator-test-tool lint locale schemas .github

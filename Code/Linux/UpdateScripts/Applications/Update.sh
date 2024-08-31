@@ -31,7 +31,7 @@ then
   iV+=.$instRel # Concatenate iV + instRel.
   if [[ "$iV" != "$tag" ]]
   then
-    wget -O ~/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
+    wget -q -O ~/Downloads/codium.rpm https://github.com/VSCodium/vscodium/releases/download/$tag/codium-$tag-el7.x86_64.rpm
     sudo rpm -Uvh --nodeps ~/Downloads/codium.rpm
   else
     echo "No VSCodium update required."
@@ -64,7 +64,7 @@ then
   tagWg=$(curl -s -L -D - https://gitlab.melroy.org/melroy/winegui/-/tags?format=atom | grep -n -m 1 tags/v | sed -n 's/^.*tags\/v//p' | sed -n 's/<.*$//p')
   if [[ "$iVwg" != "$tagWg" ]]
   then
-    wget -O ~/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tagWg.rpm
+    wget -q -O ~/Downloads/WineGUI.rpm https://winegui.melroy.org/downloads/WineGUI-v$tagWg.rpm
     sudo rpm -Uvh --nodeps ~/Downloads/WineGUI.rpm
   else
     echo "No WineGUI update required."

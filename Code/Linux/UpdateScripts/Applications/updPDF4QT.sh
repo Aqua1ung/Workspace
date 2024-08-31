@@ -11,7 +11,7 @@ fi
 cd ~/.local/bin
 tag=$(curl -s -L -D - https://github.com/JakubMelka/PDF4QT/releases/latest/ | grep -n -m 1 "Version " | sed -n 's/^.*Version //p' | sed -n 's/ - Editor.*$//p')
 mv PDF4QT.AppImage PDF4QT-$tag-x86_64.AppImage
-wget -N https://github.com/JakubMelka/PDF4QT/releases/download/v$tag/PDF4QT-$tag-x86_64.AppImage
+wget -q -N https://github.com/JakubMelka/PDF4QT/releases/download/v$tag/PDF4QT-$tag-x86_64.AppImage
 mv PDF4QT-$tag-x86_64.AppImage PDF4QT.AppImage
 sudo chmod +x PDF4QT.AppImage
 

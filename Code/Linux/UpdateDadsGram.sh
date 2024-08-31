@@ -40,7 +40,7 @@ if [ $rdsk == y ] || [ $rdsk == Y ]
 then
   echo "Installing/updating Rustdesk ..."
   version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
-  wget -N -q https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
+  wget -q -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
   sudo flatpak install --or-update --bundle rustdesk-$version-x86_64.flatpak
   # cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop ~/.config/autostart
 else
@@ -153,25 +153,35 @@ then
   tag=$(curl -s -L -D - https://github.com/aurgatech/linux-binaries/releases/latest/ | grep -n -m 1 'href="/aurgatech/linux-binaries/releases/tag/' | sed -n 's/^.*tag\///p' | sed -n 's/" data-v.*$//p')
   # aurgaV=$(curl -s -L -D - https://aurga.com/pages/download | grep -n -m 1 "Installer (64bit)" | sed -n 's/^.*_x64_v//p' | sed -n 's/\.exe.*$//p')
   aurgaV="${tag/v/}"
-  if [ -f ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version ] && [ ${tag/v/} == "$(cat ~/.local/share/winegui/prefixes/Win11NoDirectX/drive_c/"Program Files"/"AURGA Viewer"/version)" ]
+  if [ -f /usr/share/aurgav/version ] && [ "$aurgaV" == "$(cat /usr/share/aurgav/version)" ]
   then
     echo "No AURGA update available."
   else
     echo "Updating/installing AURGA ..."
-    wget -P ~/Downloads/ https://github.com/aurgatech/linux-binaries/releases/download/$tag/AURGA.Viewer-${tag/v/}_x86_64.tar.xz
-    # wine64 ~/Downloads/AURGAViewer_Win_x64_v$aurgaV.exe
+    wget -q -P ~/Downloads/ https://github.com/aurgatech/linux-binaries/releases/download/$tag/AURGA.Viewer-${tag/v/}_x86_64.tar.xz
     tar -xf AURGA.Viewer-${tag/v/}_x86_64.tar.xz
     rm aurgav/libav*
     rm aurgav/libsw*
     sudo rm -rf /usr/share/aurgav
-    sudo cp -r aurgav/ /usr/share
+    sudo rm /usr/bin/aurgav
     sudo cp aurgav/aurgav /usr/bin
+    sudo mv aurgav/ /usr/share
     sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGA/aurgav.png /usr/share/icons/hicolor/256x256/apps
     sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGA/aurgav.desktop /usr/share/applications
-    echo "Done."
     echo "${tag/v/}" > version
-    sudo mv version /usr/share/aurgav
-    sed -i "s/VERSION="
+    mv version /usr/share/aurgav
+    sudo sed -i "s/Version=.*/Version=$aurgaV/g" /usr/share/applications/aurgav.desktop
+    ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libavcodec.so.*.*) /usr/share/aurgav/libavcodec.so
+    ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libavformat.so.*.*) /usr/share/aurgav/libavformat.so
+    ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libavutil.so.*.*) /usr/share/aurgav/libavutil.so
+    ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libswscale.so.*.*) /usr/share/aurgav/libswscale.so
+    # To unlink use:
+    # sudo unlink libavformat.so
+    # sudo unlink libavcodec.so
+    # sudo unlink libavutil.so
+    # sudo unlink libswscale.so
+    rm AURGA.Viewer-${tag/v/}_x86_64.tar.xz
+    echo "Done."
   fi
 else
     echo "Skipping AURGA installation/update."

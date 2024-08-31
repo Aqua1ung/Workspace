@@ -1,5 +1,5 @@
 cd /home/dad/Downloads
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+wget -q https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
 chmod +x ./dotnet-install.sh
 ./dotnet-install.sh --channel 6.0 # Not sudo!
 rm dotnet-install.sh
@@ -26,7 +26,7 @@ cd /run/media/dad/InstallationKits
 mkdir -p /home/dad/.local/share/OpenTabletDriver/Configurations
 cp -u /home/dad/Git/Workspace/Code/Linux/RMGL01.json /home/dad/.local/share/OpenTabletDriver/Configurations
 OTDv=$(curl -s -L -D - https://github.com/OpenTabletDriver/OpenTabletDriver/releases/latest | grep -n -m 1 "<title>" | sed -n 's/^.*tDriver v//p' | sed -n 's/ · OpenT.*$//p') # Grab the latest version number.
-noOD=$(wget -N wget -N https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v$OTDv/opentabletdriver-$OTDv-x64.tar.gz 2>&1 | grep -c "Omitting download") # Download OpenTabletDriver.
+noOD=$(wget -q -N wget -q -N https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v$OTDv/opentabletdriver-$OTDv-x64.tar.gz 2>&1 | grep -c "Omitting download") # Download OpenTabletDriver.
 if [[ $noOD -eq 0 ]]
 then
   sudo tar -xvf opentabletdriver-$OTDv-x64.tar.gz -C / --strip 1

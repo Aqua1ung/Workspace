@@ -14,7 +14,7 @@ tag=$(echo "$location" | sed 's/location: https.\+tag\///')
 ver=$(echo "$tag" | sed -n 's/rel_//p' | sed -n 's/_/./gp')
 if [[ "$iV" != "$ver" ]]
 then
-  wget -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
+  wget -q -O /home/dad/Downloads/cdrdao.tar.bz2 https://github.com/cdrdao/cdrdao/releases/download/$tag/cdrdao-$ver.tar.bz2
   mkdir /home/dad/Downloads/cdrdao
   tar -xf /home/dad/Downloads/cdrdao.tar.bz2 -C /home/dad/Downloads/cdrdao --strip 1
   cd /home/dad/Downloads/cdrdao
