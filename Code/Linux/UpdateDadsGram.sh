@@ -174,10 +174,10 @@ then
     ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libavutil.so.*.*) /usr/share/aurgav/libavutil.so
     ln -s $(ls /opt/3rd-party/bundles/clearfraction/usr/lib64/libswscale.so.*.*) /usr/share/aurgav/libswscale.so
     # To unlink use:
-    # sudo unlink libavformat.so
-    # sudo unlink libavcodec.so
-    # sudo unlink libavutil.so
-    # sudo unlink libswscale.so
+    # sudo unlink /usr/share/aurgav/libavformat.so
+    # sudo unlink /usr/share/aurgav/libavcodec.so
+    # sudo unlink /usr/share/aurgav/libavutil.so
+    # sudo unlink /usr/share/aurgav/libswscale.so
     rm AURGA.Viewer-${tag/v/}_x86_64.tar.xz
     echo "Done."
   fi
