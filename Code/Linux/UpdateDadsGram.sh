@@ -161,7 +161,7 @@ then
     rm aurgav/libav*
     rm aurgav/libsw*
     sudo rm -rf /usr/share/aurgav
-    sudo rm /usr/bin/aurgav
+    sudo rm /usr/bin/aurgav 2>/dev/null
     sudo cp aurgav/aurgav /usr/bin
     sudo mv aurgav/ /usr/share
     sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/AURGA/aurgav.png /usr/share/icons/hicolor/256x256/apps
