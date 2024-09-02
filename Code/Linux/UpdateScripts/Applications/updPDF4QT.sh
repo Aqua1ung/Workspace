@@ -10,7 +10,7 @@ fi
 
 cd ~/.local/bin
 tag=$(curl -s -L -D - https://github.com/JakubMelka/PDF4QT/releases/latest/ | grep -n -m 1 "Version " | sed -n 's/^.*Version //p' | sed -n 's/ - Editor.*$//p')
-mv PDF4QT.AppImage PDF4QT-$tag-x86_64.AppImage
+mv PDF4QT.AppImage PDF4QT-$tag-x86_64.AppImage 2>/dev/null # Just so wget compare the file to be downloaded with the previous one, and refrains from downloading if older.
 wget -q -N https://github.com/JakubMelka/PDF4QT/releases/download/v$tag/PDF4QT-$tag-x86_64.AppImage
 mv PDF4QT-$tag-x86_64.AppImage PDF4QT.AppImage
 sudo chmod +x PDF4QT.AppImage
