@@ -1,6 +1,6 @@
 # To be run manually.
 vi /usr/sbin/truenas-install
-sed -i “s/sgdisk -n3:0:0 -t3:BF01/sgdisk -n3:0:+100GiB -t3:BF01/g” “/usr/sbin/truenas-install”
+sed -i "s/sgdisk -n3:0:0 -t3:BF01/sgdisk -n3:0:+100GiB -t3:BF01/g" "/usr/sbin/truenas-install"
 /usr/sbin/truenas-install
 
 # Do a shutdown and remove the TrueNAS installation kit drive. Start TrueNAS box.
