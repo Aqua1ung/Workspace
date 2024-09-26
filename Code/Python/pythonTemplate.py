@@ -38,5 +38,5 @@ if __name__ == '__main__':
         <this_modules_main_body>
         rc = 0
     except <exception> as e:
-        print('Error: %s' % e, file=sys.stderr)
+        print(f'Error: {e}', file = sys.stderr)
     sys.exit(rc)
