@@ -158,8 +158,8 @@ then
     echo "Updating/installing AURGA ..."
     wget -q -P ~/Downloads/ https://github.com/aurgatech/linux-binaries/releases/download/$tag/AURGA.Viewer-${tag/v/}_x86_64.tar.xz
     tar -xf AURGA.Viewer-${tag/v/}_x86_64.tar.xz
-    rm aurgav/libav*
-    rm aurgav/libsw*
+    # rm aurgav/libav* 2>/dev/null
+    # rm aurgav/libsw* 2>/dev/null
     sudo rm -rf /usr/share/aurgav
     sudo rm /usr/bin/aurgav 2>/dev/null
     sudo cp aurgav/aurgav /usr/bin
