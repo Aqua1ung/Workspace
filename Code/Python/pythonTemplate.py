@@ -35,7 +35,7 @@ class <subclass_name>(<primitive_class_name>)
 if __name__ == '__main__':
     rc = 1
     try:
-        <module_main_body>
+        <this_modules_main_body>
         rc = 0
     except <exception> as e:
         print('Error: %s' % e, file=sys.stderr)
