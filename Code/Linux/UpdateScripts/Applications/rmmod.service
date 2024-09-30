@@ -10,6 +10,8 @@ Type=oneshot
 # This stops the ACPI spamming of the syslog.
 ExecStart=/bin/bash -c "rmmod int3403_thermal"
 ExecStart=/bin/bash -c "rmmod ucsi_acpi"
+# Doing the masking, as the ACPI storm has reappeared.
+ExecStart=/bin/bash -c "echo 'mask' > /sys/firmware/acpi/interrupts/gpe6E"
 
 # This unmasks the gpe6E flag (that was masked at boot time). Not working.
 # ExecStart=/bin/bash -c "echo 'unmask' > /sys/firmware/acpi/interrupts/gpe6E"
