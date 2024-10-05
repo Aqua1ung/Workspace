@@ -48,7 +48,7 @@ sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unif
 mkdir -p /home/dad/.config/solaar
 cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 
-# Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
+# Autostart Solaar; this can also be done from Tweaks.
 cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Autostart Input Remapper.

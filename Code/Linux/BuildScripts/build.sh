@@ -58,7 +58,7 @@ sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unif
 mkdir -p ~/.config/solaar
 cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml ~/.config/solaar
 
-# Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
+# Autostart Solaar; this can also be done from Tweaks.
 cp /run/media/$USER/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Start Bluetooth on startup.
