@@ -44,12 +44,12 @@ sudo swupd 3rd-party bundle-add codecs
 sudo mkdir -p /etc/udev/rules.d/
 sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
-# Add Solaar rules and other stuff. (No longer needed since mouse buttons are being handled by input-remapper.)
-# mkdir -p /home/dad/.config/solaar
-# cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
+# Add Solaar rules and other stuff.
+mkdir -p /home/dad/.config/solaar
+cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
 
 # Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
-# cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
+cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Autostart Input Remapper.
 sudo systemctl enable input-remapper --now
