@@ -59,7 +59,7 @@ mkdir -p ~/.config/solaar
 cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml ~/.config/solaar
 
 # Autostart Solaar; this can also be done from Tweaks. (Solaar UI is broken atm.)
-# cp /run/media/$USER/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
+cp /run/media/$USER/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Start Bluetooth on startup.
 sudo tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
