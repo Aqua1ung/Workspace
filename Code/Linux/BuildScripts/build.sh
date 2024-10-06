@@ -55,11 +55,11 @@ sudo mkdir -p /etc/udev/rules.d/
 sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
 # Add Solaar rules and other stuff.
-mkdir -p ~/.config/solaar
-cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml ~/.config/solaar
+# mkdir -p ~/.config/solaar
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml ~/.config/solaar
 
 # Autostart Solaar; this can also be done from Tweaks.
-cp /run/media/$USER/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
+cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
 
 # Start Bluetooth on startup.
 sudo tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'

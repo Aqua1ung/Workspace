@@ -44,12 +44,9 @@ sudo swupd 3rd-party bundle-add codecs
 sudo mkdir -p /etc/udev/rules.d/
 sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/42-logitech-unify-permissions.rules /etc/udev/rules.d
 
-# Add Solaar rules and other stuff.
-mkdir -p /home/dad/.config/solaar
-cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/DadsGram/*.yaml /home/dad/.config/solaar
-
-# Autostart Solaar; this can also be done from Tweaks.
-cp ~/Git/Workspace/Code/Linux/BuildScripts/Solaar/solaar.desktop ~/.config/autostart
+# Set Solaar settings.
+sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/solaar.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/solaar.sh
 
 # Autostart Input Remapper.
 sudo systemctl enable input-remapper --now
@@ -57,12 +54,9 @@ sudo systemctl enable input-remapper --now
 # Install Excalidraw.
 npm install react react-dom @excalidraw/excalidraw
 
-# Copy Input Remapper rules and other config files.
-mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
-mkdir -p ~/.config/input-remapper-2/presets/"M720 Triathlon"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"M720 Triathlon"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/config.json ~/.config/input-remapper-2
+# Configure Input Remapper.
+sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/input-remapper.sh
+~/Git/Workspace/Code/Linux/UpdateScripts/Applications/input-remapper.sh
 
 # Install hid-tools
 pip3 install hid-tools
