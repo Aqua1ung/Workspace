@@ -32,7 +32,7 @@ cd ~/Downloads || exit
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop net.codeindustry.MasterPDFEditor # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop net.codeindustry.MasterPDFEditor com.github.qarmin.czkawka # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Install the ClearFraction 3-rd party repository.
 ~/Git/Workspace/Code/Linux/BuildScripts/cf.sh
