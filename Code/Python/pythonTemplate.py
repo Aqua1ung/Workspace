@@ -25,7 +25,7 @@ class <class_name>:
 ...
 
 # Subclass ("derived class") declarations:
-class <subclass_name>(<primitive_class_name>)
+class <subclass_name>(<primitive_class_name1>, <primitive_class_name2>, ...)
     # Method declarations:
     def <method_name>(self)
         <method_body>
