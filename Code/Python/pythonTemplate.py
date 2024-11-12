@@ -3,7 +3,7 @@
 # Import statements (https://realpython.com/python-modules-packages/#the-import-statement):
 import <module_name> [as <alias>]
 ...
-from <module_name> import <object_name> [as <alt_name>, <object_name> [as <alt_name>] ...]
+from <module_name> import <object_name> [[as <alt_name>], <object_name> [as <alt_name>], ...]
 ...
 
 # Function declarations:
