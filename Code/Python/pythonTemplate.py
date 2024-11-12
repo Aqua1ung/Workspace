@@ -32,7 +32,7 @@ class <subclass_name>(<class_name1>, <class_name2>, ...)
     ...
 ...
 
-if __name__ == '__main__': # The following will NOT be executed when this module is imported, but only when run as script!
+if __name__ == '__main__': # The following will NOT be executed when this module is imported, but only when run as script! (https://realpython.com/python-modules-packages/#executing-a-module-as-script)
     rc = 1
     try:
         <this_modules_main_body>
