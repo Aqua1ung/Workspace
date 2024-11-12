@@ -25,17 +25,20 @@ class <class_name>:
 ...
 
 # Subclass ("derived class") declarations:
-class <subclass_name>(<class_name1>, <class_name2>, ...)
+class <subclass_name>(<class_name1>[, <class_name2>, ...])
     # Method declarations:
     def <method_name>(self)
         <method_body>
     ...
 ...
 
-if __name__ == '__main__': # The following will NOT be executed when this module is imported, but only when run as script! (https://realpython.com/python-modules-packages/#executing-a-module-as-script)
+# Executable commands: will be executed BOTH when this module is imported, AND when it is run as script!
+<main_body_executable_commands> 
+
+if __name__ == '__main__': # The following will NOT be executed if this module is imported, but only when run as script! (https://realpython.com/python-modules-packages/#executing-a-module-as-script)
     rc = 1
     try:
-        <this_modules_main_body>
+        <this_modules_script_body>
         rc = 0
     except <exception> as e:
         print(f'Error: {e}', file = sys.stderr)
