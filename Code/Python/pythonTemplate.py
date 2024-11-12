@@ -1,6 +1,6 @@
 # The general structure of a (great deal of) Python program(s). To be regarded as "best practice."
 
-# Import statements:
+# Import statements (https://realpython.com/python-modules-packages/#the-import-statement):
 import <module_name> [as <alias>]
 ...
 from <module_name> import <list_of_objects_from_module>
