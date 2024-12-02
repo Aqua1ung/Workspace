@@ -12,6 +12,7 @@ mkdir -p /home/dad/Git
 git config --global user.name "Cristian Cocos"
 git config --global user.email "cristi@ieee.org"
 git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
+# git clone https://github.com/jenv/jenv.git ~/.jenv
 
 # Removes kernel modules int3403_thermal and ucsi_acpi, to stop the spamming of the log and kill the CPU usage bug.
 sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
@@ -70,7 +71,7 @@ sudo udevadm trigger /dev/input/event*
 # Start Bluetooth on startup.
 sudo tee "/etc/bluetooth/main.conf" >/dev/null <<'EOF'
 [Policy]
-AutoEnable=true 
+AutoEnable=true
 EOF
 
 # Add userid to the kvm and libvirt groups.
@@ -110,6 +111,13 @@ mkdir -p ~/.local/share/remmina
 # Mount drives into folders.
 sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/fstab /etc
 sudo systemctl daemon-reload
+
+# Configure jEnv.
+# echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
+# echo 'eval "$(jenv init -)"' >> ~/.bashrc
+# eval "$(jenv init -)"
+# jenv enable-plugin export
+# exec $SHELL -l
 
 # Turn on Gnome animations. This should rather be done in settings: Accessibility/Seeing.
 # gsettings set org.gnome.desktop.interface enable-animations true
