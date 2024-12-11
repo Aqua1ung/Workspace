@@ -48,7 +48,7 @@ sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina net.codeindustry.MasterPDFEditor com.github.qarmin.czkawka # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina com.github.qarmin.czkawka # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
 sudo mkdir -p /etc/udev/rules.d/
