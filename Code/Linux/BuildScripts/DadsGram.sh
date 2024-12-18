@@ -27,7 +27,7 @@ sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidS
 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
 # Install swupd bundles.
-sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman kdenlive snapshot dfu-util winegui cabextract fdupes desktop-dev
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman kdenlive snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper desktop-kde
 
 cd ~/Downloads || exit
 
@@ -54,6 +54,9 @@ sudo systemctl enable input-remapper --now
 
 # Install Excalidraw.
 npm install react react-dom @excalidraw/excalidraw
+
+# Install MasterPDF Editor
+sudo rpm -Uvh --nodeps ~/Git/Workspace/Code/Linux/mpe.rpm
 
 # Configure Input Remapper.
 sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/input-remapper.sh
