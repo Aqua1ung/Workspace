@@ -27,13 +27,13 @@ sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidS
 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
 # Install swupd bundles.
-sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman kdenlive snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper desktop-kde
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui podman snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper desktop-kde # kdenlive
 
 cd ~/Downloads || exit
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop com.github.qarmin.czkawka io.github.JakubMelka.Pdf4qt # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac io.podman_desktop.PodmanDesktop com.github.qarmin.czkawka io.github.JakubMelka.Pdf4qt org.kde.kdenlive # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Install the ClearFraction 3-rd party repository.
 ~/Git/Workspace/Code/Linux/BuildScripts/cf.sh
