@@ -42,13 +42,13 @@ then
 fi
 
 # Install swupd bundles.
-sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui kdenlive snapshot cabextract fdupes desktop-dev
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui snapshot cabextract fdupes desktop-dev # kdenlive
 
 # cd ~/Downloads
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina com.github.qarmin.czkawka # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager org.videolan.VLC com.makemkv.MakeMKV org.videolan.VLC.Plugin.makemkv org.rncbc.qpwgraph net.scribus.Scribus com.google.Chrome org.remmina.Remmina com.github.qarmin.czkawka org.kde.kdenlive # org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add permissions for Solaar to start as root.
 sudo mkdir -p /etc/udev/rules.d/
