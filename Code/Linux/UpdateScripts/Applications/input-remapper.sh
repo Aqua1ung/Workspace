@@ -8,12 +8,12 @@ then
 fi
 
 # Copy Input Remapper rules and other config files.
-mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
-mkdir -p ~/.config/input-remapper-2/presets/"M720 Triathlon"
-mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon"
+# mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
+# mkdir -p ~/.config/input-remapper-2/presets/"M720 Triathlon"
+# mkdir -p ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon"
 mkdir -p ~/.config/input-remapper-2/presets/"04CA00B1_00 04CA_00B1 Mouse"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"M720 Triathlon"
-cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon"
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon Multi-Device Mouse"
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"M720 Triathlon"
+# cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"Logitech M720 Triathlon"
 cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/Default.json ~/.config/input-remapper-2/presets/"04CA00B1_00 04CA_00B1 Mouse"
 cp ~/Git/Workspace/Code/Linux/BuildScripts/InputRemapper/config.json ~/.config/input-remapper-2

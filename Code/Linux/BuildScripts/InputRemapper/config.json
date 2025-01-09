@@ -1,9 +1,6 @@
 {
     "version": "2.0.1",
     "autoload": {
-        "Logitech M720 Triathlon Multi-Device Mouse": "Default",
-        "M720 Triathlon": "Default",
-        "Logitech M720 Triathlon": "Default",
-        "Logitech USB Receiver": "Default"
+        "04CA00B1:00 04CA:00B1 Mouse": "Default"
     }
 }
