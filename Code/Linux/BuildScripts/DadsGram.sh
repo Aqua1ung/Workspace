@@ -78,11 +78,11 @@ sudo udevadm trigger /dev/input/event*
 # EOF
 
 # Add userid to the kvm and libvirt groups.
-sudo usermod -G kvm -a $USER
-sudo usermod -G libvirt -a $USER
+# sudo usermod -G kvm -a $USER
+# sudo usermod -G libvirt -a $USER
 
 # Enable libvirtd daemon.
-sudo systemctl enable libvirtd --now
+# sudo systemctl enable libvirtd --now
 
 # Start the Docker daemon.
 sudo systemctl enable docker --now
