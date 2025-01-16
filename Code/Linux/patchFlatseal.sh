@@ -8,5 +8,5 @@ then
 fi
 
 # Patch Chrome permissions in FlatSeal for the installation of PWAs.
-flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.google.Chrome
+flatpak override --user --filesystem=~/.local/share/applications:create --filesystem=~/.local/share/icons:create com.google.Chrome
 echo "You will need to log out and log back in to enable PWA shortcuts."
