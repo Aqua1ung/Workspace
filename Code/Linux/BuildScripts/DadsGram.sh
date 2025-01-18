@@ -88,7 +88,8 @@ sudo usermod -G libvirt -a $USER
 sudo systemctl enable libvirtd --now
 
 # Start the Docker daemon.
-sudo systemctl enable docker --now
+sudo systemctl enable docker.service --now
+sudo systemctl enable containerd.service --now
 
 # Enable Bluetooth service.
 sudo systemctl enable bluetooth --now
