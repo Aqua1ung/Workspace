@@ -27,13 +27,13 @@ sudo chmod +x /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidS
 /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
 # Install swupd bundles.
-sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper desktop-kde # kdenlive
+sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper # desktop-kde kdenlive
 
 cd ~/Downloads || exit
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager com.makemkv.MakeMKV org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac com.github.qarmin.czkawka org.kde.kdenlive io.github.vikdevelop.SaveDesktop # org.videolan.VLC.Plugin.makemkv org.videolan.VLC io.podman_desktop.PodmanDesktop io.github.JakubMelka.Pdf4qt org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager com.makemkv.MakeMKV org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac com.github.qarmin.czkawka org.kde.kdenlive io.github.vikdevelop.SaveDesktop org.videolan.VLC org.videolan.VLC.Plugin.makemkv # io.podman_desktop.PodmanDesktop io.github.JakubMelka.Pdf4qt org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add libmmbd to lib64 path.
 # sudo ln -s /var/lib/flatpak/app/com.makemkv.MakeMKV/x86_64/stable/active/files/lib/libmmbd.so.0 /usr/lib64/libmmbd.so.0
@@ -83,6 +83,8 @@ sudo udevadm trigger /dev/input/event*
 # Add userid to the kvm and libvirt groups.
 sudo usermod -G kvm -a $USER
 sudo usermod -G libvirt -a $USER
+sudo usermod -aG docker ${USER}
+newgrp docker
 
 # Enable libvirtd daemon.
 sudo systemctl enable libvirtd --now
@@ -118,6 +120,9 @@ mkdir -p ~/.local/share/remmina
 # Mount drives into folders.
 sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/fstab /etc
 sudo systemctl daemon-reload
+
+# Install Portainer agent.
+docker run -d   -p 9001:9001   --name portainer_agent   --restart=always   -v /var/run/docker.sock:/var/run/docker.sock   -v /var/lib/docker/volumes:/var/lib/docker/volumes   -v /:/host   portainer/agent:2.26.0
 
 # Configure jEnv.
 # echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
