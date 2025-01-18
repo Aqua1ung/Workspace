@@ -25,6 +25,8 @@ mkdir -p /home/dad/.var
 # Disable sleep when lid closed.
 sudo mkdir -p /etc/systemd/logind.conf.d
 sudo ln -sf /dev/null /etc/systemd/logind.conf.d/80-lidswitch.conf
+# A different method:
+# echo "LID0" | sudo tee /proc/acpi/wakeup
 
 # Install swupd bundles.
 sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic Remmina nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo xorriso asunder input-remapper containers-basic virt-manager-gui snapshot dfu-util winegui cabextract fdupes desktop-dev devpkg-pkcs11-helper # desktop-kde kdenlive
