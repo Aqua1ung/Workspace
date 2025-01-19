@@ -86,7 +86,7 @@ sudo udevadm trigger /dev/input/event*
 sudo usermod -G kvm -a $USER
 sudo usermod -G libvirt -a $USER
 sudo usermod -aG docker ${USER}
-newgrp docker
+# newgrp docker
 
 # Enable libvirtd daemon.
 sudo systemctl enable libvirtd --now
@@ -124,7 +124,7 @@ sudo cp ~/Git/Workspace/Code/Linux/BuildScripts/fstab /etc
 sudo systemctl daemon-reload
 
 # Install Portainer agent.
-docker run -d   -p 9001:9001   --name portainer_agent   --restart=always   -v /var/run/docker.sock:/var/run/docker.sock   -v /var/lib/docker/volumes:/var/lib/docker/volumes   -v /:/host   portainer/agent:2.26.0
+# docker run -d   -p 9001:9001   --name portainer_agent   --restart=always   -v /var/run/docker.sock:/var/run/docker.sock   -v /var/lib/docker/volumes:/var/lib/docker/volumes   -v /:/host   portainer/agent:2.26.0
 
 # Configure jEnv.
 # echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
