@@ -119,16 +119,16 @@ fi
 printf '\n' # Skip to new line.
 
 # Install Remmina Rustdesk plugin.
-if [ -d /var/lib/flatpak/app/com.rustdesk.RustDesk ] && [ -a /usr/bin/remmina ]
-then
-  sudo mkdir -p /usr/lib64/remmina/plugins
-  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
-  sudo mkdir -p /usr/share/icons/hicolor/16x16/emblems
-  sudo mkdir -p /usr/share/icons/hicolor/22x22/emblems
-  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
-  sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
-fi
-printf '\n' # Skip to new line.
+# if [ -d /var/lib/flatpak/app/com.rustdesk.RustDesk ] && [ -a /usr/bin/remmina ]
+# then
+#   sudo mkdir -p /usr/lib64/remmina/plugins
+#   sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/remmina-plugin-rustdesk.so /usr/lib64/remmina/plugins
+#   sudo mkdir -p /usr/share/icons/hicolor/16x16/emblems
+#   sudo mkdir -p /usr/share/icons/hicolor/22x22/emblems
+#   sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/16x16/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/16x16/emblems
+#   sudo cp -n /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/22x22/emblems/remmina-rustdesk.png /usr/share/icons/hicolor/22x22/emblems
+# fi
+# printf '\n' # Skip to new line.
 
 # Update NetBird.
 read -p "Do you want to install/update Netbird? (Y/N) " -n 1 nbd
