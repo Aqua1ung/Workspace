@@ -35,7 +35,7 @@ cd ~/Downloads || exit
 
 # Install remote flatpak bundles.
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager com.makemkv.MakeMKV org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac com.github.qarmin.czkawka org.kde.kdenlive io.github.vikdevelop.SaveDesktop org.videolan.VLC org.videolan.VLC.Plugin.makemkv # io.podman_desktop.PodmanDesktop io.github.JakubMelka.Pdf4qt org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
+sudo flatpak install --or-update --noninteractive -y com.github.tchx84.Flatseal org.gnome.Firmware com.mattjakeman.ExtensionManager com.makemkv.MakeMKV org.rncbc.qpwgraph net.scribus.Scribus org.freac.freac com.github.qarmin.czkawka org.kde.kdenlive io.github.vikdevelop.SaveDesktop org.videolan.VLC org.videolan.VLC.Plugin.makemkv com.rustdesk.RustDesk # io.podman_desktop.PodmanDesktop io.github.JakubMelka.Pdf4qt org.shotcut.Shotcut fr.romainvigier.MetadataCleaner com.poweriso.PowerISO com.usebottles.bottles
 
 # Add libmmbd to lib64 path.
 # sudo ln -s /var/lib/flatpak/app/com.makemkv.MakeMKV/x86_64/stable/active/files/lib/libmmbd.so.0 /usr/lib64/libmmbd.so.0
