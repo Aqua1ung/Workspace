@@ -34,19 +34,19 @@ printf '\n' # Skip to new line.
 cd ~/Downloads
 
 # Download and install/update Rustdesk.
-read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
-printf '\n' # Skip to new line.
-if [ $rdsk == y ] || [ $rdsk == Y ]
-then
-  echo "Installing/updating Rustdesk ..."
-  version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
-  wget -q -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
-  sudo flatpak install --or-update --bundle rustdesk-$version-x86_64.flatpak
-  # cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop ~/.config/autostart
-else
-  echo "Skipping Rustdesk install/update."
-fi
-printf '\n' # Insert blank line.
+# read -p "Do you want to install/update Rustdesk? (Y/N) " -n 1 rdsk
+# printf '\n' # Skip to new line.
+# if [ $rdsk == y ] || [ $rdsk == Y ]
+# then
+#   echo "Installing/updating Rustdesk ..."
+#   version=$(curl -s -L -D - https://github.com/rustdesk/rustdesk/releases/expanded_assets/nightly | grep -n -m 1 x86_64.flatpak | sed -n 's/^.*desk-//p' | sed -n 's/-x86.*$//p') # Grab the nightly version number.
+#   wget -q -N https://github.com/rustdesk/rustdesk/releases/download/nightly/rustdesk-$version-x86_64.flatpak # Download Rustdesk nightly.
+#   sudo flatpak install --or-update --bundle rustdesk-$version-x86_64.flatpak
+#   # cp -u ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/RustDesk/com.rustdesk.RustDesk.desktop ~/.config/autostart
+# else
+#   echo "Skipping Rustdesk install/update."
+# fi
+# printf '\n' # Insert blank line.
 
 # Download and install/update Chrome.
 if [ ! -d /var/lib/flatpak/app/com.google.Chrome ]
