@@ -14,6 +14,9 @@ def <function_name>(<list_of_function_parameters>):
 
 # Primitive class declarations:
 class <class_name>:
+    # Attribute declarations:
+    <attribute> = <value>
+    ...
     # Method declarations:
     def __init__(self, <list_of_object_parameters_to_initialize>): # Constructor method.
         # Block of assignment statements initializing all class parameters:
@@ -26,6 +29,8 @@ class <class_name>:
 
 # Subclass ("derived class") declarations:
 class <subclass_name>(<class_name1>[, <class_name2>, ...])
+	# Attribute declarations:
+    <attribute> = <value>
     # Method declarations:
     def <method_name>(self)
         <method_body>
