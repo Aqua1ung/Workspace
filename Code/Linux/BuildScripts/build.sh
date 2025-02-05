@@ -34,12 +34,12 @@ mkdir -p ~/.var
 sudo chmod +x ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/lidSwitch.sh
 
-# if [ $USER == gabe ]
-# then
+if [ $USER == gabe ]
+then
   # Removes kernel module int3403_thermal, to stop the spamming of the log; no longer needed as of 6.13.x.
-#   sudo cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
-#   sudo systemctl enable rmmod.timer
-# fi
+  sudo cp ~/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
+  sudo systemctl enable rmmod.timer
+fi
 
 # Install swupd bundles.
 sudo swupd bundle-add lm-sensors firmware-update v4l-utils openssh-server gnome-remote-desktop wine Solaar-gui network-basic xdg-desktop-portal xdg-desktop-portal-gnome x11-tools transcoding-support package-utils java-basic nfs-utils waypipe devpkg-nfs-utils storage-utils python3-basic nmap nodejs-basic dev-utils-gui audio-pipewire devpkg-libwacom kvm-host hardinfo input-remapper containers-basic virt-manager-gui snapshot cabextract fdupes desktop-dev # kdenlive

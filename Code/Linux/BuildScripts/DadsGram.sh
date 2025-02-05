@@ -15,8 +15,8 @@ git clone https://github.com/Aqua1ung/Workspace.git /home/dad/Git/Workspace
 # git clone https://github.com/jenv/jenv.git ~/.jenv
 
 # Removes kernel modules int3403_thermal and ucsi_acpi, to stop the spamming of the log and kill the CPU usage bug. No longer required as of 6.13.x.
-# sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
-# sudo systemctl enable rmmod.timer
+sudo cp /home/dad/Git/Workspace/Code/Linux/UpdateScripts/Applications/rmmod.* /etc/systemd/system
+sudo systemctl enable rmmod.timer
 
 # mkdir -p /etc/kernel/cmdline.d
 mkdir -p /home/dad/.config/autostart/
