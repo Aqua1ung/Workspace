@@ -10,11 +10,9 @@ Type=oneshot
 # This stops the ACPI spamming of the syslog.
 # ExecStart=/bin/bash -c "rmmod int3403_thermal"
 # ExecStart=/bin/bash -c "rmmod ucsi_acpi"
+
 # Doing the masking, as the interrupt storm has reappeared.
 ExecStart=/bin/bash -c "echo 'mask' > /sys/firmware/acpi/interrupts/gpe6E"
-
-# This unmasks the gpe6E flag (that was masked at boot time). Not working.
-# ExecStart=/bin/bash -c "echo 'unmask' > /sys/firmware/acpi/interrupts/gpe6E"
 
 # This sets the battery charge threshold to 80%. (Not working in Clear Linux.)
 # ExecStart=/bin/bash -c "echo 80 > /sys/class/power_supply/CMB0/charge_control_end_threshold"
