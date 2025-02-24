@@ -112,8 +112,8 @@ Exec=/home/dad/updateDadsGram.sh
 Terminal=true
 EOF
 
-# Start Remmina on autostart.
-cp ~/Git/Workspace/Code/Linux/DesktopFiles/Dad/remmina-applet.desktop ~/.config/autostart
+# Start Remmina and others on autostart.
+cp --no-clobber ~/Git/Workspace/Code/Linux/DesktopFiles/Dad/StartupApps/*.desktop ~/.config/autostart
 
 # Restore Remmina connections. Not here, leave this for the update script.
 mkdir -p ~/.local/share/remmina

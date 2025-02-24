@@ -71,7 +71,7 @@ EOF
 # gsettings set org.gnome.desktop.interface enable-animations true
 
 # Install Excalidraw.
-npm install react react-dom @excalidraw/excalidraw
+# npm install react react-dom @excalidraw/excalidraw
 
 # Autostart Input Remapper.
 sudo systemctl enable input-remapper --now
@@ -101,8 +101,8 @@ then
   exit 1
 fi
 
-# Start Remmina on autostart.
-cp ~/Git/Workspace/Code/Linux/DesktopFiles/Others/remmina-applet.desktop ~/.config/autostart
+# Start Remmina and others on autostart.
+cp ~/Git/Workspace/Code/Linux/DesktopFiles/Others/StartupApps/*.desktop ~/.config/autostart
 
 # Restore Remmina connections. Not here, leave this for the update script.
 mkdir -p ~/.var/app/org.remmina.Remmina/data/remmina
